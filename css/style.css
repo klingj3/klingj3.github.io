@@ -1,0 +1,342 @@
+a{
+    color: red;
+}
+a:hover{
+    color: darkred;
+}
+a:visited{
+    color: maroon;
+}
+body {
+    background-image: url("../images/topography.png");
+    background-attachment: fixed;
+    font: 400 18px Open Sans, sans-serif;
+    width: 100%;
+    line-height: 25px;
+  }
+p{
+    text-align: left;
+    color: #1d1d1d;
+}
+strong{
+    font-size: 20px;
+}
+#details li{background:url('../images/topo-white.png') no-repeat 0 4px;list-style:inside none;padding:0 0 0 20px;}
+p.black{
+    color: black;
+}
+h1{
+    text-align: center;
+    font-family: 'Eb Garamond', sans-serif;
+    color: black;
+}
+h1.icon{
+    font-size: 70px;
+}
+  h2 {
+      font-size: 35px;
+        font-family: Comfortaa, sans-serif;
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 30px;
+  }
+    h2.tight {
+      font-size: 35px;
+
+      text-transform: uppercase;
+      color: #303030;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 0px;
+  }
+  h3{
+      font-size: 30px;
+      font-family: Lato, sans-serif;
+      color: #322f32
+  }
+  h2.white{
+      color: white;
+  }
+  h4 {
+      font-size: 16px;
+      line-height: 1.375em;
+      color: whitesmoke;
+      font-weight: 400;
+      margin-bottom: 5px;
+  }
+  h4.black{
+      color: black;
+  }
+  h4.center{
+      text-align: center;
+  }
+  .container.grey{
+      background-image: url("../images/topo-grey.png");
+      background-attachment: fixed;
+  }
+  .container.white{
+      background-image: url("../images/topo-white.png");
+      background-attachment: fixed;
+      color: black;
+  }
+  .container.white.offwhite{
+      background-image: url("../images/topo-off-white.png");
+  }
+  .container.blue{
+      background-image: url("../images/topo-blue.png");
+      background-attachment: fixed;
+      color: white;
+  }
+  .container-fluid{
+      width: 100%;
+      max-width: 1300px;
+      padding-bottom: 10px;
+  }
+  .left{
+      text-align: left;
+  }
+  .center{
+      text-align:center;
+  }
+  .ul{
+      list-style-type: square;
+  }
+  .container-fluid.container-transparent-b{
+      background: transparent;
+  }
+  container-fluid.container-transparent-w{
+      background: transparent;
+      color: white;
+  }
+  .row-lg-8{
+      text-align: left;
+  }
+.rpi{
+    animation: pulse 3s infinite;
+    animation-direction: alternate;
+}
+.rpi:hover{
+    text-underline: red;
+}
+/* Dropdown Button */
+.white{
+    color: white;
+}
+.btn-default{
+    background-color: white;
+}
+.btn-round-lg{
+    background: #bdb7bc;
+    font-size: 16px;
+    border-radius: 10px;
+    display:inline-block;
+    margin-top: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+}
+.btn-round-lg:hover{
+    background: #fff;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: left;
+    line-height: 20px;
+    padding: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+@keyframes pulse{
+    0% {
+        color: red;
+    }
+    100%{
+        color: #9c0006;
+    }
+}
+  .container{
+      width: 100%;
+      background: white;
+  }
+  footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: white;
+  }
+.jumbotron{
+    background-color: transparent;
+    text-align: right;
+    position:fixed;
+    margin-right:50%;
+    margin-top:20vh;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-family:Comfortaa, sans-serif;
+    color: white;
+}
+h1.jumbo{
+    text-align:left;
+    font-size:100px; !important;
+}
+h1.muted{
+    padding:0px;
+    font-size:50px;
+    color: #2a272a;
+}
+.col-sm-4{
+    text-align: left;
+}
+
+.left-half {
+    position: absolute;
+    width: 45%;
+    height: 100%;
+    text-align:right;
+    margin-left:5%;
+}
+
+.cycle {
+    color:white;
+    display:inline;
+}
+
+.right-half {
+    text-align:left;
+    right: 0px;
+    position: absolute;
+    width: 55%;
+    height: 100%;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  background-color: transparent;
+  margin-top: 480px;
+  width: 100%;
+}
+  .navbar {
+      margin-bottom: 0;
+      background-color: black;
+      z-index: 9999;
+      border: 0;
+      font-size: 12px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 4px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+  }
+  .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #000000 !important;
+      background-color: #fff !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+  .btn-block{
+      width: 300px;
+  }
+  .btn-lg {
+        text-align: center;
+        background: black;
+          width: 100%;
+        color: white;
+        margin-bottom: 35px;
+    }
+  .btn-lg:hover{
+      background: #41403f;
+      color: white;
+  }
+    @media (min-width: 900px) {
+        .navbar-nav.navbar-center {
+            position: absolute;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+
+        .col-sm-4 {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .btn-lg {
+            width: 100%;
+            margin-bottom: 35px;
+        }
+
+        .slideanim {
+            visibility: hidden;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+
+        @keyframes slide {
+            0% {
+                opacity: 0;
+                transform: translateX(-10%);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0%);
+            }
+        }
+        @-webkit-keyframes slide {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateX(-10%);
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateX(0%);
+            }
+        }
+    }
