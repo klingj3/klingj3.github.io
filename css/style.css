@@ -200,18 +200,15 @@ h1.icon{
   }
 .jumbotron{
     background-color: transparent;
-    text-align: right;
     position:fixed;
-    margin-right:50%;
-    margin-top:20vh;
-    -webkit-background-size: cover;
-    background-size: cover;
+    max-width: 900px;
+    margin-top: 20vh;
     font-family:Comfortaa, sans-serif;
     color: white;
 }
 h1.jumbo{
-    text-align:left;
-    font-size:100px; !important;
+    text-align:center;
+    font-size:80px; !important;
 }
 h1.muted{
     padding:0px;
@@ -250,6 +247,14 @@ h1.muted{
   margin-top: 480px;
   width: 100%;
 }
+
+
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}
+
   .navbar {
       margin-bottom: 0;
       background-color: black;
@@ -287,10 +292,9 @@ h1.muted{
       color: white;
   }
     @media (min-width: 900px) {
-        .navbar-nav.navbar-center {
-            position: absolute;
-            left: 50%;
-            transform: translatex(-50%);
+        h1.jumbo{
+            text-align:left;
+            font-size:100px; !important;
         }
 
         .col-sm-4 {
