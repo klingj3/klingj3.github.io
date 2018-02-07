@@ -78,21 +78,15 @@
     </div>
 </nav>
 
-<header>
-
-</header>
-
 <section class="content">
-
-    <div id="education" class="container white" style="height:300px">
+    <div id="education" class="container white" style="min-height:200px">
         <h2> Education </h2>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="row">
                         <img class="icon" src="images/rpi_logo.jpg">
-                        <Strong>Rensselaer Polytechnic Institute</Strong><br>BS in Computer Science: Artificial
-                        Intelligence and Data Concentration
+                        <Strong>Rensselaer Polytechnic Institute</Strong><br>BS in Computer Science
                         <br> Fall 2015 - Spring 2018 | Troy, NY <br> Cum. GPA 3.43 | Major GPA 3.51
                     </div>
                     <br>
@@ -104,22 +98,25 @@
                     </div>
                     <br>
                 </div>
-                <div class="col-md-4 pull-right">
+                <div class="col-md-4" style=" min-height: 200px; background:lightgray; border-radius:5px;">
                     <script type="text/javascript">
                         function dropdownTip(value) {
                             console.log(value);
                             document.getElementById("result").innerHTML = value;
                         }</script>
-                    <select class="custom-dropdown" type="button" onChange="dropdownTip(this.value)" name="search_type"
+                    <select class="custom-dropdown" type="button" onChange="dropdownTip(this.value)"
+                            name="search_type"
                             style="margin-right:10px; margin-top:2px;">
-                        <option selected="selected" value="">Related Coursework</option>
-                        <option value="Study and application of data structures in C++.">Data Structures</option>
-                        <option value="Mathematical techniques for designing algorithms and analyzing worst-case and
-                            expected-case algorithm efficiency.
-                            Theory-centric course, applied some Python and C++ in labs.">Introduction to Algorithms
+                        <option value="" selected disabled hidden >Explore Related Coursework</option>
+                        <option value="Study of the mathematical underpinnings of modern AI, as well as application
+                                        of these techniques within Tensorflow for Computer Vision related problems.">
+                            Deep Learning (Curr.)
                         </option>
-                        <option value="
-                            Introduction to computer organization, assembler language, and operating systems.
+                        <option value=" This course focused on the application of both probabilistic algorithms and
+                                        machine learning for processing natural language into a machine-learnable context.">
+                            Natural Language Processing (Curr.)
+                        </option>
+                        <option value="Introduction to computer organization, assembler language, and operating systems.
                             Programming in C and LLVM. "> Computer Organization
                         </option>
                         <option value="  A study of important concepts in software design, implementation, and testing.
@@ -131,37 +128,25 @@
                             management, file systems, deadlock problems, system calls, and interprocess
                             communication. Used C extensively. "> Operating Systems
                         </option>
-                        <option value=" A study of the important concepts found in current programming languages. Topics include
-                            language processing (lexical analysis, parsing, type-checking, interpretation and
-                            compilation, run-time environment), the role of abstraction (data abstraction and
-                            control abstraction), programming paradigms (procedural, functional, object-oriented,
-                            logic-oriented, generic), and formal language definition. "> Programming Languages
+                        <option value=" A study of the important concepts found in current programming languages largely
+                        through the application of archaic narrow languages such as ProLog, "> Programming Languages
                         </option>
                         <option value="
-                            A survey of the main topics in data mining and knowledge discovery in databases (KDD),
+                            A survey of the main topics in data mining and knowledge discovery in databases,
                             including: classification, clustering, association rules, sequence mining, similarity
-                            search, deviation detection, and so on. Emphasis will be on the algorithmic and system
-                            issues in KDD, as well as on applications such as Web mining, multimedia mining,
-                            bioinformatics, geographical information systems, etc.
+                            search, deviation detection, and so on.
 
                             This class was entirely in Python, using many of Python's data-mining specific libraries
                             such as Numpy and Pandas. "> Database Mining
                         </option>
-                        <option value=" Topics and techniques of artificial intelligence using the language Python. Topics
-                            include search, knowledge representation, expert systems, theorem proving, natural
-                            language interfaces, learning, game playing, and computer vision. Techniques include
-                            pattern matching, data-driven programming, substitution rules, frames, heuristic search,
-                            transition networks, neural networks, and evolutionary computation. "> Intro to Artificial
-                            Intelligence
-                        </option>
-                        <option value=" Software system design methodology emphasizing use of object oriented modeling of
+                        <option value="Software system design methodology emphasizing use of object oriented modeling of
                             application domains and of software systems, and emphasizing the roles of written and
                             oral communication in software engineering. Project management and software testing.
                             Individual and team projects include specification, software architecture, user
                             interfaces, and documentation of the phases of a project. "> Software Design and
                             Documentation
                         </option>
-                        <option value=" Study and application of cognitive computing utilizing IBM's Watson and related
+                        <option value=" Study and application of cognitive computing utilizing IBM's Bluemix and related
                             technologies. "> Cognitive Computing
                         </option>
                         <option value=" Historically, AI in games have been predominantly rule-based, with decision trees
@@ -170,18 +155,16 @@
                             other machine learning techniques to this field.
                             This course applied C++, Java, and Python."> Learning and Adv. Game AI
                         </option>
-                        <option value="  "></option>
-                        <option value="  "></option>
-                        <option value="  "></option>
+                        <option value="Study and application of data structures in C++.">Data Structures</option>
                     </select>
-
-                    <div id="result"></div>
+                    <div class='custom-dropdown-contents' id="result">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="experience" class="container white">
-        <div class="container-fluid"><br><br><br>
+        <div class="container-fluid">
             <h2>Experience</h2>
             <div id="services" class="container-fluid text-center">
                 <div class="row">
