@@ -22,8 +22,8 @@
 <div class="container title-section" id="fullheight" style="height:68vh; background:transparent;">
     <div class="left-half title">
         <div class="col">
-            <img src="images/me.png" class="img-rounded"
-                 style="position:fixed; max-width:50%; max-height:70%; right:55%; top:20vh;">
+            <!--img src="images/me.png" class="img-rounded"
+                 style="position:fixed; max-width:50%; max-height:70%; right:55%; top:20vh;"-->
         </div>
     </div>
     <div class="right-half title">
@@ -91,7 +91,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <img src="images/clark_logo.jpg" class="icon" >
+                        <img src="images/clark_logo.jpg" class="icon">
                         <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
                         transferring to RPI
                         <br> Fall 2012 - Fall 2014 | Worcester, MA
@@ -107,7 +107,7 @@
                     <select class="custom-dropdown" type="button" onChange="dropdownTip(this.value)"
                             name="search_type"
                             style="margin-right:10px; margin-top:2px;">
-                        <option value="" selected disabled hidden >Explore Related Coursework</option>
+                        <option value="" selected disabled hidden>Explore Related Coursework</option>
                         <option value="Study of the mathematical underpinnings of modern AI, as well as application
                                         of these techniques within Tensorflow for Computer Vision related problems.">
                             Deep Learning (Curr.)
@@ -162,7 +162,48 @@
                 </div>
             </div>
         </div>
+        <br>
     </div>
+
+    <div id="skills" class="container grey" style="min-height:400px;">
+        <div class="container-fluid">
+            <h2 class="white">Skills</h2>
+            <div class="row center">
+                <ul class="nav nav-tabs">
+                    <li><a class="tab" href="#C"><i class="devicon-c-plain-wordmark"></i></a></li>
+                    <li><a class="tab" href="#C++"><i class="devicon-cplusplus-plain-wordmark"></i></a></li>
+                    <li><a class="tab" href="#Java"><i class="devicon-java-plain-wordmark"></i></a></li>
+                    <li><a class="tab" href="#Python"><i class="devicon-python-plain-wordmark"></i></a></li>
+                    <li><a class="tab" href="#HTML"><i class="devicon-html5-plain-wordmark"></i>
+                                                        <i class="devicon-css-plain-wordmark"></i>
+                                                        <i class="devicon-javascript-plain-wordmark"></i> </a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="blank" class="tab-pane fade in active" style="background:transparent;">
+                    </div>
+                    <div id="C" class="tab-pane fade in">
+                        <p> C is a language which has been featured heavily in my curriculum, in courses such as
+                            Operating Systems and Computer Organization which focus on the minutia which govern
+                            modern computing, though I haven't used recently as it does not lend itself to AI. </p>
+                    </div>
+                    <div id="C++" class="tab-pane fade">
+                        <p> C++  </p>
+                    </div>
+                    <div id="Python" class="tab-pane fade active">
+                        <p> </p>
+                    </div>
+                    <div id="Java" class="tab-pane fade">
+                        <p> </p>
+                    </div>
+                    <div id="HTML" class="tab-pane fade">
+                        <p> </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="experience" class="container white">
         <div class="container-fluid">
             <h2>Experience</h2>
@@ -194,98 +235,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="row slideanim center">
-
-                        <h3>Skills</h3><h4 class="black center">(click for detail)</h4>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon"><span class="devicon-c-plain-wordmark"></span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                I have a firm footing in C from the course Operating Systems my Junior year, though
-                                as C
-                                is seldom used in the realm of
-                                AI, I haven't had the chance to apply it in many other courses or projects.
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-cplusplus-plain"></i></span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                C++ is among my most used languages, as it was the core of RPI's Data Structures,
-                                and
-                                has been used in computer
-                                vision and AI projects.
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-django-plain"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                I worked my way through two books on Django over the summer, and am currently
-                                applying
-                                these skills for my team's
-                                web app in Software Design and Documentation
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-html5-plain-wordmark"></i><i
-                                        class="devicon-css-plain-wordmark"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                HTML5 and CSS are, like Django, being applied in Software Design and Documentation,
-                                as
-                                well as personal projects such as this
-                                website.
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-java-plain-wordmark"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                Java is among my strongest languages, it being the language of my two CS classes at
-                                Clark University, Programming
-                                Languages at RPI, and personal projects in the realm of AI, such as <a
-                                    href="https://github.com/klingj3/MarioAI-Reinforcement-Learning-and-Neural-Networks">
-                                contrasting the behaviors and effectiveness of a neural network trained via a
-                                genetic
-                                algorithm vs reinforcement learning for playing a popular platformer.
-                            </a>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-python-plain"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                Python has been the dominant language of my senior and junior years, in classes
-                                centered
-                                on AI as well as Data Mining.
-                            </div>
-                        </div>
-                        <br><br><br><br><br><br>
                     </div>
                 </div>
             </div>
@@ -324,6 +273,13 @@
 
 
 <script>
+
+    $(document).ready(function () {
+        $(".nav-tabs a").click(function () {
+            $(this).tab('show');
+        });
+    });
+
     var divs = $('div[id^="content-"]').hide(),
         i = 0;
 

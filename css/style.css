@@ -2,10 +2,13 @@ a{
     color: red;
 }
 a:hover{
-    color: darkred;
+    color: lightcoral;
 }
 a:visited{
     color: maroon;
+}
+a.tab{
+    color: #d7cdd2;
 }
 body {
     background-image: url("../images/topography.png");
@@ -83,6 +86,9 @@ h4.center{
     background-attachment: fixed;
     color: black;
 }
+.container.black {
+    color:white;
+}
 .container.white.offwhite{
     background-image: url("../images/topo-off-white.png");
 }
@@ -124,6 +130,20 @@ container-fluid.container-transparent-w{
 }
 /* Dropdown Button */
 .white{
+    color: white;
+}
+.btn-block{
+    width: 300px;
+}
+.btn-lg {
+    text-align: center;
+    background: black;
+    width: 100%;
+    color: white;
+    margin-bottom: 35px;
+}
+.btn-lg:hover{
+    background: #41403f;
     color: white;
 }
 .btn-default{
@@ -200,7 +220,7 @@ container-fluid.container-transparent-w{
         color: red;
     }
     100%{
-        color: #9c0006;
+        color: #ff6964;
     }
 }
 .container{
@@ -278,7 +298,9 @@ img.icon {
     margin-top: 480px;
     width: 100%;
 }
-
+.nav-tabs{
+    font-size:60px;
+}
 .navbar-nav.navbar-center {
     position: absolute;
     left: 50%;
@@ -307,19 +329,11 @@ img.icon {
     border-color: transparent;
     color: #fff !important;
 }
-.btn-block{
-    width: 300px;
-}
-.btn-lg {
-    text-align: center;
-    background: black;
-    width: 100%;
-    color: white;
-    margin-bottom: 35px;
-}
-.btn-lg:hover{
-    background: #41403f;
-    color: white;
+.tab-pane{
+    padding:30px;
+    background:white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 @media (min-width: 900px) {
     h1.jumbo{
