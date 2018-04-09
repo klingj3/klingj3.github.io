@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,600,300" rel="stylesheet" type="text/css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/styling.js"></script>
     <link href="https://fonts.googleapis.com/css?family=PT+Serif|Slabo+27px" rel="stylesheet">
     <link rel="stylesheet"
           href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
@@ -22,8 +23,8 @@
 <div class="container title-section" id="fullheight" style="height:68vh; background:transparent;">
     <div class="left-half title">
         <div class="col">
-            <img src="images/me.png" class="img-rounded"
-                 style="position:fixed; max-width:50%; max-height:70%; right:55%; top:20vh;">
+            <!--img src="images/me.png" class="img-rounded"
+                 style="position:fixed; max-width:50%; max-height:70%; right:55%; top:20vh;"-->
         </div>
     </div>
     <div class="right-half title">
@@ -91,7 +92,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <img src="images/clark_logo.jpg" class="icon" >
+                        <img src="images/clark_logo.jpg" class="icon">
                         <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
                         transferring to RPI
                         <br> Fall 2012 - Fall 2014 | Worcester, MA
@@ -107,7 +108,7 @@
                     <select class="custom-dropdown" type="button" onChange="dropdownTip(this.value)"
                             name="search_type"
                             style="margin-right:10px; margin-top:2px;">
-                        <option value="" selected disabled hidden >Explore Related Coursework</option>
+                        <option value="" selected disabled hidden>Explore Related Coursework</option>
                         <option value="Study of the mathematical underpinnings of modern AI, as well as application
                                         of these techniques within Tensorflow for Computer Vision related problems.">
                             Deep Learning (Curr.)
@@ -152,7 +153,52 @@
                 </div>
             </div>
         </div>
+        <br>
     </div>
+
+    <div id="skills" class="container grey" style="min-height:400px;">
+        <div class="container-fluid">
+            <h2 class="white">Skills</h2>
+            <div class="skillbar clearfix " data-percent="90%">
+                <a class='covert' data-toggle="tooltip" title="Includes extensive use of Django, Numpy, some use OpenCV">
+                    <div class="skillbar-title" style="background: #0b2d00;"><span> Python</span></div></a>
+                <div class="skillbar-bar" style="background: #1f7a00;"></div>
+                <div class="skill-bar-label">Extensive use in multiple 4000 level classes and projects</div>
+            </div>
+            <div class="skillbar clearfix " data-percent="60%">
+                <a class='covert'>
+                    <div class="skillbar-title" style="background: #000000;"><span>HTML/CSS</span></div></a>
+                <div class="skillbar-bar" style="background: #666666;"></div>
+                <div class="skill-bar-label">Use on multiple projects.</div>
+            </div>
+            <div class="skillbar clearfix " data-percent="70%">
+                <a class='covert'>
+                    <div class="skillbar-title" style="background: #ff3400;"><span>C</span></div></a>
+                <div class="skillbar-bar" style="background: #ff6a48;"></div>
+                <div class="skill-bar-label">Focus of classes at the 4000 and 2000 level.</div>
+            </div>
+            <div class="skillbar clearfix " data-percent="50%">
+                <a class='covert'>
+                    <div class="skillbar-title" style="background: #440004;"><span>C++</span></div></a>
+                <div class="skillbar-bar" style="background: #651c21;"></div>
+                <div class="skill-bar-label">Primary langauge in 2000 level course, minor role in projects.</div>
+            </div>
+            <div class="skillbar clearfix " data-percent="65%">
+                <a class='covert'>
+                    <div class="skillbar-title" style="background: #290221;"><span>Java</span></div></a>
+                <div class="skillbar-bar" style="background: #44243e;"></div>
+                <div class="skill-bar-label">Primary langauge in multiple 2000 level courses, minor role in projects.</div>
+            </div>
+            <div class="skillbar clearfix " data-percent="28%">
+                <a class='covert'>
+                    <div class="skillbar-title" style="background: #640008;"><span>Javascript</span></div></a>
+                <div class="skillbar-bar" style="background: #d10011;"></div>
+                <div class="skill-bar-label">Basic application in projects.</div>
+            </div>
+        </div>
+    </div>
+    </div>
+
     <div id="experience" class="container white">
         <div class="container-fluid">
             <h2>Experience</h2>
@@ -186,98 +232,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row slideanim center">
-
-                        <h3>Skills</h3><h4 class="black center">(click for detail)</h4>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon"><span class="devicon-c-plain-wordmark"></span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                I have a firm footing in C from the course Operating Systems my Junior year, though
-                                as C
-                                is seldom used in the realm of
-                                AI, I haven't had the chance to apply it in many other courses or projects.
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-cplusplus-plain"></i></span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                C++ is among my most used languages, as it was the core of RPI's Data Structures,
-                                and
-                                has been used in computer
-                                vision and AI projects.
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-django-plain"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                I worked my way through two books on Django over the summer, and am currently
-                                applying
-                                these skills for my team's
-                                web app in Software Design and Documentation
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-html5-plain-wordmark"></i><i
-                                        class="devicon-css-plain-wordmark"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                HTML5 and CSS are, like Django, being applied in Software Design and Documentation,
-                                as
-                                well as personal projects such as this
-                                website.
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-java-plain-wordmark"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                Java is among my strongest languages, it being the language of my two CS classes at
-                                Clark University, Programming
-                                Languages at RPI, and personal projects in the realm of AI, such as <a
-                                    href="https://github.com/klingj3/MarioAI-Reinforcement-Learning-and-Neural-Networks">
-                                contrasting the behaviors and effectiveness of a neural network trained via a
-                                genetic
-                                algorithm vs reinforcement learning for playing a popular platformer.
-                            </a>
-                            </div>
-                        </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <h1 class="icon">
-                                    <i class="devicon-python-plain"></i>
-                                    </span></h1>
-                            </button>
-                            <div class="dropdown-menu">
-                                Python has been the dominant language of my senior and junior years, in classes
-                                centered
-                                on AI as well as Data Mining.
-                            </div>
-                        </div>
-                        <br><br><br><br><br><br>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -287,8 +241,16 @@
             <h2 class="white">Projects</h2>
             <div class="row">
                 <div class="container-fluid container-transparent-b">
-                    <h4>Here's what I've been working on lately.</h4>
-                    <h4> [I'm currently in the process of restyling my project display. That shouldn't matter since I haven't sent this web address to anyone yet. How did you get here?] </h4>
+                    <div class="card">
+                        <div class="crop">
+                        <img src="images/projects/60seconds.png">
+                        </div>
+                        <div class="card-block">
+                            <p class="card-text">
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -312,6 +274,16 @@
 
 
 <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    $(document).ready(function () {
+        $(".nav-tabs a").click(function () {
+            $(this).tab('show');
+        });
+    });
+
     var divs = $('div[id^="content-"]').hide(),
         i = 0;
 
