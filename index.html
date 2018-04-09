@@ -23,7 +23,7 @@
 <div class="container title-section" id="fullheight" style="height:68vh; background:transparent;">
     <div class="left-half title">
         <div class="col">
-            <!--img src="images/me.png" class="img-rounded"
+            <img src="images/me.png" class="img-rounded"
                  style="position:fixed; max-width:50%; max-height:70%; right:55%; top:20vh;"-->
         </div>
     </div>
@@ -70,8 +70,7 @@
                 <li><a href="#myPage">Home</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills and Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
 
             </ul>
@@ -123,30 +122,40 @@
                         <option value="  A study of important concepts in software design, implementation, and testing.
                             Java-based. "> Principles of Software
                         </option>
-                        <option value=" C course on various aspects of computer operating systems design and implementation.
-                            Topics included I/O programming, concurrent processes and synchronization problems,
-                            process management and scheduling of processes, virtual memory management, etc. "> Operating Systems
+                        <option value=" Discussion of various aspects of computer operating systems design and implementation.
+                            Topics include I/O programming, concurrent processes and synchronization problems,
+                            process management and scheduling of processes, virtual memory management, device
+                            management, file systems, deadlock problems, system calls, and interprocess
+                            communication. Used C extensively. "> Operating Systems
                         </option>
                         <option value=" A study of the important concepts found in current programming languages largely
                         through the application of archaic narrow languages such as ProLog, "> Programming Languages
                         </option>
                         <option value="
                             A survey of the main topics in data mining and knowledge discovery in databases,
-                            including: classification, clustering, and so on. This class was entirely in Python, using many of Python's data-mining specific libraries
+                            including: classification, clustering, association rules, sequence mining, similarity
+                            search, deviation detection, and so on.
+
+                            This class was entirely in Python, using many of Python's data-mining specific libraries
                             such as Numpy and Pandas. "> Database Mining
                         </option>
-                        <option value="A team project based course focusing on developing a product within the Scrum Agile methodology. See my GitHub for our project, Harvest Here."> Software Design and
+                        <option value="Software system design methodology emphasizing use of object oriented modeling of
+                            application domains and of software systems, and emphasizing the roles of written and
+                            oral communication in software engineering. Project management and software testing.
+                            Individual and team projects include specification, software architecture, user
+                            interfaces, and documentation of the phases of a project. "> Software Design and
                             Documentation
                         </option>
                         <option value=" Study and application of cognitive computing utilizing IBM's Bluemix and related
                             technologies. "> Cognitive Computing
                         </option>
                         <option value=" Historically, AI in games have been predominantly rule-based, with decision trees
-                            deciding the action of entities. This course instead focused on the application of strategies such as neural networks, reinforcement learning, and
+                            deciding the action of entities. This course instead focuses
+                            on the application of strategies such as neural networks, reinforcement learning, and
                             other machine learning techniques to this field.
                             This course applied C++, Java, and Python."> Learning and Adv. Game AI
                         </option>
-                        <option value="Study and application of common data structures in C++.">Data Structures</option>
+                        <option value="Study and application of data structures in C++.">Data Structures</option>
                     </select>
                     <div class='custom-dropdown-contents' id="result">
                     </div>
@@ -158,42 +167,52 @@
 
     <div id="skills" class="container grey" style="min-height:400px;">
         <div class="container-fluid">
-            <h2 class="white">Skills</h2>
-            <div class="skillbar clearfix " data-percent="90%">
-                <a class='covert' data-toggle="tooltip" title="Includes extensive use of Django, Numpy, some use OpenCV">
-                    <div class="skillbar-title" style="background: #0b2d00;"><span> Python</span></div></a>
-                <div class="skillbar-bar" style="background: #1f7a00;"></div>
-                <div class="skill-bar-label">Extensive use in multiple 4000 level classes and projects</div>
+            <h2 class="white">Skills and Projects</h2>
+            <h3 class="center white">Languages</h3>
+            <div id="skillbars">
+                <div class="skillbar clearfix " data-percent="90%">
+                    <a class='covert' data-toggle="tooltip" title="Includes extensive use of Django, Numpy, some use OpenCV">
+                        <div class="skillbar-title" style="background: #0b2d00;"><span> Python</span></div></a>
+                    <div class="skillbar-bar" style="background: #1f7a00;"></div>
+                    <div class="skill-bar-label">Extensive use in multiple 4000 level classes and projects</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="60%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #000000;"><span>HTML/CSS</span></div></a>
+                    <div class="skillbar-bar" style="background: #666666;"></div>
+                    <div class="skill-bar-label">Use on multiple projects.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="70%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #ff3400;"><span>C</span></div></a>
+                    <div class="skillbar-bar" style="background: #ff6a48;"></div>
+                    <div class="skill-bar-label">Focus of classes at the 4000 and 2000 level.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="50%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #440004;"><span>C++</span></div></a>
+                    <div class="skillbar-bar" style="background: #651c21;"></div>
+                    <div class="skill-bar-label">Primary langauge in 2000 level course, minor role in projects.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="65%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #290221;"><span>Java</span></div></a>
+                    <div class="skillbar-bar" style="background: #44243e;"></div>
+                    <div class="skill-bar-label">Primary language in multiple 2000 level courses, minor role in projects.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="28%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #640008;"><span>Javascript</span></div></a>
+                    <div class="skillbar-bar" style="background: #d10011;"></div>
+                    <div class="skill-bar-label">Basic application in projects.</div>
+                </div>
             </div>
-            <div class="skillbar clearfix " data-percent="60%">
-                <a class='covert'>
-                    <div class="skillbar-title" style="background: #000000;"><span>HTML/CSS</span></div></a>
-                <div class="skillbar-bar" style="background: #666666;"></div>
-                <div class="skill-bar-label">Use on multiple projects.</div>
-            </div>
-            <div class="skillbar clearfix " data-percent="70%">
-                <a class='covert'>
-                    <div class="skillbar-title" style="background: #ff3400;"><span>C</span></div></a>
-                <div class="skillbar-bar" style="background: #ff6a48;"></div>
-                <div class="skill-bar-label">Focus of classes at the 4000 and 2000 level.</div>
-            </div>
-            <div class="skillbar clearfix " data-percent="50%">
-                <a class='covert'>
-                    <div class="skillbar-title" style="background: #440004;"><span>C++</span></div></a>
-                <div class="skillbar-bar" style="background: #651c21;"></div>
-                <div class="skill-bar-label">Primary langauge in 2000 level course, minor role in projects.</div>
-            </div>
-            <div class="skillbar clearfix " data-percent="65%">
-                <a class='covert'>
-                    <div class="skillbar-title" style="background: #290221;"><span>Java</span></div></a>
-                <div class="skillbar-bar" style="background: #44243e;"></div>
-                <div class="skill-bar-label">Primary langauge in multiple 2000 level courses, minor role in projects.</div>
-            </div>
-            <div class="skillbar clearfix " data-percent="28%">
-                <a class='covert'>
-                    <div class="skillbar-title" style="background: #640008;"><span>Javascript</span></div></a>
-                <div class="skillbar-bar" style="background: #d10011;"></div>
-                <div class="skill-bar-label">Basic application in projects.</div>
+            <div id="projects">
+            <div class="container-fluid" style="background:white; color:black; border-radius:5px; width:100%">
+                <h3 class="center">This is currently being updated/reworked with my current semester's projects,
+                I'll push all the updates by the end of today, April 9th.</h3>
+
+                <p class="center">Want a general idea now? Check out my <a href="//github.com/klingj3">GitHub.</a>    </p>
             </div>
         </div>
     </div>
@@ -235,25 +254,6 @@
             </div>
         </div>
     </div>
-    </div>
-    <div class="container grey">
-        <div id="projects" class="container-fluid">
-            <h2 class="white">Projects</h2>
-            <div class="row">
-                <div class="container-fluid container-transparent-b">
-                    <div class="card">
-                        <div class="crop">
-                        <img src="images/projects/60seconds.png">
-                        </div>
-                        <div class="card-block">
-                            <p class="card-text">
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div id="contact" class="container-fluid container-transparent-b">
@@ -311,7 +311,7 @@
                 // Using jQuery's animate() method to add smooth page scroll
                 // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
                 $('html, body').animate({
-                    scrollTop: $(hash).offset().top - 50
+                    scrollTop: $(hash).offset().top
                 }, 1000, function () {
 
                     // Add hash (#) to URL when done scrolling (default click behavior)
