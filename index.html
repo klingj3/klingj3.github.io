@@ -17,6 +17,7 @@
     <link rel="stylesheet"
           href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fontawesome-all.css">
 
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -38,7 +39,6 @@
                         <div class="cycle" id="content-2">Computer Vision.<br></div>
                         <div class="cycle" id="content-3">Artificial Intelligence.</div>
                         <div class="cycle" id="content-4">Data Mining.<br></div>
-                        <div class="cycle" id="content-5">Deep Learning.<br></div>
                         <div class="cycle" id="content-6">Learning & Advanced Game AI.<br></div>
                         <div class="cycle" id="content-8">Web Development.<br></div>
                         <div class="cycle" id="content-9">Cognitive Computing.</div>
@@ -69,8 +69,8 @@
 
                 <li><a href="#myPage">Home</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills and Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
 
             </ul>
@@ -94,7 +94,7 @@
                         <img src="images/clark_logo.jpg" class="icon">
                         <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
                         transferring to RPI
-                        <br> Fall 2012 - Fall 2014 | Worcester, MA
+                        <br> Fall 2012 - Spring 2014 | Worcester, MA
                     </div>
                     <br>
                 </div>
@@ -107,14 +107,10 @@
                     <select class="custom-dropdown" type="button" onChange="dropdownTip(this.value)"
                             name="search_type"
                             style="margin-right:10px; margin-top:2px;">
-                        <option value="" selected disabled hidden>Explore Related Coursework</option>
-                        <option value="Study of the mathematical underpinnings of modern AI, as well as application
-                                        of these techniques within Tensorflow for Computer Vision related problems.">
-                            Deep Learning (Curr.)
-                        </option>
+                        <option value="" selected disabled hidden>Explore Relevant Coursework</option>
                         <option value=" This course focused on the application of both probabilistic algorithms and
                                         machine learning for processing natural language into a machine-learnable context.">
-                            Natural Language Processing (Curr.)
+                            Natural Language Processing
                         </option>
                         <option value="Introduction to computer organization, assembler language, and operating systems.
                             Programming in C and LLVM. "> Computer Organization
@@ -208,12 +204,52 @@
                 </div>
             </div>
             <div id="projects">
-            <div class="container-fluid" style="background:white; color:black; border-radius:5px; width:100%">
-                <h3 class="center">This is currently being updated/reworked with my current semester's projects,
-                    and in a way that aligns better stylistically with my new LinkedIn profile.
-                I'll push all the updates by the end of this weekend.</h3>
+                <div class="container-fluid project" id="microfossils">
+                    <div class="project-right">
+                        <h3 class="project-title"> Automatic Microfossil Concentrate Sorter</h3>
+                        <p class="project-body">
+                            In paleontology, microfossil concentrate is a mixture of microfossils and gravel, with each fossil being about 2 mm in size. Microfossils can potentially serve as a source of big data for paleontologists about the locations and environments from which they were collected, however the sorting and categorizing these fossils is a very time consuming process. I designed the software for a machine to automatically sort these fossils using Python and common visual and data libraries such as OpenCV, Numpy, and scikit-learn.
+                        </p>
+                        <div class="button-area">
+                            <a href="https://github.com/RCOS-MCFS/RCOS-Microfossil-Sorter" class="btn" target="_blank">View on GitHub</a>
+                            <a href="https://rcos-mcfs.github.io/RCOS-Microfossil-Sorter/" class="btn" target="_blank">Website</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid project" >
+                    <div class="col-sm-4 project-left" id="marketplace">
+                    </div>
+                    <div class="project-right">
+                        <h3 class="project-title"> Django Marketplace </h3>
+                        <p class="project-body">
 
-                <p class="center">Want a general idea now? Check out my <a href="//github.com/klingj3">GitHub.</a>    </p>
+                            This was a small-group project done over the course of a semester for Software Design and
+                            Documentation, a class in developing within the Scrum methodology. Over the course of the
+                            semester, my programming partner and I developed a relatively comprehensive marketplace in
+                            Django, with the ability to create accounts both for buyers and sellers, leave reviews,
+                            search for items, and message within the marketplace regarding certain items.
+
+                            Click below for a demo, where this marketplace framework is demonstrated as a site
+                            where independent and small farmers can list items they have available, as was our
+                            Project Manager's original idea for the project. Also below is a link to the GitHub page
+                            for this less maleable version in the project, though in the next few days I'll replace it
+                            with one on my GitHub which is more general, and offers easy tools for customization so
+                            that aspiring Django developers can use it as a jumping off point more easily.
+
+                        </p>
+                        <div class="button-area">
+                            <a href="https://github.com/justinbot/sdd-farmers" class="btn" target="_blank">View on GitHub</a>
+                            <a href="https://ssd-farmers-live-klingj3.c9users.io" class="btn" target="_blank">Demo</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="container-fluid" style="border-radius:0">
+            <div class="container-fluid" style="background:white; color:black; border-radius:5px; width:100%">
+                <h4 class="center black"> I'll be updating this section throughout the week, especially as this semester winds
+                    down and more projects are completed.</h4>
+
+                <p class="center">Want an idea of what some of these current projects are? Check out my <a href="//github.com/klingj3">GitHub.</a>    </p>
             </div>
         </div>
     </div>
@@ -260,8 +296,12 @@
     <div id="contact" class="container-fluid container-transparent-b">
         <h2 class="white">CONTACT</h2>
         <div class="row">
-            <p class="white center">Any questions? Send me an email.<br><br>
-                <span class="glyphicon glyphicon-envelope"></span> klingj3@rpi.edu </p>
+            <p class="white center">Any questions? Get in touch.<br>
+                <span class="glyphicon glyphicon-envelope"></span> <a href="mailto:jkklingelhofer@gmail.com"> jkklingelhofer@gmail.com </a><br>
+                <span class="fa fa-github"></span> <a href="https://github.com/klingj3"> klingj3 </a><br>
+                <span class="fa fa-linkedin"></span> <a href="https://linkedin.com/in/john-klingelhofer-349892a5"> John Klingelhofer </a><br>
+            </p>
+
         </div>
     </div>
 
