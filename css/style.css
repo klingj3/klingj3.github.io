@@ -66,7 +66,7 @@
     color:white;
     left:120px;
     top:0;
-    font-size:11px;
+    font-size:13px;
     height:35px;
     line-height:35px;
 }
@@ -379,6 +379,14 @@ i{
     margin-bottom:20px;
     border-radius:3px;
     background-color:white;
+    box-shadow: 0px 0px 0px black;
+    -webkit-transition:  box-shadow .6s ease-out;
+    box-shadow: .8px .9px 7px black;
+}
+.project:hover{
+
+    box-shadow: 7px 8px 20px black;
+    -webkit-transition:  box-shadow .6s ease-in;
 }
 #marketplace{
     background: url(../images/djangomarketplace.png) no-repeat;
