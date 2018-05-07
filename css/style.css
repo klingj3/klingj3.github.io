@@ -391,6 +391,11 @@ i{
     box-shadow: 7px 8px 20px black;
     -webkit-transition:  box-shadow .6s ease-in;
 }
+
+#politics{
+    background: url(../images/reddit.gif) no-repeat;
+    background-size: contain;
+}
 #marketplace{
     background: url(../images/djangomarketplace.png) no-repeat;
     background-size: cover;
