@@ -97,7 +97,6 @@ a.tab{
 }
 body {
     background-image: url("../images/topography.png");
-    background-attachment: fixed;
     font: 400 18px Open Sans, sans-serif;
     width: 100%;
     line-height: 25px;
@@ -164,11 +163,9 @@ h4.center{
 }
 .container.grey{
     background-image: url("../images/topo-grey.png");
-    background-attachment: fixed;
 }
 .container.white{
     background-image: url("../images/topo-white.png");
-    background-attachment: fixed;
     color: black;
 }
 .container.black {
@@ -179,7 +176,6 @@ h4.center{
 }
 .container.blue{
     background-image: url("../images/topo-blue.png");
-    background-attachment: fixed;
     color: white;
 }
 .container-fluid{
@@ -349,7 +345,9 @@ container-fluid.container-transparent-w{
 
 }
 .container{
+    @include clearfix;
     width: 100%;
+
 }
 footer .glyphicon {
     font-size: 20px;
