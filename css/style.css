@@ -399,7 +399,7 @@ i{
     background-size: cover;
 }
 #microfossils{
-    background: url(../images/microfossils.png);
+    background: url("https://rcos-mcfs.github.io/RCOS-Microfossil-Sorter/static/img/demo.gif");
     background-size: contain;
 }
 .project-left{
