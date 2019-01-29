@@ -364,7 +364,8 @@ footer .glyphicon {
 }
 h1.jumbo{
     text-align:center;
-    font-size:80px; !important;
+    font-size:80px;
+    color: white;
 }
 h1.muted{
     padding:0px;
@@ -425,17 +426,12 @@ i{
     display:inline;
 }
 
-.left-half {
-    position: absolute;
-    width: 50%;
-    text-align:right;
+.title-section {
+    position: relative;
+    top: 300px;
+    text-align: center;
 }
-.right-half {
-    text-align:left;
-    right: 0px;
-    position: absolute;
-    width: 50%;
-}
+
 .left-half.title {
     width: 45%;
     height: 100%;
@@ -518,7 +514,6 @@ li.skill span{
 }
 @media (min-width: 900px) {
     h1.jumbo{
-        text-align:left;
         font-size:100px; !important;
     }
 
