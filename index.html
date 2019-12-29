@@ -7,318 +7,249 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Comfortaa|EB+Garamond|Open+Sans:300italic,600,300|PT+Serif|Slabo+27px" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Comfortaa|EB+Garamond|Allerta+Stencil|Open+Sans:300italic,600,300|PT+Serif|Slabo+27px"
+          rel="stylesheet" type="text/css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/styling.js"></script>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<div class="container title-section" style="height:68vh; background:transparent;">
-    <h1 class="jumbo">John Klingelhofer</h1>
-    <div class="container-fluid">
-        <div class="row" style="height:100px;">
-            <h4 class="left"> I graduated this May from <span class="rpi">Rensselaer Polytechnic Institute</span>
-                and currently work at <span class="rpi">Annalect</span> in New York. Look below for my personal, 
-                educational, and professional experience in 
-                <div class="cycle" id="content-1">Natural Language Processing.</div>
-                <div class="cycle" id="content-2">Computer Vision.<br></div>
-                <div class="cycle" id="content-3">Artificial Intelligence.</div>
-                <div class="cycle" id="content-4">Data Mining.<br></div>
-                <div class="cycle" id="content-6">Learning & Advanced Game AI.<br></div>
-                <div class="cycle" id="content-8">Web Development.<br></div>
-                <div class="cycle" id="content-9">Cognitive Computing.</div>
-                <div class="cycle" id="content-10">Software Design.<br></div>
-                <div class="cycle" id="content-11">Agile Development.<br></div>
-            </h4>
-        </div>
-    </div>
-</div>
-<nav class="navbar navbar-default navbar-fixed-top">
+
+<div class="background"></div>
+
+<div class="navbar navbar-default navbar-fixed-top">
     <div class="container-nav">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-center">
-
-
-                <li><a href="#myPage">Home</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills and Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-
+                <li><a href="#myPage">
+                    <span class="text"> Overview </span>
+                    <span class="glyphicon glyphicon-menu-up white"></span>
+                </a></li>
+                <li><a href="#education">
+                    <span class="text"> Education </span>
+                    <span class="glyphicon glyphicon-education white"></span>
+                </a></li>
+                <li><a href="#experience">
+                    <span class="text"> Experience </span>
+                    <span class="glyphicon glyphicon-briefcase white"></span>
+                </a></li>
+                <li><a href="#skills">
+                    <span class="text"> Skills </span>
+                    <span class="glyphicon glyphicon-th-list white"></span>
+                </a></li>
+                <li><a href="#contact">
+                    <span class="text"> Contact </span>
+                    <span class="glyphicon glyphicon-envelope white"></span>
+                </a></li>
             </ul>
         </div>
     </div>
-</nav>
+</div>
 
-<section class="content">
-    <div id="education" class="container white" style="min-height:200px">
-        <h2> Education </h2>
+<div class="core-page">
+    <div class="container title-section" style="height:68vh; background:transparent;">
+        <h1 class="jumbo">John Klingelhofer</h1>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8">
+            <div class="row" style="height:100px;">
+                <h4 class="left"> I graduated this May 2018 from <span class="rpi">Rensselaer Polytechnic Institute</span>
+                    and currently work at <span class="rpi">Annalect</span> in New York. Look below for my personal,
+                    educational, and professional experience in
+                    <div class="cycle" id="content-1">Natural Language Processing.</div>
+                    <div class="cycle" id="content-2">Web Development.<br></div>
+                    <div class="cycle" id="content-3">Software Design.<br></div>
+                    <div class="cycle" id="content-4">Agile Development.<br></div>
+                    <div class="cycle" id="content-5">Python development.<br></div>
+                    <div class="cycle" id="content-6">full stack programming.</div>
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <section class="content">
+        <div id="education" class="container secondary" style="min-height:200px">
+            <h2> Education </h2>
+            <div class="container-fluid">
+                <div class="edu-holder">
+                    <img src="images/rpi_logo.jpg" class="icon">
+                    <Strong>Rensselaer Polytechnic Institute</Strong><br>BS in Computer Science - Cum Laude
+                    <br> Concentration in Artificial Intelligence and Data
+                    <br> Fall 2015 - Spring 2018 | Troy, NY | Cum. GPA 3.51
+                </div>
+                <div>
+                    <img src="images/clark_logo.jpg" class="icon">
+                    <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
+                    transferring to RPI
+                    <br> Fall 2012 - Spring 2014 | Worcester, MA | GPA 3.63
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div id="experience" class="container tertiary">
+            <div class="container-fluid">
+                <h2>Experience</h2>
+                <div id="services" class="container-fluid text-center">
                     <div class="row">
-                        <img src="images/rpi_logo.jpg" class="icon">
-                        <Strong>Rensselaer Polytechnic Institute</Strong><br>BS in Computer Science - Cum Laude
-                        <br> Concentration in Artificial Intelligence and Data
-                        <br> Fall 2015 - Spring 2018 | Troy, NY <br> Cum. GPA 3.51
-                    </div>
-                    <br>
-                    <div class="row">
-                        <img src="images/clark_logo.jpg" class="icon">
-                        <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
-                        transferring to RPI
-                        <br> Fall 2012 - Spring 2014 | Worcester, MA <br> GPA 3.63
-                    </div>
-                    <br>
-                </div>
-                <div class="col-md-4" style=" min-height:300px; background:lightgray; border-radius:5px;">
-                    <script type="text/javascript">
-                        function dropdownTip(value) {
-                            console.log(value);
-                            document.getElementById("result").innerHTML = value;
-                        }</script>
-                    <select class="custom-dropdown" type="button" onChange="dropdownTip(this.value)"
-                            name="search_type"
-                            style="margin-right:10px; margin-top:2px;">
-                        <option value="" selected disabled hidden>Explore Relevant Coursework</option>
-                        <option value=" This course focused on the application of both probabilistic algorithms and
-                                        machine learning for processing natural language into a machine-learnable context.">
-                            Natural Language Processing
-                        </option>
-                        <option value="Introduction to computer organization, assembler language, and operating systems.
-                            Programming in C and LLVM. "> Computer Organization
-                        </option>
-                        <option value="  A study of important concepts in software design, implementation, and testing.
-                            Java-based. "> Principles of Software
-                        </option>
-                        <option value=" Discussion of various aspects of computer operating systems design and implementation.
-                            Topics include I/O programming, concurrent processes and synchronization problems,
-                            process management and scheduling of processes, virtual memory management, device
-                            management, file systems, deadlock problems, system calls, and interprocess
-                            communication. Used C extensively. "> Operating Systems
-                        </option>
-                        <option value=" A study of the important concepts found in current programming languages largely
-                        through the application of archaic narrow languages such as ProLog, "> Programming Languages
-                        </option>
-                        <option value="
-                            A survey of the main topics in data mining and knowledge discovery in databases,
-                            including: classification, clustering, association rules, sequence mining, similarity
-                            search, deviation detection, and so on.
+                        <div class="col-lg-12">
+                            <div class="row-lg-8">
+                                <h4 class="black"><Strong>Annalect</Strong> - Junior Developer | 01/2019-Present</h4>
+                                <ul>
+                                    <li>
+                                        COMING TODAY! ALong with other changes.
+                                    </li>
+                                    <li>
 
-                            This class was entirely in Python, using many of Python's data-mining specific libraries
-                            such as Numpy and Pandas. "> Data Mining
-                        </option>
-                        <option value="Software system design methodology emphasizing use of object oriented modeling of
-                            application domains and of software systems, and emphasizing the roles of written and
-                            oral communication in software engineering. Project management and software testing.
-                            Individual and team projects include specification, software architecture, user
-                            interfaces, and documentation of the phases of a project. "> Software Design and
-                            Documentation
-                        </option>
-                        <option value=" Study and application of cognitive computing utilizing IBM's Bluemix and related
-                            technologies. "> Cognitive Computing
-                        </option>
-                        <option value=" Historically, AI in games have been predominantly rule-based, with decision trees
-                            deciding the action of entities. This course instead focuses
-                            on the application of strategies such as neural networks, reinforcement learning, and
-                            other machine learning techniques to this field.
-                            This course applied C++, Java, and Python."> Learning and Adv. Game AI
-                        </option>
-                        <option value="Study and application of data structures in C++.">Data Structures</option>
-                    </select>
-                    <div class='custom-dropdown-contents' id="result">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-    </div>
-
-    <div id="skills" class="container grey" style="min-height:400px;">
-        <div class="container-fluid">
-            <h2 class="white">Skills and Projects</h2>
-            <div id="projects">
-                <div class="container-fluid project" id="microfossils">
-                    <div class="project-right">
-                        <h3 class="project-title"> Automatic Microfossil Concentrate Sorter</h3>
-                        <p class="project-body">
-                            In paleontology, microfossil concentrate is a mixture of microfossils and gravel, with each fossil being about 2 mm in size. Microfossils can potentially serve as a source of big data for paleontologists about the locations and environments from which they were collected, however the sorting and categorizing these fossils is a very time consuming process. I designed the software for a machine to automatically sort these fossils using Python and common visual and data libraries such as OpenCV, Numpy, and scikit-learn.
-                        </p>
-                        <div class="button-area">
-                            <a href="https://github.com/RCOS-MCFS/RCOS-Microfossil-Sorter" class="btn" target="_blank">View on GitHub</a>
-                            <a href="https://rcos-mcfs.github.io/RCOS-Microfossil-Sorter/" class="btn" target="_blank">Website</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid project" >
-                    <div class="col-sm-4 project-left" id="marketplace">
-                    </div>
-                    <div class="project-right">
-                        <h3 class="project-title"> Django Marketplace </h3>
-                        <p class="project-body">
-
-                            This was a small-group project done over the course of a semester for Software Design and
-                            Documentation, a class in developing within the Scrum methodology. Over the course of the
-                            semester, my programming partner and I developed a relatively comprehensive marketplace in
-                            Django, with the ability to create accounts both for buyers and sellers, leave reviews,
-                            search for items, and message within the marketplace regarding certain items.
-
-                            While the initial project was designed for a relatively narrow purpose, I'm currently 
-                            inthe process of adding easy tools for customization so
-                            that aspiring Django developers can use it as a jumping-off point more easily, and it can
-                            more easily be adapted for a variety of different use cases.
-
-                        </p>
-                        <div class="button-area">
-                            <a href="https://github.com/klingj3/django-marketplace" class="btn" target="_blank">View on GitHub</a>
-                            <a href="https://ssd-farmers-live-klingj3.c9users.io" class="btn" target="_blank" disabled>Demo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid project" id="politics">
-                    <div class="project-right">
-                        <h3 class="project-title"> Reddit Political Sentiment Explorer </h3>
-                        <p class="project-body">
-                            One emerging application of Natural Language Processing is the tagging of political speech.
-                            This project is a first step towards this goal, by using a
-                            combination of LSTM-backed sentiment classification with entity linking for determining the
-                            affiliation of individual comments. Presently, this tool is applied in a web application
-                            for exploring the differing ideological affiliations expressed in news article discussions
-                            across Reddit, though the upcoming goal for this project is to generate a robust corpus
-                            for political sentiment classification, as the no good options currently exist.<br>
-
-                            <b>This is an ongoing project.</b>
-                        </p>
-                        <div class="button-area">
-                            <a href="https://github.com/klingj3/RedditPoliticalSentiment" class="btn" target="_blank">View on GitHub</a>
-                            <a href="files/paper.pdf" class="btn" target="_blank">Paper</a>
-                        </div>
-                    </div>
-                </div>
-        </div>
-            <div id="skillbars">
-                <div class="skillbar clearfix " data-percent="90%">
-                    <a class='covert' data-toggle="tooltip" title="Includes extensive use of Django, NumPy, some use OpenCV">
-                        <div class="skillbar-title" style="background: #0b2d00;"><span> Python</span></div></a>
-                    <div class="skillbar-bar" style="background: #1f7a00;"></div>
-                    <div class="skill-bar-label">Extensive use in multiple 4000 level classes and projects, including Django and Flask. </div>
-                </div>
-                <div class="skillbar clearfix " data-percent="80%">
-                    <a class='covert'>
-                        <div class="skillbar-title" style="background: #000000;"><span>HTML/CSS</span></div></a>
-                    <div class="skillbar-bar" style="background: #666666;"></div>
-                    <div class="skill-bar-label">Use on multiple projects.</div>
-                </div>
-                <div class="skillbar clearfix " data-percent="60%">
-                    <a class='covert'>
-                        <div class="skillbar-title" style="background: #640008;"><span>JavaScript</span></div></a>
-                    <div class="skillbar-bar" style="background: #d10011;"></div>
-                    <div class="skill-bar-label">Basic application in projects, use of Angular in webapp development at Annalect.</div>
-                </div>
-                <div class="skillbar clearfix " data-percent="65%">
-                    <a class='covert'>
-                        <div class="skillbar-title" style="background: #290221;"><span>Java</span></div></a>
-                    <div class="skillbar-bar" style="background: #44243e;"></div>
-                    <div class="skill-bar-label">Primary language in multiple 2000 level courses, minor role in projects.</div>
-                </div>
-                <div class="skillbar clearfix " data-percent="60%">
-                    <a class='covert'>
-                        <div class="skillbar-title" style="background: #ff3400;"><span>C</span></div></a>
-                    <div class="skillbar-bar" style="background: #ff6a48;"></div>
-                    <div class="skill-bar-label">Focus in classes at the 4000 and 2000 level.</div>
-                </div>
-                <div class="skillbar clearfix " data-percent="50%">
-                    <a class='covert'>
-                        <div class="skillbar-title" style="background: #440004;"><span>C++</span></div></a>
-                    <div class="skillbar-bar" style="background: #651c21;"></div>
-                    <div class="skill-bar-label"> 2000 level courses, small application at work and projects. </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="experience" class="container white">
-        <div class="container-fluid">
-            <h2>Experience</h2>
-            <div id="services" class="container-fluid text-center">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row-lg-8">
-                            <h4 class="black"><Strong>Annalect</Strong> - Junior Developer | 01/2019-Present</h4>
-                            <ul>
-
-                            </ul>
-                        </div>
-                        <div class="row-lg-8">
-                            <h4 class="black"><Strong>Annalect</Strong> - Labs Intern | 09/2018-12/2018</h4>
-                            <ul>
-                                <li> 
-                                Worked on web applications designed to produce automated natural language insights from large sets of data, using a combination of statistical and machine-learning driven approaches.
-                                </li>
-                                <li>
-                                Worked on a unique application of a recommendation-engine-type system using in Keras to facilitate use of other Annalect utilities.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row-lg-8">
-                            <h4 class="black"><Strong>Perkins+Will</Strong> - IT Intern | 06/2016-09/2016</h4>
-                            <ul>
-                                <li> Diagnosed and fixed issues relating to architecture and design firm's
-                                    computers,
-                                    network, and terminal servers.
-                                </li>
-                                <li> Wrote VBScript and Batch scripts to automate certain typical laptop
-                                    upgrade/maintenance processes.
-                                </li>
-                                <li> Reduced the average number of active support tickets by over 80%<br>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="row-lg-8">
-                            <h4 class="black"><Strong> Rensselaer Polytechnic Institute </Strong> - Helpdesk
-                                Consultant
-                                | Fall 2016-Spring 2018</h4>
-                            <ul>
-                                <li> Assisted the faculty and students of RPI find solutions to problems with
-                                    hardware,
-                                    software, and networking across a variety of machines and operating systems.
-                                </li>
-                            </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row-lg-8">
+                                <h4 class="black"><Strong>Annalect</Strong> - Labs Intern | 09/2018-12/2018</h4>
+                                <ul>
+                                    <li>
+                                        Worked on web applications designed to produce automated natural language
+                                        insights from large sets of data, using a combination of statistical and
+                                        machine-learning driven approaches.
+                                    </li>
+                                    <li>
+                                        Worked on a unique application of a recommendation-engine-type system using in
+                                        Keras to facilitate use of other Annalect utilities.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row-lg-8">
+                                <h4 class="black"><Strong>Perkins+Will</Strong> - IT Intern | 06/2016-09/2016</h4>
+                                <ul>
+                                    <li> Diagnosed and fixed issues relating to architecture and design firm's
+                                        computers,
+                                        network, and terminal servers.
+                                    </li>
+                                    <li> Wrote VBScript and Batch scripts to automate certain typical laptop
+                                        upgrade/maintenance processes.
+                                    </li>
+                                    <li> Reduced the average number of active support tickets by over 80%<br>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row-lg-8">
+                                <h4 class="black"><Strong> Rensselaer Polytechnic Institute </Strong> - Helpdesk
+                                    Consultant
+                                    | Fall 2016-Spring 2018</h4>
+                                <ul>
+                                    <li> Assisted the faculty and students of RPI find solutions to problems with
+                                        hardware,
+                                        software, and networking across a variety of machines and operating systems.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <div id="contact" class="container-fluid container-transparent-b">
-        <h2 class="white">CONTACT</h2>
-        <div class="row">
-            <p class="white center" >Any questions? Get in touch.<br>
-                <a href="mailto:jkklingehofer@gmail.com"> jkklingelhofer@gmail.com </a> <br><br>also see<br>
-                 <div style="font-size:55px; text-align:center;">
-                 <a href="https://github.com/klingj3"> <span class="fa fa-github"></span> </a>
-                 <a href="https://linkedin.com/in/john-klingelhofer-349892a5"> <span class="fa fa-linkedin"></span> </a>
-        </div>
-            </p>
+        <div id="skills" class="container secondary" style="min-height:400px;">
+            <div class="container-fluid">
+                <h2>Skills and Projects</h2>
+                <div id="projects">
+                    <div class="container-fluid project" id="microfossils">
+                        <div class="project-right">
+                            <h3 class="project-title"> Automatic Microfossil Concentrate Sorter</h3>
+                            <p class="project-body">
+                                In paleontology, microfossil concentrate is a mixture of microfossils and gravel, with
+                                each fossil being about 2 mm in size. Microfossils can potentially serve as a source of
+                                big data for paleontologists about the locations and environments from which they were
+                                collected, however the sorting and categorizing these fossils is a very time consuming
+                                process. I designed the software for a machine to automatically sort these fossils using
+                                Python and common visual and data libraries such as OpenCV, Numpy, and scikit-learn.
+                            </p>
+                            <div class="button-area">
+                                <a href="https://github.com/RCOS-MCFS/RCOS-Microfossil-Sorter" class="btn"
+                                   target="_blank">View on GitHub</a>
+                                <a href="https://rcos-mcfs.github.io/RCOS-Microfossil-Sorter/" class="btn"
+                                   target="_blank">Website</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid project">
+                        <div class="col-sm-4 project-left" id="marketplace">
+                        </div>
+                        <div class="project-right">
+                            <h3 class="project-title"> Django Marketplace </h3>
+                            <p class="project-body">
 
+                                This was a small-group project done over the course of a semester for Software Design
+                                and
+                                Documentation, a class in developing within the Scrum methodology. Over the course of
+                                the
+                                semester, my programming partner and I developed a relatively comprehensive marketplace
+                                in
+                                Django, with the ability to create accounts both for buyers and sellers, leave reviews,
+                                search for items, and message within the marketplace regarding certain items.
+
+                                While the initial project was designed for a relatively narrow purpose, I'm currently
+                                inthe process of adding easy tools for customization so
+                                that aspiring Django developers can use it as a jumping-off point more easily, and it
+                                can
+                                more easily be adapted for a variety of different use cases.
+
+                            </p>
+                            <div class="button-area">
+                                <a href="https://github.com/klingj3/django-marketplace" class="btn" target="_blank">View
+                                    on GitHub</a>
+                                <a href="https://ssd-farmers-live-klingj3.c9users.io" class="btn" target="_blank"
+                                   disabled>Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid project" id="politics">
+                        <div class="project-right">
+                            <h3 class="project-title"> Reddit Political Sentiment Explorer </h3>
+                            <p class="project-body">
+                                One emerging application of Natural Language Processing is the tagging of political
+                                speech.
+                                This project is a first step towards this goal, by using a
+                                combination of LSTM-backed sentiment classification with entity linking for determining
+                                the
+                                affiliation of individual comments. Presently, this tool is applied in a web application
+                                for exploring the differing ideological affiliations expressed in news article
+                                discussions
+                                across Reddit, though the upcoming goal for this project is to generate a robust corpus
+                                for political sentiment classification, as the no good options currently exist.<br>
+                            </p>
+                            <div class="button-area">
+                                <a href="https://github.com/klingj3/RedditPoliticalSentiment" class="btn"
+                                   target="_blank">View on GitHub</a>
+                                <a href="files/paper.pdf" class="btn" target="_blank">Paper</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+</div>
+
+<div id="contact" class="container-fluid container-transparent-b">
+    <h2 class="white">CONTACT</h2>
+    <div>
+        <p class="white center">Any questions? Get in touch.<br>
+            <a href="mailto:jkklingehofer@gmail.com"> jkklingelhofer@gmail.com </a> <br><br>also see<br>
+        <div style="font-size:55px; text-align:center;">
+            <a href="https://github.com/klingj3"> <span class="fa fa-github"></span> </a>
+            <a href="https://linkedin.com/in/john-klingelhofer-349892a5"> <span class="fa fa-linkedin"></span> </a>
+        </div>
+        </p>
+
     </div>
+</div>
 
 </section>
-
+</div>
 
 <div><br>
     <footer class="container-fluid text-center"><a href="#myPage">
@@ -327,7 +258,7 @@
 
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
 
@@ -356,13 +287,13 @@
                 event.preventDefault();
                 var hash = this.hash;
                 $('html, body').animate({
-                    scrollTop: $(hash).offset().top-50
+                    scrollTop: $(hash).offset().top - 50
                 }, 1000, function () {
-                    (window.location-50).hash = hash;
+                    (window.location - 50).hash = hash;
                 });
             } // End if
         });
-    })
+    });
 
     $(window).scroll(function () {
         $(".title-section").css("opacity", 1 - $(window).scrollTop() / 800);

@@ -1,88 +1,61 @@
-
-.skillbar {
-    position:relative;
-    display:block;
-    margin-bottom:15px;
-    width:100%;
-    background:#eee;
-    height:35px;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    -webkit-transition:0.4s linear;
-    -moz-transition:0.4s linear;
-    -ms-transition:0.4s linear;
-    -o-transition:0.4s linear;
-    transition:0.4s linear;
-    -webkit-transition-property:width, background-color;
-    -moz-transition-property:width, background-color;
-    -ms-transition-property:width, background-color;
-    -o-transition-property:width, background-color;
-    transition-property:width, background-color;
+body {
+  --primary-background: #262a38;
+  --secondary-background: #CDDDDD;
+  --tertiary-background: #8E9AAF;
+  --focus-1: #2CA58D;
+  --focus-2: #262a38;
+  --text-color: #ffffff;
 }
 
-.skillbar-title {
-    position:absolute;
-    top:0;
-    left:0;
-    width:110px;
-    font-weight:bold;
-    font-size:13px;
-    color:#ffffff;
-    background:#6adcfa;
-    -webkit-border-top-left-radius:3px;
-    -webkit-border-bottom-left-radius:4px;
-    -moz-border-radius-topleft:3px;
-    -moz-border-radius-bottomleft:3px;
-    border-top-left-radius:3px;
-    border-bottom-left-radius:3px;
+.tertiary {
+    background-color: var(--tertiary-background);
 }
 
-.skillbar-title span {
-    display:block;
-    background:rgba(0, 0, 0, 0.1);
-    padding:0 20px;
-    height:35px;
-    line-height:35px;
-    -webkit-border-top-left-radius:3px;
-    -webkit-border-bottom-left-radius:3px;
-    -moz-border-radius-topleft:3px;
-    -moz-border-radius-bottomleft:3px;
-    border-top-left-radius:3px;
-    border-bottom-left-radius:3px;
+.navbar li {
+    text-align: center;
 }
 
-.skillbar-bar {
-    height:35px;
-    width:0px;
-    background:#6adcfa;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
+.navbar li a {
+    width: 75px;
+    padding: 5px 5px 15px;
 }
 
-.skill-bar-label {
-    position:absolute;
-    color:white;
-    left:120px;
-    top:0;
-    font-size:13px;
-    height:35px;
-    line-height:35px;
+.navbar li .glyphicon {
+    position: absolute;
+    top: 18px;
+    right: 33px;
+    opacity: 1;
+    transition-duration: 0.4s;
+}
+
+.navbar li .text {
+    position: relative;
+    top: 10px;
+    opacity: 0.0;
+    width: 100%;
+    transition-duration: 0.4s;
+}
+
+.navbar li:hover .text {
+    opacity: 1.0;
+}
+
+.navbar li:hover .glyphicon {
+    opacity: 0.0;
+}
+
+.core-page {
+    margin-left: 75px;
+}
+
+.edu-holder {
+    margin-bottom: 20px;
 }
 
 a{
-    color: red;
+    color: var(--focus-1);
 }
-a:hover{
-    color: lightcoral;
-}
-a:visited{
-    color:white;
-}
-a.covert{
-    color:white;
-}
+
 a.covert:hover{
     color:white;
     -webkit-stroke-width: 5.3px;
@@ -95,12 +68,43 @@ a.covert:hover{
 a.tab{
     color: #d7cdd2;
 }
+
 body {
-    background-image: url("../images/topography.png");
     font: 400 18px Open Sans, sans-serif;
     width: 100%;
     line-height: 25px;
 }
+
+.background {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+
+    background: linear-gradient(145deg, #858ea9, var(--primary-background), #101621);
+    background-size: 200% 200%;
+
+    -webkit-animation: Animation 5s ease infinite;
+    -moz-animation: Animation 5s ease infinite;
+    animation: Animation 5s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:80%}
+    50%{background-position:100%}
+    100%{background-position:80%}
+}
+@-moz-keyframes Animation {
+    0%{background-position:80%}
+    50%{background-position:100%}
+    100%{background-position:80%}
+}
+@keyframes Animation {
+    0%{background-position:80%}
+    50%{background-position:100%}
+    100%{background-position:80%}
+}
+
 p{
     text-align: left;
     color: #1d1d1d;
@@ -114,7 +118,7 @@ p.black{
 }
 h1{
     text-align: center;
-    font-family: 'Eb Garamond', sans-serif;
+    font-family: Comfortaa, sans-serif;
     color: black;
 }
 h1.icon{
@@ -161,23 +165,26 @@ h4.black{
 h4.center{
     text-align: center;
 }
+
+.secondary {
+    background-color: var(--secondary-background);
+}
+
+.container {
+    background-attachment: fixed;
+}
+
 .container.grey{
-    background-image: url("../images/topo-grey.png");
+    color: white;
 }
 .container.white{
-    background-image: url("../images/topo-white.png");
     color: black;
 }
 .container.black {
     color:white;
 }
-.container.white.offwhite{
-    background-image: url("../images/topo-off-white.png");
-}
-.container.blue{
-    background-image: url("../images/topo-blue.png");
-    color: white;
-}
+
+
 .container-fluid{
     width: 100%;
     max-width: 1024px;
@@ -202,13 +209,6 @@ container-fluid.container-transparent-w{
 .row-lg-8{
     text-align: left;
 }
-.rpi{
-    animation: pulse 3s infinite;
-    animation-direction: alternate;
-}
-.rpi:hover{
-    text-underline: red;
-}
 /* Dropdown Button */
 .white{
     color: white;
@@ -223,7 +223,7 @@ container-fluid.container-transparent-w{
     border-style: solid;
     border-width: 1px;
     border-radius: 0.3rem;
-    transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+    transition: color 0.4s, background-color 0.4s, border-color 0.4s;
 }
 .btn:hover {
     color:white;
@@ -335,10 +335,10 @@ container-fluid.container-transparent-w{
 }
 @keyframes pulse{
     0% {
-        color: red;
+        color: #ffc05d;
     }
     100%{
-        color: #ff6964;
+        color: #ff971b;
     }
 }
 #contact{
@@ -360,12 +360,11 @@ footer .glyphicon {
     max-width: 900px;
     margin-top: 20vh;
     font-family:Comfortaa, sans-serif;
-    color: white;
 }
 h1.jumbo{
     text-align:center;
     font-size:80px;
-    color: white;
+    color: var(--focus-1);
 }
 h1.muted{
     padding:0px;
@@ -478,29 +477,39 @@ li.skill span{
 .nav-tabs{
     font-size:60px;
 }
-.navbar-nav.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-}
 
 .navbar {
     margin-bottom: 0;
-    background-color: black;
-    z-index: 9999;
-    border: 0;
+    z-index: 99;
     font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
+    line-height: 1.5 !important;
     border-radius: 0;
     font-family: Montserrat, sans-serif;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    width: 75px;
+    height:100%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.53);
 }
+
 .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
 }
+
+.navbar-nav {
+}
+
+.navbar-default {
+    border: none;
+}
+
+.navbar-nav li {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    transition-duration: 0.4s;
+}
+
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #000000 !important;
-    background-color: #fff !important;
+    background-color: rgba(0, 0, 0, 0.15) !important;
 }
 .navbar-default .navbar-toggle {
     border-color: transparent;
