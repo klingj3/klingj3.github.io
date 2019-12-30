@@ -7,7 +7,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Comfortaa|EB+Garamond|Allerta+Stencil|Open+Sans:300italic,600,300|PT+Serif|Slabo+27px"
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous|Comfortaa|EB+Garamond|Allerta+Stencil|Open+Sans:300italic,600,300|PT+Serif|Slabo+27px"
           rel="stylesheet" type="text/css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/styling.js"></script>
@@ -19,12 +19,18 @@
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-
 <div class="background"></div>
-
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container-nav">
         <div class="collapse navbar-collapse" id="myNavbar">
+            <div class="floating">
+                <div class="title" id="card-title">JK</div>
+                <div class="title" id="card-title-underpinning-1">JK</div>
+                <div class="title" id="card-title-underpinning-2">JK</div>
+                <div class="title" id="card-title-underpinning-3">JK</div>
+                <div class="title" id="card-title-underpinning-4">JK</div>
+                <div class="title" id="card-title-underpinning-5">JK</div>
+            </div>
             <ul class="nav navbar-nav navbar-center">
                 <li><a href="#myPage">
                     <span class="text"> Overview </span>
@@ -50,22 +56,17 @@
         </div>
     </div>
 </div>
-
 <div class="core-page">
-    <div class="container title-section" style="height:68vh; background:transparent;">
-        <h1 class="jumbo">John Klingelhofer</h1>
-        <div class="container-fluid">
-            <div class="row" style="height:100px;">
-                <h4 class="left"> I graduated this May 2018 from <span class="rpi">Rensselaer Polytechnic Institute</span>
-                    and currently work at <span class="rpi">Annalect</span> in New York. Look below for my personal,
-                    educational, and professional experience in
-                    <div class="cycle" id="content-1">Natural Language Processing.</div>
-                    <div class="cycle" id="content-2">Web Development.<br></div>
-                    <div class="cycle" id="content-3">Software Design.<br></div>
-                    <div class="cycle" id="content-4">Agile Development.<br></div>
-                    <div class="cycle" id="content-5">Python development.<br></div>
-                    <div class="cycle" id="content-6">full stack programming.</div>
-                </h4>
+    <div class="container">
+        <div class="title-section">
+            <h1 class="jumbo">John Klingelhofer</h1>
+            <div class="container-fluid">
+                <div class="row" style="height:100px;">
+                    <h4 id="self-statement" class="left">
+                        <span id="self-statement-core"></span>
+                        <span class="addendum"></span>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
@@ -90,63 +91,70 @@
             <br>
         </div>
 
-        <div id="experience" class="container tertiary">
+        <div id="experience" class="container secondary">
             <div class="container-fluid">
                 <h2>Experience</h2>
                 <div id="services" class="container-fluid text-center">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="row-lg-8">
-                                <h4 class="black"><Strong>Annalect</Strong> - Junior Developer | 01/2019-Present</h4>
-                                <ul>
-                                    <li>
-                                        COMING TODAY! ALong with other changes.
-                                    </li>
-                                    <li>
-
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="row-lg-8">
-                                <h4 class="black"><Strong>Annalect</Strong> - Labs Intern | 09/2018-12/2018</h4>
-                                <ul>
-                                    <li>
-                                        Worked on web applications designed to produce automated natural language
-                                        insights from large sets of data, using a combination of statistical and
-                                        machine-learning driven approaches.
-                                    </li>
-                                    <li>
-                                        Worked on a unique application of a recommendation-engine-type system using in
-                                        Keras to facilitate use of other Annalect utilities.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="row-lg-8">
-                                <h4 class="black"><Strong>Perkins+Will</Strong> - IT Intern | 06/2016-09/2016</h4>
-                                <ul>
-                                    <li> Diagnosed and fixed issues relating to architecture and design firm's
-                                        computers,
-                                        network, and terminal servers.
-                                    </li>
-                                    <li> Wrote VBScript and Batch scripts to automate certain typical laptop
-                                        upgrade/maintenance processes.
-                                    </li>
-                                    <li> Reduced the average number of active support tickets by over 80%<br>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="row-lg-8">
-                                <h4 class="black"><Strong> Rensselaer Polytechnic Institute </Strong> - Helpdesk
-                                    Consultant
-                                    | Fall 2016-Spring 2018</h4>
-                                <ul>
-                                    <li> Assisted the faculty and students of RPI find solutions to problems with
-                                        hardware,
-                                        software, and networking across a variety of machines and operating systems.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="row-lg-8">
+                        <h4 class="black"><Strong>Annalect</Strong> - Junior Developer | 01/2019-Present</h4>
+                        <span class="employer-detail">
+                            Annalect is the Marketing Science and Data arm of Omnicom Media Group.
+                        </span>
+                        <ul>
+                            <li>
+                                Contributed on the front and back end to the development of two key applications within Omni, the Marketing Science and Data software suite used across agencies within Analects's parent company Omnicom Media Group. Both applications used Python 3 with Flask for an API driven by an AngularJS front-end.
+                            </li>
+                            <li>
+                                Developer on two applications within this suite, working on diverse tasks from the back end (such as applying machine learning to implement lookalike modeling), to UI overhauls and front end feature enhancement with AngularJS and D3.
+                            </li>
+                            <li>
+                                Applied Python 3 (as well as common DS/ML packages such as scikit-learn, numpy, Pandas)
+                                SQL (Redshift), JavaScript (within AngularJS), HTML, CSS, Docker, and AWS (Batch, Lambda,
+                                Redshift, S3).
+                            </li>
+                            <li>
+                                Used Scrum methodology in daily work.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row-lg-8">
+                        <h4 class="black"><Strong>Annalect</Strong> - Labs Intern | 09/2018-12/2018</h4>
+                        <ul>
+                            <li>
+                                Worked on a variety of small and experimental projects within the Annalect R&D ("Labs") team.
+                            </li>
+                            <li>
+                                Created an extension to an existing web application made by the R&D team to produce automated natural language summaries of customer behavior in the consumer decision journey from large sets of demographic and clickstream data.
+                            </li>
+                            <li>
+                                Developed a recommendation-engine-type-styem which could quickly derive strongly correlated websites from clickstream data and find differences in browsing behavior between different brands, used internally for the development of taxonomies used in other Omni applications.(Python, Keras)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row-lg-8">
+                        <h4 class="black"><Strong>Perkins+Will</Strong> - IT Intern | 06/2016-09/2016</h4>
+                        <ul>
+                            <li> Diagnosed and fixed issues relating to architecture and design firm's
+                                computers,
+                                network, and terminal servers.
+                            </li>
+                            <li> Wrote VBScript and Batch scripts to automate certain typical laptop
+                                upgrade/maintenance processes.
+                            </li>
+                            <li> Reduced the average number of active support tickets by over 80%<br>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row-lg-8">
+                        <h4 class="black"><Strong> Rensselaer Polytechnic Institute </Strong> - Helpdesk
+                            Consultant
+                            | Fall 2016-Spring 2018</h4>
+                        <ul>
+                            <li> Assisted the faculty and students of RPI find solutions to problems with
+                                hardware,
+                                software, and networking across a variety of machines and operating systems.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -155,8 +163,45 @@
         <div id="skills" class="container secondary" style="min-height:400px;">
             <div class="container-fluid">
                 <h2>Skills and Projects</h2>
+                <div id="skillbars">
+                <div class="skillbar clearfix " data-percent="100%">
+                        <div class="skillbar-title" style="background: #08081d;"><span> Python</span></div></a>
+                    <div class="skillbar-bar" style="background: #4662d2;"></div>
+                    <div class="skill-bar-label">Extensive use in academic, professional, and personal contexts. </div>
+                </div>
+                <div class="skillbar clearfix " data-percent="80%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #293955;"><span>HTML/CSS</span></div></a>
+                    <div class="skillbar-bar" style="background: #6d88b4;"></div>
+                    <div class="skill-bar-label">Extensive use in academic, professional, and personal contexts.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="65%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #1a6355;"><span>JavaScript</span></div></a>
+                    <div class="skillbar-bar" style="background: var(--focus-1);"></div>
+                    <div class="skill-bar-label">Basic application in projects, use of AngularJS in web app development at Annalect.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="60%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #262A38;"><span>SQL</span></div></a>
+                    <div class="skillbar-bar" style="background: #4e5672;"></div>
+                    <div class="skill-bar-label">Extensive use in Redshift (AWS PSQL variant) at Annalect.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="65%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #290221;"><span>Java</span></div></a>
+                    <div class="skillbar-bar" style="background: #44243e;"></div>
+                    <div class="skill-bar-label">Primary language in multiple academic courses, minor role in projects.</div>
+                </div>
+                <div class="skillbar clearfix " data-percent="50%">
+                    <a class='covert'>
+                        <div class="skillbar-title" style="background: #243d44;"><span>C/C++</span></div></a>
+                    <div class="skillbar-bar" style="background: #78afba;"></div>
+                    <div class="skill-bar-label"> Primary language in most RPI classes outside my concentration </div>
+                </div>
+            </div>
                 <div id="projects">
-                    <div class="container-fluid project" id="microfossils">
+                    <!-- div class="container-fluid project" id="microfossils">
                         <div class="project-right">
                             <h3 class="project-title"> Automatic Microfossil Concentrate Sorter</h3>
                             <p class="project-body">
@@ -174,7 +219,7 @@
                                    target="_blank">Website</a>
                             </div>
                         </div>
-                    </div>
+                    </div --!>
                     <div class="container-fluid project">
                         <div class="col-sm-4 project-left" id="marketplace">
                         </div>
@@ -208,7 +253,7 @@
                     </div>
                     <div class="container-fluid project" id="politics">
                         <div class="project-right">
-                            <h3 class="project-title"> Reddit Political Sentiment Explorer </h3>
+                            <h3 class="project-title"> Social Media Political Sentiment Analyzer </h3>
                             <p class="project-body">
                                 One emerging application of Natural Language Processing is the tagging of political
                                 speech.
