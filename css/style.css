@@ -7,10 +7,9 @@ body {
   --text-color: #ffffff;
 }
 
-#self-statement::after {
-    content: "|";
-    position: relative;
-    right: 5px;
+#self-statement {
+    align: center;
+    text-align: center;
 }
 
 .tertiary {
