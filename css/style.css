@@ -359,18 +359,17 @@ footer .glyphicon {
     margin-bottom: 20px;
     color: white;
 }
-.jumbotron{
-    background-color: transparent;
-    position:fixed;
-    max-width: 900px;
-    margin-top: 20vh;
-    font-family:Comfortaa, sans-serif;
-}
 
-h1.jumbo{
+h1.name{
     text-align:center;
     font-size:80px;
     color: var(--focus-1);
+    opacity: 0;
+    transform: translate(0px, -30px);
+}
+
+.self-statement-item {
+    opacity: 0;
 }
 
 h1.muted{

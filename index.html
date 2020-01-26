@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Righteous|Comfortaa|EB+Garamond|Allerta+Stencil|Open+Sans:300italic,600,300|PT+Serif|Slabo+27px"
           rel="stylesheet" type="text/css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="js/styling.js"></script>
     <link rel="stylesheet"
           href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
@@ -59,13 +59,19 @@
 <div class="core-page">
     <div class="container">
         <div class="title-section">
-            <h1 class="jumbo">John Klingelhofer</h1>
+            <h1 class="name">John Klingelhofer</h1>
             <div class="container-fluid">
                 <div class="row" style="height:100px;">
-                    <h4 id="self-statement" class="left">
-                        <span id="self-statement-core">
-                            I'm a full stack developer in New York, New York.
-                        </span>
+                    <h4 id="self-statement">
+                        <div class="self-statement-item">
+                            I'm a software developer in New York, New York.
+                        </div>
+                        <div class="self-statement-item">
+                            Look below for my professional and educational history and a few choice projects.
+                        </div>
+                        <div class="self-statement-item">
+
+                        </div>
                     </h4>
                 </div>
             </div>
@@ -128,7 +134,7 @@
                                 Created an extension to an existing web application made by the R&D team to produce automated natural language summaries of customer behavior in the consumer decision journey from large sets of demographic and clickstream data.
                             </li>
                             <li>
-                                Developed a recommendation-engine-type-styem which could quickly derive strongly correlated websites from clickstream data and find differences in browsing behavior between different brands, used internally for the development of taxonomies used in other Omni applications.(Python, Keras)
+                                Developed a recommendation engine which could quickly derive strongly correlated websites from clickstream data and find differences in browsing behavior between different brands, used internally for the development of taxonomies used in other Omni applications.(Python, Keras)
                             </li>
                         </ul>
                     </div>
@@ -304,10 +310,6 @@
 
 
 <script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    });
-
     $(document).ready(function () {
         $(".nav-tabs a").click(function () {
             $(this).tab('show');
