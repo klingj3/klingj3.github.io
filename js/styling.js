@@ -1,18 +1,3 @@
-$(window).on('scroll', function() {
-    jQuery('.skillbar').each(function(){
-        var pos = $(this).offset().top;
-        var winTop = $(window).scrollTop();
-        if (pos < winTop + $(window).height()){
-            jQuery(this).find('.skillbar-bar').animate({
-                width:jQuery(this).attr('data-percent')
-            },6000);
-        }
-    });
-});
-
-
-
-
 /* Functions for rotating skill cards and initials. */
 function getTransformValue(v1, v2, value) {
   let val = ((v1 / v2 * value - value / 2) * 1);
@@ -38,7 +23,7 @@ function loadAnimation() {
         .style("opacity", "1");
     d3.selectAll('.self-statement-item')
         .transition()
-        .delay(function(d, i){return (1700 + 1500*i)})
+        .delay(function(d, i){return (1700 + (i > 0 ? 1200 : 0) + (i > 1 ? 500 : 0) + ( i*400))})
         .duration(500)
         .style('opacity', '1');
 }

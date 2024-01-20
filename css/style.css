@@ -1,6 +1,6 @@
 body {
   --primary-background: #262a38;
-  --secondary-background: #CDDDDD;
+  --secondary-background: #e8efef;
   --tertiary-background: #8E9AAF;
   --focus-1: #2CA58D;
   --focus-2: #262a38;
@@ -362,7 +362,7 @@ footer .glyphicon {
 
 h1.name{
     text-align:center;
-    font-size:80px;
+    font-size:130px;
     color: var(--focus-1);
     opacity: 0;
     transform: translate(0px, -30px);
@@ -370,6 +370,7 @@ h1.name{
 
 .self-statement-item {
     opacity: 0;
+    font-size: 25px;
 }
 
 h1.muted{
@@ -383,32 +384,6 @@ i{
     color:white;
 }
 
-.container-fluid .project {
-    margin-bottom:20px;
-    border-radius:3px;
-    background-color:white;
-    box-shadow: 0px 0px 0px black;
-    -webkit-transition:  box-shadow .6s ease-out;
-    box-shadow: .8px .9px 7px black;
-}
-.project:hover{
-
-    box-shadow: 7px 8px 20px black;
-    -webkit-transition:  box-shadow .6s ease-in;
-}
-
-#politics{
-    background: url(../images/reddit.gif) no-repeat;
-    background-size: contain;
-}
-#marketplace{
-    background: url(../images/djangomarketplace.png) no-repeat;
-    background-size: cover;
-}
-#microfossils{
-    background: url("https://rcos-mcfs.github.io/RCOS-Microfossil-Sorter/static/img/demo.gif");
-    background-size: contain;
-}
 .project-left{
     padding:0;
     margin:0;
@@ -436,9 +411,8 @@ i{
     height: 100vh;
     position: relative;
     text-align: center;
-    top: 50%;
-    -ms-transform: translateY(40%);
-    transform: translateY(40%);
+    -ms-transform: translateY(37%);
+    transform: translateY(37%);
 }
 
 .left-half.title {
@@ -588,79 +562,25 @@ img.icon {
         }
     }
 
-
-.skillbar {
-    position:relative;
-    display:block;
-    margin-bottom:15px;
-    width:100%;
-    background:#eee;
-    height:35px;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    -webkit-transition:0.4s linear;
-    -moz-transition:0.4s linear;
-    -ms-transition:0.4s linear;
-    -o-transition:0.4s linear;
-    transition:0.4s linear;
-    -webkit-transition-property:width, background-color;
-    -moz-transition-property:width, background-color;
-    -ms-transition-property:width, background-color;
-    -o-transition-property:width, background-color;
-    transition-property:width, background-color;
-}
-
-.skillbar-title {
-    position:absolute;
-    top:0;
-    left:0;
-    width:110px;
-    font-weight:bold;
-    font-size:13px;
-    color:#ffffff;
-    background:#6adcfa;
-    -webkit-border-top-left-radius:3px;
-    -webkit-border-bottom-left-radius:4px;
-    -moz-border-radius-topleft:3px;
-    -moz-border-radius-bottomleft:3px;
-    border-top-left-radius:3px;
-    border-bottom-left-radius:3px;
-}
-
-.skillbar-title span {
-    display:block;
-    background:rgba(0, 0, 0, 0.1);
-    padding:0 20px;
-    height:35px;
-    line-height:35px;
-    -webkit-border-top-left-radius:3px;
-    -webkit-border-bottom-left-radius:3px;
-    -moz-border-radius-topleft:3px;
-    -moz-border-radius-bottomleft:3px;
-    border-top-left-radius:3px;
-    border-bottom-left-radius:3px;
-}
-
-.skillbar-bar {
-    height:35px;
-    width:0px;
-    background:#6adcfa;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-}
-
-.skill-bar-label {
-    position:absolute;
-    color:white;
-    left:120px;
-    top:0;
-    font-size:13px;
-    height:35px;
-    line-height:35px;
-}
-
 .core-page {
     margin-left: 75px;
 }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.1s ease, transform 0.1s ease;
+    display: inline-block;
+}
+
+.self-statement-item a {
+    text-decoration: none;
+  font-weight: 700;
+    color: #90b4cb;
+    transition: color 0.3s ease; /* Transition effect for color change */
+}
+
+.self-statement-item a:hover {
+    color: #fff; /* Hover color, you can adjust this */
+}
+

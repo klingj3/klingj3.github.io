@@ -63,35 +63,25 @@
                         <div class="self-statement-item">
                             I'm a software developer in New York, New York.
                         </div>
-                        <div class="self-statement-item">
-                            Look below for my professional and educational history.
+                        <div class="self-statement-item fade-in">
+                            Look below for my
                         </div>
+                        <div class="self-statement-item fade-in">
+                            <a href="#experience">professional history</a>,
+                        </div>
+                        <div class="self-statement-item fade-in">
+                            <a href="#education">education history</a>,
+                        </div>
+                        <div class="self-statement-item fade-in">
+                            and <a href="#contact">ways to get in touch</a>.
+                        </div>
+
                     </h4>
                 </div>
             </div>
         </div>
     </div>
-
     <section class="content">
-        <div id="education" class="container secondary" style="min-height:200px">
-            <h2> Education </h2>
-            <div class="container-fluid">
-                <div class="edu-holder">
-                    <img src="images/rpi_logo.jpg" class="icon">
-                    <Strong>Rensselaer Polytechnic Institute</Strong><br>BS in Computer Science - Cum Laude
-                    <br> Concentration in Artificial Intelligence and Data
-                    <br> Fall 2015 - Spring 2018 | Troy, NY | Cum. GPA 3.51
-                </div>
-                <div>
-                    <img src="images/clark_logo.jpg" class="icon">
-                    <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
-                    transferring to RPI
-                    <br> Fall 2012 - Spring 2014 | Worcester, MA | GPA 3.63
-                </div>
-            </div>
-            <br>
-        </div>
-
         <div id="experience" class="container secondary">
             <div class="container-fluid">
                 <h2>Experience</h2>
@@ -104,14 +94,19 @@
                                 GraphQL-driven applications supporting patient recruitment for clinical trials, aiding
                                 TrialSpark's missing to bring new treatments to patients faster and more efficiently.
                             </li>
+                            <li>
+                                Lead development of multiple explorative projects leveraging LLMs and other AI technologies
+                                to create tools aiming to speed up and simplify pharmaceutical reseach by internal teams,
+                                ranging from new ways of interacting with data from public clinical trials databases, to
+                                extracting and understanding complex information from the raw PDFs of research papers.
+                            </li>
                         </ul>
                     </div>
                     <div class="row-lg-8">
                         <h4 class="black"><Strong>Memorial Sloan Kettering Cancer Center</Strong> - Software Developer | 01/2021-10/2021</h4>
                         <ul>
                             <li>
-                                Automated, optimized, and expanded upon system for transforming vast amounts of hospital data from disparate sources into the OMOP Common Data Model
-                                , a standard model for medical data the adoption of which will drive sharing information between researchers between institutions and improving research outcomes.
+                                Using Python, SQL, and Airflow, lead development of a robust system that automated, optimized, and expanded the scope of a process for transforming extensive hospital data from diverse sources into the OMOP Common Data Model. This work greatly enhanced the reliability and uptime of what was previously a generally manual process, with extensions for automatic inferred parallelization greatly reducing the running time of what was an exceptionally long-running process.
                             </li>
                             <li>
                                 Wrote RESTful APIs to facilitate interaction between terminology-focused graph databases with other internal applications.
@@ -154,33 +149,26 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="row-lg-8">
-                        <h4 class="black"><Strong>Perkins+Will</Strong> - IT Intern | 06/2016-09/2016</h4>
-                        <ul>
-                            <li> Diagnosed and fixed issues relating to architecture and design firm's
-                                computers,
-                                network, and terminal servers.
-                            </li>
-                            <li> Wrote VBScript and Batch scripts to automate certain typical laptop
-                                upgrade/maintenance processes.
-                            </li>
-                            <li> Reduced the average number of active support tickets by over 80%<br>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row-lg-8">
-                        <h4 class="black"><Strong> Rensselaer Polytechnic Institute </Strong> - Helpdesk
-                            Consultant
-                            | Fall 2016-Spring 2018</h4>
-                        <ul>
-                            <li> Assisted the faculty and students of RPI find solutions to problems with
-                                hardware,
-                                software, and networking across a variety of machines and operating systems.
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
+        </div>
+            <div id="education" class="container secondary" style="min-height:200px">
+            <h2> Education </h2>
+            <div class="container-fluid">
+                <div class="edu-holder">
+                    <img src="images/rpi_logo.jpg" class="icon">
+                    <Strong>Rensselaer Polytechnic Institute</Strong><br>BS in Computer Science - Cum Laude
+                    <br> Concentration in Artificial Intelligence and Data
+                    <br> Fall 2015 - Spring 2018 | Troy, NY | Cum. GPA 3.51
+                </div>
+                <div>
+                    <img src="images/clark_logo.jpg" class="icon">
+                    <Strong>Clark University </Strong><br> Spent two years in Liberal Arts program before
+                    transferring to RPI
+                    <br> Fall 2012 - Spring 2014 | Worcester, MA | GPA 3.63
+                </div>
+            </div>
+            <br>
         </div>
 </div>
 
@@ -245,6 +233,7 @@
         $(".title-section").css("opacity", 1 - $(window).scrollTop() / 800);
     });
 </script>
+
 
 </body>
 
