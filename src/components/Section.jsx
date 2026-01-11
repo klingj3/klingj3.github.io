@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
-const SectionContainer = styled.div`
-  background-color: var(--secondary-background);
+const SectionContainer = styled.section`
   width: 100%;
-  
-  &.transparent {
-    background: transparent;
-  }
+  padding: 2rem 0;
+  background-color: ${props => props.$transparent ? 'transparent' : 'var(--secondary-background)'};
 `
 
 const Section = ({ id, className, style, children, transparent = false }) => {
   return (
     <SectionContainer 
       id={id} 
-      className={`container ${transparent ? 'transparent container-transparent-b' : 'secondary'} ${className || ''}`}
+      $transparent={transparent}
+      className={className}
       style={style}
     >
       {children}

@@ -1,33 +1,47 @@
-import { useEffect } from 'react'
 import styled from 'styled-components'
 
-const FooterContainer = styled.div`
-  // Styles inherited from existing CSS
+const FooterContainer = styled.footer`
+  width: 100%;
+  text-align: center;
+  padding: 2rem 0 3rem;
+  background: transparent;
+`
+
+const ScrollTopButton = styled.a`
+  display: inline-block;
+  color: white;
+  font-size: 24px;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  
+  &:hover {
+    color: var(--focus-1);
+    transform: translateY(-5px);
+    text-shadow: none;
+  }
 `
 
 const Footer = () => {
-  useEffect(() => {
-    // Setup smooth scroll for footer link
-    if (window.$) {
-      $("footer a[href='#myPage']").off('click').on('click', function (event) {
-        event.preventDefault()
-        $('html, body').animate({
-          scrollTop: 0
-        }, 1000, function () {
-          window.location.hash = '#myPage'
-        })
-      })
-    }
-  }, [])
+  const handleScrollTop = (e) => {
+    e.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+    setTimeout(() => {
+      window.location.hash = '#myPage'
+    }, 1000)
+  }
 
   return (
     <FooterContainer>
-      <br />
-      <footer className="container-fluid text-center">
-        <a href="#myPage">
-          <span className="glyphicon glyphicon-chevron-up white"></span>
-        </a>
-      </footer>
+      <ScrollTopButton 
+        href="#myPage" 
+        onClick={handleScrollTop}
+        aria-label="Scroll to top"
+      >
+        <span className="glyphicon glyphicon-chevron-up" />
+      </ScrollTopButton>
     </FooterContainer>
   )
 }
