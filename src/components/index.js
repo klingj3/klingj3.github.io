@@ -1,0 +1,7 @@
+export { default as Navbar } from './Navbar'
+export { default as TitleSection } from './TitleSection'
+export { default as Experience } from './Experience'
+export { default as Education } from './Education'
+export { default as Contact } from './Contact'
+export { default as Footer } from './Footer'
+export { default as Section } from './Section'
