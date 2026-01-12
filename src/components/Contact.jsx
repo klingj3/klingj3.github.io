@@ -1,10 +1,9 @@
 import styled from 'styled-components'
+import Section from './Section'
 
-const ContactSection = styled.section`
-  width: 100%;
-  padding: 3rem 1.5rem;
-  background: linear-gradient(135deg, rgba(38, 42, 56, 0.95) 0%, rgba(44, 165, 141, 0.25) 100%);
+const ContactWrapper = styled.div`
   text-align: center;
+  padding: 0 1.5rem;
 `
 
 const Title = styled.h2`
@@ -25,13 +24,13 @@ const ContactText = styled.p`
 `
 
 const EmailLink = styled.a`
-  color: var(--focus-1);
+  color: #2CA58D;
   font-weight: 600;
   font-size: clamp(1.5rem, 2.5vw, 1.75rem);
   
   &:hover {
     color: #fff;
-    text-shadow: 1px 0px 20px white;
+    text-shadow: 0 0 20px rgba(44, 165, 141, 0.5);
   }
 `
 
@@ -47,38 +46,40 @@ const SocialLinks = styled.div`
     display: inline-block;
     
     &:hover {
-      color: var(--focus-1);
+      color: #2CA58D;
       transform: scale(1.1);
-      text-shadow: none;
+      text-shadow: 0 0 20px rgba(44, 165, 141, 0.5);
     }
   }
 `
 
 const Contact = () => {
   return (
-    <ContactSection id="contact">
-      <Title>Contact</Title>
-      <div>
-        <ContactText>
-          Any questions? Get in touch.
-          <br />
-          <EmailLink href="mailto:jkklingelhofer@gmail.com">
-            jkklingelhofer@gmail.com
-          </EmailLink>
-          <br />
-          <br />
-          also see
-        </ContactText>
-        <SocialLinks>
-          <a href="https://github.com/klingj3" aria-label="GitHub">
-            <span className="fa fa-github"></span>
-          </a>
-          <a href="https://linkedin.com/in/john-klingelhofer-349892a5" aria-label="LinkedIn">
-            <span className="fa fa-linkedin"></span>
-          </a>
-        </SocialLinks>
-      </div>
-    </ContactSection>
+    <Section id="contact" frostLevel={3} style={{ padding: '3rem 0' }}>
+      <ContactWrapper>
+        <Title>Contact</Title>
+        <div>
+          <ContactText>
+            Any questions? Get in touch.
+            <br />
+            <EmailLink href="mailto:jkklingelhofer@gmail.com">
+              jkklingelhofer@gmail.com
+            </EmailLink>
+            <br />
+            <br />
+            also see
+          </ContactText>
+          <SocialLinks>
+            <a href="https://github.com/klingj3" aria-label="GitHub">
+              <span className="fa fa-github"></span>
+            </a>
+            <a href="https://linkedin.com/in/john-klingelhofer-349892a5" aria-label="LinkedIn">
+              <span className="fa fa-linkedin"></span>
+            </a>
+          </SocialLinks>
+        </div>
+      </ContactWrapper>
+    </Section>
   )
 }
 

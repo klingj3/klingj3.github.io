@@ -327,7 +327,7 @@ const Experience = () => {
   ]
 
   return (
-    <Section id="experience" transparent style={{ background: 'linear-gradient(135deg, rgba(38, 42, 56, 0.95) 0%, rgba(44, 165, 141, 0.15) 100%)', padding: '3rem 0' }}>
+    <Section id="experience" frostLevel={1} style={{ padding: '3rem 0' }}>
       <div className="container-fluid">
         <SectionTitle>Experience</SectionTitle>
         <ExperienceContainer>

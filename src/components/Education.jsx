@@ -114,7 +114,7 @@ const Education = () => {
   ]
 
   return (
-    <Section id="education" transparent style={{minHeight: '200px', paddingBottom: '4rem', background: 'linear-gradient(135deg, rgba(44, 165, 141, 0.2) 0%, rgba(38, 42, 56, 0.95) 100%)', padding: '3rem 0'}}>
+    <Section id="education" frostLevel={2} style={{minHeight: '200px', paddingBottom: '4rem', padding: '3rem 0'}}>
       <SectionTitle>Education</SectionTitle>
       <EducationContainer>
         {educationHistory.map((edu, index) => (
