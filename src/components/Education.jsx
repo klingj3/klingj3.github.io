@@ -1,152 +1,121 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { INK, INK_MID, INK_LIGHT, RULE, FONT_SERIF, FONT_SERIF_ALT } from '../styles/theme'
+import {
+  ContentWrap, SectionDivider, SectionHeading,
+  fadeUp, sectionViewport
+} from '../styles/shared'
 
 const Section = styled.section`
-  padding: clamp(3rem, 8vh, 5rem) 0;
-  background: #111520;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: clamp(2.5rem, 6vh, 4rem) 0;
 `
 
-const Wrap = styled.div`
-  max-width: 900px;
+const EduGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 26rem;
   margin: 0 auto;
-  padding: 0 1.5rem;
 `
 
-const Header = styled(motion.div)`
+const EduEntry = styled(motion.div)`
+  width: 100%;
   text-align: center;
-  margin-bottom: clamp(3rem, 5vw, 4rem);
 `
 
-const Tag = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: #2CA58D;
-  margin-bottom: 0.75rem;
-`
-
-const Title = styled.h2`
-  font-family: 'Righteous', cursive;
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: #eef1f5;
-`
-
-const Dot = styled.div`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #2CA58D;
-  margin: 1rem auto 0;
-`
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-const Card = styled(motion.div)`
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  background: #141821;
-  transition: border-color 0.25s;
-
-  &:hover {
-    border-color: rgba(44, 165, 141, 0.3);
-  }
+const EntryHead = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-bottom: 0.15rem;
 `
 
 const Logo = styled.img`
-  width: 48px;
-  height: 48px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(44, 165, 141, 0.3);
-  margin-bottom: 1rem;
+  flex-shrink: 0;
+  filter: grayscale(1);
+  opacity: 0.75;
 `
 
-const School = styled.h3`
-  font-family: 'Lato', sans-serif;
+const SchoolName = styled.h3`
+  margin: 0;
+  font-family: ${FONT_SERIF};
   font-weight: 700;
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: #eef1f5;
-  margin: 0 0 0.5rem;
-  line-height: 1.25;
+  font-size: clamp(0.9rem, 1.9vw, 1.05rem);
+  color: ${INK};
+  line-height: 1.3;
 `
 
 const Degree = styled.div`
-  font-size: 0.9rem;
-  color: #2CA58D;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  font-family: ${FONT_SERIF};
+  font-size: clamp(0.82rem, 1.45vw, 0.9rem);
+  color: ${INK};
+  line-height: 1.55;
 `
 
-const Details = styled.p`
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.88rem;
-  color: rgba(238, 241, 245, 0.6);
-  line-height: 1.6;
-  margin: 0 0 0.75rem;
+const Detail = styled.span`
+  font-family: ${FONT_SERIF_ALT};
+  font-style: italic;
+  color: ${INK_MID};
 `
 
 const Meta = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: rgba(238, 241, 245, 0.35);
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.78rem;
+  font-style: italic;
+  color: ${INK_LIGHT};
+  margin-top: 0.25rem;
 `
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-}
-
-const vp = { once: true, margin: '-40px' }
 
 const schools = [
   {
     logo: '/images/rpi_logo.jpg',
     name: 'Rensselaer Polytechnic Institute',
-    degree: 'BS Computer Science, Cum Laude',
-    details: 'AI and Data Concentration',
-    meta: 'Graduated 2018 · Troy, NY'
+    lines: ['BS Computer Science, Cum Laude', 'Concentration in AI and Data'],
+    meta: 'Class of 2018 · Troy, NY'
   },
   {
     logo: '/images/clark_logo.jpg',
     name: 'Clark University',
-    degree: null,
-    details: 'Two years in Liberal Arts before transferring to RPI',
+    lines: ['Liberal Arts, two years before transferring to RPI'],
     meta: '2012–2014 · Worcester, MA'
   }
 ]
 
 const Education = () => (
   <Section id="education">
-    <Wrap>
-      <Header initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
-        <Tag>02 — Education</Tag>
-        <Title>Background</Title>
-        <Dot />
-      </Header>
-      <Grid>
-        {schools.map((s, i) => (
-          <Card key={i} initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
-            <Logo src={s.logo} alt={s.name} />
-            <School>{s.name}</School>
-            {s.degree && <Degree>{s.degree}</Degree>}
-            <Details>{s.details}</Details>
+    <ContentWrap>
+      <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
+      <SectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Education</SectionHeading>
+
+      <EduGrid>
+        {schools.map((s) => (
+          <EduEntry
+            key={s.name}
+            initial="hidden"
+            whileInView="visible"
+            viewport={sectionViewport}
+            variants={fadeUp}
+          >
+            <EntryHead>
+              <Logo src={s.logo} alt="" loading="lazy" decoding="async" />
+              <SchoolName>{s.name}</SchoolName>
+            </EntryHead>
+            {s.lines.map((line, i) => (
+              <Degree key={i}>
+                {i === 0 ? line : <Detail>{line}</Detail>}
+              </Degree>
+            ))}
             <Meta>{s.meta}</Meta>
-          </Card>
+          </EduEntry>
         ))}
-      </Grid>
-    </Wrap>
+      </EduGrid>
+    </ContentWrap>
   </Section>
 )
 

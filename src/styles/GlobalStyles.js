@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { INK, INK_MID, PAPER, SELECTION, FONT_SERIF } from './theme'
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -12,36 +13,36 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: ${FONT_SERIF};
     font-weight: 400;
     font-size: 18px;
     line-height: 1.6;
-    color: #eef1f5;
-    background-color: #0c0f16;
+    color: ${INK};
+    background-color: ${PAPER};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
   }
 
   #root {
-    background-color: #0c0f16;
+    background-color: ${PAPER};
     min-height: 100vh;
     position: relative;
   }
 
   a {
-    color: #2CA58D;
+    color: ${INK_MID};
     text-decoration: none;
     transition: color 0.25s ease;
   }
 
   a:hover {
-    color: #3dd4b0;
+    color: ${INK};
   }
 
   ::selection {
-    background: #2CA58D;
-    color: #fff;
+    background: ${SELECTION};
+    color: ${INK};
   }
 `
 

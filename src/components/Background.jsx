@@ -1,17 +1,12 @@
 import styled, { keyframes } from 'styled-components'
 
-const drift = keyframes`
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(60px, -80px) scale(1.1); }
-  50% { transform: translate(-40px, 60px) scale(0.95); }
-  75% { transform: translate(-80px, -30px) scale(1.05); }
-`
-
-const drift2 = keyframes`
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(-50px, 70px) scale(1.05); }
-  50% { transform: translate(60px, -50px) scale(1.1); }
-  75% { transform: translate(30px, 80px) scale(0.95); }
+const grain = keyframes`
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  30% { transform: translate(5%, -10%); }
+  50% { transform: translate(-10%, 5%); }
+  70% { transform: translate(10%, 5%); }
+  90% { transform: translate(-5%, 10%); }
 `
 
 const BackgroundBase = styled.div`
@@ -21,51 +16,26 @@ const BackgroundBase = styled.div`
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-color: #0c0f16;
+  background-color: #f5f0e8;
   overflow: hidden;
   pointer-events: none;
 `
 
-const Orb = styled.div`
+const GrainOverlay = styled.div`
   position: absolute;
-  border-radius: 50%;
-  will-change: transform;
-`
-
-const OrbPrimary = styled(Orb)`
-  width: 800px;
-  height: 800px;
-  top: -200px;
-  right: -200px;
-  background: radial-gradient(circle, rgba(44, 165, 141, 0.15) 0%, rgba(44, 165, 141, 0.05) 40%, transparent 70%);
-  filter: blur(80px);
-  animation: ${drift} 30s ease-in-out infinite;
-
-  @media (max-width: 768px) {
-    width: 500px;
-    height: 500px;
-  }
-`
-
-const OrbSecondary = styled(Orb)`
-  width: 700px;
-  height: 700px;
-  bottom: -200px;
-  left: -200px;
-  background: radial-gradient(circle, rgba(30, 60, 100, 0.2) 0%, rgba(30, 60, 100, 0.05) 40%, transparent 70%);
-  filter: blur(80px);
-  animation: ${drift2} 35s ease-in-out infinite;
-
-  @media (max-width: 768px) {
-    width: 450px;
-    height: 450px;
-  }
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  animation: ${grain} 8s steps(10) infinite;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 `
 
 const Background = () => (
   <BackgroundBase>
-    <OrbPrimary />
-    <OrbSecondary />
+    <GrainOverlay />
   </BackgroundBase>
 )
 

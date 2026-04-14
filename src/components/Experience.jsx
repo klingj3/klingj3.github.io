@@ -1,387 +1,287 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
+import styled from 'styled-components'
+import { motion, LayoutGroup } from 'framer-motion'
+import {
+  INK, INK_MID, INK_LIGHT, RULE, SHADE,
+  FONT_SERIF, FONT_SERIF_ALT, inkAlpha
+} from '../styles/theme'
+import {
+  ContentWrap, SectionDivider, SectionHeading,
+  fadeUp, sectionViewport
+} from '../styles/shared'
 
 const Section = styled.section`
-  padding: clamp(3rem, 8vh, 5rem) 0;
+  padding: clamp(2.5rem, 6vh, 4rem) 0;
 `
 
-const Wrap = styled.div`
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-`
-
-const Header = styled(motion.div)`
-  text-align: center;
-  margin-bottom: clamp(3rem, 5vw, 4rem);
-`
-
-const Tag = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: #2CA58D;
-  margin-bottom: 0.75rem;
-`
-
-const Title = styled.h2`
-  font-family: 'Righteous', cursive;
-  font-size: clamp(2rem, 5vw, 3rem);
-  color: #eef1f5;
-`
-
-const Dot = styled.div`
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #2CA58D;
-  margin: 1rem auto 0;
-`
-
-/* Tag filter bar */
+/* --- filter bar as subject labels --- */
 
 const FilterBar = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  gap: 0.4rem 0.2rem;
+  margin-bottom: clamp(1.35rem, 3vw, 2rem);
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.82rem;
 `
 
-const FilterPill = styled.button`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
-  padding: 0.35rem 0.75rem;
-  border-radius: 20px;
-  border: 1px solid rgba(44, 165, 141, 0.25);
+const FilterLabel = styled.button`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.82rem;
+  font-style: italic;
+  padding: 0.2rem 0.15rem;
+  border: none;
+  border-bottom: 1px solid transparent;
   cursor: pointer;
   transition: all 0.2s;
-  background: ${({ $active }) => $active ? 'rgba(44, 165, 141, 0.2)' : 'transparent'};
-  color: ${({ $active }) => $active ? '#3dd4b0' : 'rgba(238, 241, 245, 0.5)'};
-  border-color: ${({ $active }) => $active ? '#2CA58D' : 'rgba(44, 165, 141, 0.25)'};
+  background: none;
+  color: ${({ $active }) => $active ? INK : INK_LIGHT};
+  border-bottom-color: ${({ $active }) => $active ? INK : 'transparent'};
 
   &:hover {
-    border-color: #2CA58D;
-    color: #3dd4b0;
-    background: rgba(44, 165, 141, 0.1);
+    color: ${INK};
+    border-bottom-color: ${RULE};
   }
+
+  &::before { content: '['; color: ${INK_LIGHT}; }
+  &::after { content: ']'; color: ${INK_LIGHT}; }
 `
 
 const ClearBtn = styled.button`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.75rem;
-  border-radius: 20px;
-  border: 1px solid rgba(238, 241, 245, 0.15);
-  cursor: pointer;
-  transition: all 0.2s;
-  background: transparent;
-  color: rgba(238, 241, 245, 0.4);
-
-  &:hover {
-    border-color: rgba(238, 241, 245, 0.3);
-    color: rgba(238, 241, 245, 0.7);
-  }
-`
-
-const CompanyBlock = styled(motion.div)`
-  transition: opacity 0.4s ease;
-  opacity: ${({ $dimmed }) => $dimmed ? 0.2 : 1};
-
-  & + & {
-    margin-top: clamp(3rem, 6vw, 5rem);
-    padding-top: clamp(3rem, 6vw, 5rem);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-`
-
-const CompanyHead = styled(motion.div)`
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid rgba(44, 165, 141, 0.3);
-`
-
-const CompanyName = styled.h3`
-  font-family: 'Righteous', cursive;
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  color: #eef1f5;
-  margin: 0;
-`
-
-const CompanyLoc = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  color: rgba(238, 241, 245, 0.4);
-`
-
-/* Featured project (Muse) — collapsible */
-
-const MuseToggle = styled.button`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding: clamp(1rem, 2vw, 1.25rem) clamp(1.25rem, 2.5vw, 1.75rem);
-  background: #141821;
-  border: 1px solid rgba(44, 165, 141, 0.3);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.25s;
-  text-align: left;
-
-  &:hover {
-    border-color: #2CA58D;
-    background: #181d28;
-  }
-`
-
-const ToggleLeft = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-width: 0;
-`
-
-const ToggleBadge = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #3dd4b0;
-  background: rgba(44, 165, 141, 0.1);
-  padding: 0.25rem 0.65rem;
-  border-radius: 20px;
-  white-space: nowrap;
-  flex-shrink: 0;
-
-  &::before {
-    content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #3dd4b0;
-  }
-`
-
-const ToggleTitle = styled.span`
-  font-family: 'Righteous', cursive;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  color: #eef1f5;
-`
-
-const Chevron = styled.div`
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  color: #2CA58D;
-  transition: transform 0.3s ease;
-  ${({ $open }) => $open && css`transform: rotate(180deg);`}
-
-  svg {
-    width: 100%;
-    height: 100%;
-    fill: currentColor;
-  }
-`
-
-const FeaturedCard = styled.div`
-  background: #141821;
-  border: 1px solid rgba(44, 165, 141, 0.3);
-  border-top: none;
-  border-radius: 0 0 16px 16px;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  position: relative;
-`
-
-const FeaturedSub = styled.div`
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.9rem;
-  color: #2CA58D;
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-`
-
-const FeaturedDesc = styled.p`
-  font-family: 'Open Sans', sans-serif;
-  font-size: clamp(0.88rem, 1.3vw, 1rem);
-  color: rgba(238, 241, 245, 0.65);
-  line-height: 1.8;
-  margin: 0 0 1.5rem;
-`
-
-const Links = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
-`
-
-const LinkPill = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: #2CA58D;
-  padding: 0.45rem 0.9rem;
-  border: 1px solid rgba(44, 165, 141, 0.3);
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.2s;
-
-  &:hover {
-    background: rgba(44, 165, 141, 0.1);
-    border-color: #2CA58D;
-    color: #3dd4b0;
-  }
-
-  svg { width: 12px; height: 12px; fill: currentColor; flex-shrink: 0; }
-`
-
-const Quotes = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-  }
-`
-
-const QuoteBox = styled.div`
-  padding-left: 1rem;
-  border-left: 2px solid #2CA58D;
-`
-
-const QText = styled.p`
-  font-family: 'Open Sans', sans-serif;
-  font-style: italic;
-  font-size: 0.88rem;
-  color: rgba(238, 241, 245, 0.8);
-  line-height: 1.65;
-  margin: 0 0 0.5rem;
-`
-
-const QAuthor = styled.div`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  color: #2CA58D;
-`
-
-/* Standard roles */
-
-const RoleWrap = styled(motion.div)`
-  transition: opacity 0.4s ease;
-  opacity: ${({ $dimmed }) => $dimmed ? 0.2 : 1};
-
-  & + & {
-    margin-top: 1rem;
-  }
-`
-
-const RoleItem = styled(motion.div)`
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  transition: border-color 0.25s;
-
-  &:hover {
-    border-color: rgba(44, 165, 141, 0.25);
-  }
-`
-
-const RoleTop = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-`
-
-const RoleName = styled.h4`
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  color: #2CA58D;
-  margin: 0;
-`
-
-const RolePeriod = styled.span`
-  font-family: 'JetBrains Mono', monospace;
+  font-family: ${FONT_SERIF_ALT};
   font-size: 0.75rem;
-  color: rgba(238, 241, 245, 0.35);
+  font-style: italic;
+  padding: 0.2rem 0.4rem;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: ${INK_LIGHT};
+  transition: color 0.2s;
+  &:hover { color: ${INK}; }
 `
 
-const RoleDesc = styled.li`
-  font-family: 'Open Sans', sans-serif;
-  font-size: clamp(0.88rem, 1.3vw, 1rem);
-  color: rgba(238, 241, 245, 0.6);
-  line-height: 1.75;
-  margin: 0;
-  padding-left: 0.25rem;
+/* --- company = dictionary entry --- */
 
-  & + & { margin-top: 0.6rem; }
-`
+const EntryBlock = styled(motion.div)`
+  transition: opacity 0.4s ease;
+  opacity: ${({ $dimmed }) => $dimmed ? 0.15 : 1};
 
-const BulletList = styled.ul`
-  list-style: disc;
-  padding-left: 1.25rem;
-  margin: 0;
-
-  li::marker {
-    color: rgba(44, 165, 141, 0.5);
+  & + & {
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
   }
 `
 
-const RoleTags = styled.div`
+const EntryHead = styled(motion.div)`
+  margin-bottom: 0.55rem;
+`
+
+const EntryHeadword = styled.span`
+  font-family: ${FONT_SERIF};
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  color: ${INK};
+  letter-spacing: -0.01em;
+`
+
+const EntryMeta = styled.span`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  font-style: italic;
+  color: ${INK_LIGHT};
+  margin-left: 0.5rem;
+`
+
+/* --- Muse featured project (expanded, below Senior SWE) --- */
+
+const MuseBlock = styled(motion.div)`
+  margin: 1rem 0 0.5rem;
+  padding: 1.25rem 1.1rem 1.35rem;
+  background: ${SHADE};
+  border: 1px solid ${RULE};
+  border-radius: 2px;
+`
+
+const MuseKicker = styled.div`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${INK_LIGHT};
+  margin-bottom: 0.35rem;
+`
+
+const MuseTitleRow = styled.div`
+  font-family: ${FONT_SERIF};
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  color: ${INK};
+  margin-bottom: 0.35rem;
+`
+
+const MuseSubtitle = styled.div`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  color: ${INK_MID};
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.45;
+`
+
+const MuseDesc = styled.p`
+  font-family: ${FONT_SERIF};
+  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  color: ${inkAlpha(0.7)};
+  line-height: 1.8;
+  margin: 0 0 1.15rem;
+  text-align: justify;
+  hyphens: auto;
+`
+
+const RefLinks = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+`
+
+const RefLink = styled.a`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.85rem;
+  color: ${INK_MID};
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid ${RULE};
+  transition: all 0.2s;
+
+  &:hover {
+    color: ${INK};
+    border-color: ${inkAlpha(0.35)};
+  }
+
+  svg { width: 11px; height: 11px; fill: currentColor; vertical-align: -1px; margin-right: 0.3rem; }
+`
+
+const QuotesBlock = styled.div`
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid ${RULE};
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`
+
+const PullQuote = styled.blockquote`
+  margin: 0;
+  padding: 0.85rem 0 0.85rem 1rem;
+  border-left: 3px solid ${INK_MID};
+  font-family: ${FONT_SERIF};
+  font-size: clamp(0.9rem, 1.45vw, 1.02rem);
+  color: ${inkAlpha(0.78)};
+  line-height: 1.65;
+  font-style: italic;
+`
+
+const PullQuoteAttribution = styled.footer`
+  margin-top: 0.65rem;
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.88rem;
+  font-style: normal;
+  font-weight: 600;
+  color: ${INK};
+`
+
+/* --- roles as sub-definitions --- */
+
+const SubEntry = styled(motion.div)`
+  transition: opacity 0.4s ease;
+  opacity: ${({ $dimmed }) => $dimmed ? 0.15 : 1};
+  margin-bottom: 0.6rem;
+`
+
+const SubEntryInner = styled(motion.div)`
+  padding-left: 1.3rem;
+`
+
+const SubHead = styled.div`
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
   gap: 0.35rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.3rem;
 `
 
-const RoleTag = styled.span`
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.02em;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
+const SubTitle = styled.span`
+  font-family: ${FONT_SERIF};
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1.5vw, 1.02rem);
+  color: ${INK};
+`
+
+const SubPeriod = styled.span`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.85rem;
+  font-style: italic;
+  color: ${INK_LIGHT};
+`
+
+const SubjectLabels = styled.div`
+  display: inline;
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.8rem;
+  font-style: italic;
+  color: ${INK_LIGHT};
+  margin-bottom: 0.2rem;
+`
+
+const SubjectLabel = styled.span`
   transition: all 0.3s ease;
-  background: ${({ $active }) => $active ? 'rgba(44, 165, 141, 0.22)' : 'rgba(44, 165, 141, 0.08)'};
-  color: ${({ $active }) => $active ? '#3dd4b0' : 'rgba(44, 165, 141, 0.6)'};
-  border: 1px solid ${({ $active }) => $active ? 'rgba(44, 165, 141, 0.5)' : 'rgba(44, 165, 141, 0.12)'};
-  ${({ $active }) => $active && css`box-shadow: 0 0 8px rgba(44, 165, 141, 0.2);`}
+  color: ${({ $active }) => $active ? INK : INK_LIGHT};
+  font-weight: ${({ $active }) => $active ? 500 : 400};
+  cursor: default;
 `
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 25 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
-}
+const DetailList = styled.ul`
+  margin: 0;
+  padding-left: 1.35rem;
+  list-style-type: disc;
+  list-style-position: outside;
+`
 
-const vp = { once: true, margin: '-40px' }
+const DetailItem = styled.li`
+  font-family: ${FONT_SERIF};
+  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  color: ${inkAlpha(0.65)};
+  line-height: 1.8;
+  margin-bottom: 0.4rem;
+  text-align: justify;
+  hyphens: auto;
 
+  &::marker {
+    color: ${INK_LIGHT};
+  }
 
-const ChevronDown = () => <svg viewBox="0 0 16 16"><path d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>
+  &:last-child {
+    margin-bottom: 0;
+  }
+`
+
 const ExtIcon = () => <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
 const VidIcon = () => <svg viewBox="0 0 16 16"><path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2z"/></svg>
+
+const TAG_ABBREVS = {
+  'Python': 'Py.',
+  'Non-LLM AI': 'A.I.',
+  'LLMs': 'LLM',
+  'Computer Vision': 'Comp. Vis.',
+  'Data Engineering': 'Data Eng.',
+  'React': 'React',
+  'Java': 'Java',
+  'SQL': 'SQL',
+  'Fullstack': 'Fullstack',
+  'Keras': 'Keras'
+}
 
 const TAG_ORDER = ['Python', 'Non-LLM AI', 'LLMs', 'Computer Vision', 'Data Engineering', 'React', 'Java', 'SQL', 'Fullstack', 'Keras']
 
@@ -395,13 +295,13 @@ const companies = [
       subtitle: 'Built in 2024 — among the first production agentic AI systems in pharma',
       description: "Led backend architecture and implementation for Muse, an LLM-driven suite of tools that generates human-level, regulation-compliant recruitment materials for clinical trials — the result of a partnership with Sanofi and OpenAI. Built before agentic AI frameworks were widely available, Muse was a novel multi-agent system that brought AI-generated, regulation-compliant recruitment materials into production in the highly regulated pharmaceutical industry. No-code interfaces were developed to allow non-tech domain experts to experiment and tune system output. The project was a major company success and is now used in the real-world by Sanofi.",
       links: [
-        { label: 'Watch: CEO highlights Muse on CNBC (first appearance)', url: 'https://youtu.be/S52cNcbp0e4?t=133', icon: 'vid' },
+        { label: 'CNBC — CEO highlights Muse', url: 'https://youtu.be/S52cNcbp0e4?t=133', icon: 'vid' },
         { label: 'Blog — Pt. 1', url: 'https://www.formation.bio/blog/behind-the-scenes-of-muse-part1', icon: 'ext' },
         { label: 'Blog — Pt. 2', url: 'https://www.formation.bio/blog/behind-the-scenes-of-muse-part2', icon: 'ext' },
       ],
       quotes: [
-        { text: "The development of Muse represents another proof point in Sanofi's journey to becoming the first pharma company powered by AI at scale.", author: "Emmanuel Frenehard, Sanofi CDO" },
         { text: "We believe AI can accelerate drug development, bringing new treatments to patients more quickly... we can't wait to see the impact Muse will have.", author: "Brad Lightcap, OpenAI COO" },
+        { text: "The development of Muse represents another proof point in Sanofi's journey to becoming the first pharma company powered by AI at scale.", author: "Emmanuel Frenehard, Sanofi CDO" },
       ]
     },
     roles: [
@@ -409,7 +309,7 @@ const companies = [
         tags: ['Python', 'Non-LLM AI', 'LLMs', 'Computer Vision', 'Data Engineering', 'React', 'SQL', 'Fullstack'],
         details: [
           "Senior IC driving AI/ML initiatives across the organization. Most projects are proprietary and can't be discussed publicly, but the work spans NLP, computer vision, predictive modeling, and data infrastructure, with involvement across the full lifecycle from research and prototyping through production.",
-          "Muse (see featured project above) is a rare exception and one of the few projects I can discuss in full public detail, serving as a good window into the kind of work I do more broadly.",
+          "Muse (write-up below) is a rare exception and one of the few projects I can discuss in full public detail, serving as a good window into the kind of work I do more broadly.",
           "Across other initiatives: built custom scrapers and specialized extraction pipelines for pulling structured data from tables in medical literature (a notoriously hard problem where general LLMs fail, with what I believe is best-in-class accuracy for the domain); built Dagster-based ingestion and transformation pipelines for drug and indication datasets from disparate sources; developed predictive models for drug outcome forecasting and automated indication expansion."
         ]},
       { title: 'Software Engineer II', period: '10/2021 – 07/2023',
@@ -467,63 +367,36 @@ const allTags = (() => {
 
 const FeaturedWrap = styled(motion.div)`
   transition: opacity 0.4s ease;
-  opacity: ${({ $dimmed }) => $dimmed ? 0.2 : 1};
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  opacity: ${({ $dimmed }) => $dimmed ? 0.15 : 1};
+  margin-bottom: 1.25rem;
 `
 
-const MuseSection = ({ featured, dimmed, layoutId }) => {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <FeaturedWrap $dimmed={dimmed} layout layoutId={layoutId}>
-      <MuseToggle
-        onClick={() => setOpen(o => !o)}
-        style={open ? { borderRadius: '12px 12px 0 0' } : undefined}
-      >
-        <ToggleLeft>
-          <ToggleBadge>Featured Project</ToggleBadge>
-          <ToggleTitle>{featured.title}</ToggleTitle>
-        </ToggleLeft>
-        <Chevron $open={open}><ChevronDown /></Chevron>
-      </MuseToggle>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="muse-content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            style={{ overflow: 'hidden' }}
-          >
-            <FeaturedCard>
-              <FeaturedSub>{featured.subtitle}</FeaturedSub>
-              <FeaturedDesc>{featured.description}</FeaturedDesc>
-              <Links>
-                {featured.links.map((l, i) => (
-                  <LinkPill key={i} href={l.url} target="_blank" rel="noopener noreferrer">
-                    {l.icon === 'vid' ? <VidIcon /> : <ExtIcon />}
-                    {l.label}
-                  </LinkPill>
-                ))}
-              </Links>
-             
-              <Quotes>
-                {featured.quotes.map((q, i) => (
-                  <QuoteBox key={i}>
-                    <QText>{q.text}</QText>
-                    <QAuthor>— {q.author}</QAuthor>
-                  </QuoteBox>
-                ))}
-              </Quotes>
-            </FeaturedCard>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </FeaturedWrap>
-  )
-}
+const MuseSection = ({ featured, dimmed, layoutId }) => (
+  <FeaturedWrap $dimmed={dimmed} layout layoutId={layoutId}>
+    <MuseBlock layout="position">
+      <MuseKicker>Featured project</MuseKicker>
+      <MuseTitleRow>{featured.title}</MuseTitleRow>
+      <MuseSubtitle>{featured.subtitle}</MuseSubtitle>
+      <MuseDesc>{featured.description}</MuseDesc>
+      <RefLinks>
+        {featured.links.map((l, i) => (
+          <RefLink key={i} href={l.url} target="_blank" rel="noopener noreferrer">
+            {l.icon === 'vid' ? <VidIcon /> : <ExtIcon />}
+            {l.label}
+          </RefLink>
+        ))}
+      </RefLinks>
+      <QuotesBlock>
+        {featured.quotes.map((q, i) => (
+          <PullQuote key={i}>
+            &ldquo;{q.text}&rdquo;
+            <PullQuoteAttribution>{q.author}</PullQuoteAttribution>
+          </PullQuote>
+        ))}
+      </QuotesBlock>
+    </MuseBlock>
+  </FeaturedWrap>
+)
 
 const Experience = () => {
   const [activeTags, setActiveTags] = useState(new Set())
@@ -557,20 +430,17 @@ const Experience = () => {
 
   return (
     <Section id="experience">
-      <Wrap>
-        <Header initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
-          <Tag>01 — Experience</Tag>
-          <Title>Where I've Worked</Title>
-          <Dot />
-        </Header>
+      <ContentWrap>
+        <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
+        <SectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Experience</SectionHeading>
 
-        <FilterBar initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
+        <FilterBar initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
           {allTags.map(t => (
-            <FilterPill key={t} $active={activeTags.has(t)} onClick={() => toggleTag(t)}>
-              {t}
-            </FilterPill>
+            <FilterLabel key={t} $active={activeTags.has(t)} onClick={() => toggleTag(t)}>
+              {TAG_ABBREVS[t] || t}
+            </FilterLabel>
           ))}
-          {isFiltering && <ClearBtn onClick={() => setActiveTags(new Set())}>Clear</ClearBtn>}
+          {isFiltering && <ClearBtn onClick={() => setActiveTags(new Set())}>clear</ClearBtn>}
         </FilterBar>
 
         <LayoutGroup>
@@ -588,63 +458,74 @@ const Experience = () => {
               : co.roles
 
             return (
-              <CompanyBlock
+              <EntryBlock
                 key={co.name}
                 layout
                 layoutId={`company-${co.name}`}
                 transition={layoutTransition}
                 $dimmed={companyDimmed}
               >
-                <CompanyHead initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
-                  <CompanyName>{co.name}</CompanyName>
-                  <CompanyLoc>{co.location}</CompanyLoc>
-                </CompanyHead>
+                <EntryHead initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
+                  <EntryHeadword>{co.name}</EntryHeadword>
+                  <EntryMeta>{co.location}</EntryMeta>
+                </EntryHead>
 
-                {co.featured && (
-                  <MuseSection
-                    featured={co.featured}
-                    dimmed={companyDimmed ? false : (isFiltering && !featuredMatch)}
-                    layoutId={`featured-${co.name}`}
-                  />
-                )}
-
-                {sortedRoles.map((r) => {
+                {sortedRoles.flatMap((r) => {
                   const roleKey = `${co.name}-${r.title}-${r.period}`
                   const roleMatches = matches(r.tags)
                   const roleDimmed = isFiltering && !roleMatches
 
-                  return (
-                    <RoleWrap
+                  const subEntry = (
+                    <SubEntry
                       key={roleKey}
                       layout
                       layoutId={roleKey}
                       transition={layoutTransition}
                       $dimmed={companyDimmed ? false : roleDimmed}
                     >
-                      <RoleItem initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
-                        <RoleTop>
-                          <RoleName>{r.title}</RoleName>
-                          <RolePeriod>{r.period}</RolePeriod>
-                        </RoleTop>
+                      <SubEntryInner initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
+                        <SubHead>
+                          <SubTitle>{r.title}</SubTitle>
+                          <SubPeriod>{r.period}</SubPeriod>
+                        </SubHead>
                         {r.tags && (
-                          <RoleTags>
-                            {r.tags.map(t => (
-                              <RoleTag key={t} $active={activeTags.has(t)}>{t}</RoleTag>
+                          <SubjectLabels>
+                            {r.tags.map((t, i) => (
+                              <React.Fragment key={t}>
+                                <SubjectLabel $active={activeTags.has(t)}>[{TAG_ABBREVS[t] || t}]</SubjectLabel>
+                                {i < r.tags.length - 1 && ' '}
+                              </React.Fragment>
                             ))}
-                          </RoleTags>
+                          </SubjectLabels>
                         )}
-                        <BulletList>
-                          {r.details.map((d, di) => <RoleDesc key={di}>{d}</RoleDesc>)}
-                        </BulletList>
-                      </RoleItem>
-                    </RoleWrap>
+                        <DetailList>
+                          {r.details.map((d, di) => (
+                            <DetailItem key={di}>{d}</DetailItem>
+                          ))}
+                        </DetailList>
+                      </SubEntryInner>
+                    </SubEntry>
                   )
+
+                  if (co.featured && r.title === 'Senior Software Engineer') {
+                    return [
+                      subEntry,
+                      <MuseSection
+                        key={`muse-${co.name}`}
+                        featured={co.featured}
+                        dimmed={companyDimmed ? false : (isFiltering && !featuredMatch)}
+                        layoutId={`featured-${co.name}`}
+                      />
+                    ]
+                  }
+
+                  return [subEntry]
                 })}
-              </CompanyBlock>
+              </EntryBlock>
             )
           })}
         </LayoutGroup>
-      </Wrap>
+      </ContentWrap>
     </Section>
   )
 }

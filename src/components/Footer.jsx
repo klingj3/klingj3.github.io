@@ -1,31 +1,30 @@
 import styled from 'styled-components'
+import { INK, INK_LIGHT, RULE, FONT_SERIF_ALT, CONTENT_WIDTH } from '../styles/theme'
 
 const Foot = styled.footer`
-  max-width: 900px;
+  max-width: ${CONTENT_WIDTH};
   margin: 0 auto;
   padding: 1.5rem;
   display: flex;
   justify-content: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid ${RULE};
 `
 
 const Btn = styled.button`
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: rgba(238, 241, 245, 0.35);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.5rem 1.2rem;
-  transition: all 0.2s;
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.85rem;
+  font-style: italic;
+  color: ${INK_LIGHT};
+  letter-spacing: 0.03em;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
 
-  &:hover {
-    color: #2CA58D;
-    border-color: rgba(44, 165, 141, 0.3);
-  }
+  &:hover { color: ${INK}; }
+
+  &::before { content: '↑  '; }
 `
 
 const Footer = () => (
