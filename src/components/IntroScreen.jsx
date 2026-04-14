@@ -255,33 +255,6 @@ const UsageExample = styled(motion.div)`
   margin: 0.7rem 0 0.9rem 1.3rem;
 `
 
-/* ── etymology ── */
-
-const EtymologyPanel = styled(motion.div)`
-  background: ${SHADE};
-  border-top: 1px solid ${RULE};
-  border-bottom: 1px solid ${RULE};
-  padding: 0.75rem 1rem;
-  margin: 0.5rem 0 0.9rem;
-  font-family: ${FONT_SERIF};
-  font-size: clamp(0.78rem, 1.5vw, 0.86rem);
-  color: ${INK_MID};
-  line-height: 1.75;
-`
-
-const EtyLabel = styled.span`
-  font-weight: 700;
-  color: ${INK};
-`
-
-const EtyItalic = styled.span`
-  font-style: italic;
-`
-
-const EtyBold = styled.span`
-  font-weight: 700;
-`
-
 /* ── cross-references ("see also") ── */
 
 const SeeAlsoBlock = styled(motion.div)`
@@ -478,18 +451,20 @@ const IntroScreen = () => {
                 <DefSensesColumn>
                   <Definition>
                     <DefNumber>1.</DefNumber>
-                    <DefLabel>(biog.) </DefLabel>
-                    Software engineer with eight years of experience, living in Brooklyn,
-                    New York. Work has spanned the stack—frontend, backend, data engineering,
-                    and infrastructure and operations—in different roles and team contexts,
-                    which has given unusual flexibility in what I can take on and how
-                    quickly I can ramp in a new area.
+                    <DefLabel>(14th cent.) </DefLabel>
+                    Compound of <em>klingel-</em> (bell, small bell;
+                    cf.&nbsp;mod.&nbsp;Ger.&nbsp;<em>Klingel</em>,
+                    doorbell) + <em>-hofer</em> (one associated with
+                    a&nbsp;<em>Hof</em>, courtyard).
+                    Lit.&nbsp;&ldquo;courtyard bell-ringer.&rdquo; Attested in
+                    Rhineland&#8209;Palatinate records, 14th&nbsp;cent.
                   </Definition>
                   <Definition>
                     <DefNumber>2.</DefNumber>
-                    <DefLabel>(colloq.) </DefLabel>
-                    The colleague who actually reads your lengthy PR description before
-                    reviewing.
+                    <DefLabel>(21st cent.) </DefLabel>
+                    A Brooklyn-based software engineer with eight years of experience,
+                    focused primarily on healthcare and medicine, across frontend,
+                    backend, data engineering, and infrastructure.
                   </Definition>
                 </DefSensesColumn>
                 <PlateColumn>
@@ -509,20 +484,8 @@ const IntroScreen = () => {
 
               <UsageExample variants={fadeIn}>
                 &ldquo;That John Klingelhofer has an impressive resume and a pretty
-                snappy website. What is this, a dictionary theme? Cute. Can we just
-                call him &lsquo;John K&rsquo;?&rdquo;
+                snappy website.&rdquo;
               </UsageExample>
-
-              <EtymologyPanel variants={fadeIn}>
-                <EtyLabel>Etymology: </EtyLabel>
-                <EtyItalic>MHG. </EtyItalic>
-                Compound of <EtyBold>klingel-</EtyBold> (bell, small bell;
-                cf.&nbsp;mod.&nbsp;Ger.&nbsp;<EtyItalic>Klingel</EtyItalic>,
-                doorbell) + <EtyBold>-hofer</EtyBold> (one associated with
-                a&nbsp;<EtyItalic>Hof</EtyItalic>, courtyard).
-                Lit.&nbsp;&ldquo;courtyard bell-ringer.&rdquo; Attested in
-                Rhineland&#8209;Palatinate records, 14th&nbsp;cent.
-              </EtymologyPanel>
 
               <SeeAlsoBlock variants={fadeIn}>
                 <div><SeeAlsoLabel>See also </SeeAlsoLabel></div>
