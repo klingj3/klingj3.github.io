@@ -1,63 +1,47 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  :root {
-    --primary-background: #262a38;
-    --secondary-background: #e8efef;
-    --tertiary-background: #8E9AAF;
-    --focus-1: #2CA58D;
-    --focus-2: #262a38;
-    --text-color: #ffffff;
-  }
-
   html {
     scroll-behavior: smooth;
   }
 
   * {
     box-sizing: border-box;
-  }
-
-  body {
-    font: 400 18px 'Open Sans', sans-serif;
-    width: 100%;
-    line-height: 25px;
     margin: 0;
     padding: 0;
   }
 
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #eef1f5;
+    background-color: #0c0f16;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  #root {
+    background-color: #0c0f16;
+    min-height: 100vh;
+    position: relative;
+  }
+
   a {
-    color: var(--focus-1);
+    color: #2CA58D;
     text-decoration: none;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: #fff;
-      text-shadow: 1px 0px 20px white;
-    }
+    transition: color 0.25s ease;
   }
 
-  h2 {
-    font-size: 35px;
-    font-family: 'Comfortaa', sans-serif;
-    text-transform: uppercase;
-    color: #303030;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    
-    &.white {
-      color: white;
-    }
+  a:hover {
+    color: #3dd4b0;
   }
 
-  .white {
-    color: white;
-  }
-
-  .center {
-    text-align: center;
+  ::selection {
+    background: #2CA58D;
+    color: #fff;
   }
 `
 

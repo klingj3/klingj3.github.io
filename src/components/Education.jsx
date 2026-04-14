@@ -1,138 +1,153 @@
 import styled from 'styled-components'
-import Section from './Section'
+import { motion } from 'framer-motion'
 
-const SectionTitle = styled.h2`
-  color: white;
-  font-size: clamp(2.25rem, 5vw, 2.75rem);
-  font-family: 'Comfortaa', sans-serif;
-  text-transform: uppercase;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 30px;
-  margin-top: 30px;
+const Section = styled.section`
+  padding: clamp(3rem, 8vh, 5rem) 0;
+  background: #111520;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 `
 
-const EducationContainer = styled.div`
-  max-width: 1000px;
+const Wrap = styled.div`
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  
-  @media (max-width: 768px) {
-    padding: 0 1rem;
+`
+
+const Header = styled(motion.div)`
+  text-align: center;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+`
+
+const Tag = styled.div`
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #2CA58D;
+  margin-bottom: 0.75rem;
+`
+
+const Title = styled.h2`
+  font-family: 'Righteous', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #eef1f5;
+`
+
+const Dot = styled.div`
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2CA58D;
+  margin: 1rem auto 0;
+`
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 `
 
-const EducationCard = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: clamp(1.25rem, 4vw, 2rem);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: clamp(1.5rem, 4vw, 2rem);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  
+const Card = styled(motion.div)`
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: #141821;
+  transition: border-color 0.25s;
+
   &:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(44, 165, 141, 0.4);
-  }
-  
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    border-color: rgba(44, 165, 141, 0.3);
   }
 `
 
-const LogoWrapper = styled.div`
-  flex-shrink: 0;
-  
-  img {
-    width: clamp(60px, 12vw, 85px);
-    height: clamp(60px, 12vw, 85px);
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  }
+const Logo = styled.img`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(44, 165, 141, 0.3);
+  margin-bottom: 1rem;
 `
 
-const EducationInfo = styled.div`
-  flex: 1;
-`
-
-const InstitutionName = styled.h3`
-  color: #fff;
-  font-family: 'Comfortaa', sans-serif;
+const School = styled.h3`
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: #eef1f5;
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
 `
 
 const Degree = styled.div`
+  font-size: 0.9rem;
   color: #2CA58D;
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 600;
   margin-bottom: 0.4rem;
 `
 
-const Details = styled.div`
-  color: rgba(255, 255, 255, 0.8);
-  font-size: clamp(1.15rem, 2.5vw, 1.375rem);
-  margin-bottom: 0.75rem;
+const Details = styled.p`
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.88rem;
+  color: rgba(238, 241, 245, 0.6);
   line-height: 1.6;
+  margin: 0 0 0.75rem;
 `
 
 const Meta = styled.div`
-  color: rgba(255, 255, 255, 0.55);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(238, 241, 245, 0.35);
 `
 
-const Education = () => {
-  const educationHistory = [
-    {
-      logo: '/images/rpi_logo.jpg',
-      institution: 'Rensselaer Polytechnic Institute',
-      degree: 'BS in Computer Science, Cum Laude',
-      details: 'Artificial Intelligence and Data Concentration',
-      period: 'Graduated Spring 2018',
-      location: 'Troy, NY'
-    },
-    {
-      logo: '/images/clark_logo.jpg',
-      institution: 'Clark University',
-      degree: null,
-      details: 'Spent two years in Liberal Arts program before transferring to RPI',
-      period: 'Fall 2012 - Spring 2014',
-      location: 'Worcester, MA'
-    }
-  ]
-
-  return (
-    <Section id="education" frostLevel={2} style={{minHeight: '200px', paddingBottom: '4rem', padding: '3rem 0'}}>
-      <SectionTitle>Education</SectionTitle>
-      <EducationContainer>
-        {educationHistory.map((edu, index) => (
-          <EducationCard key={index}>
-            <LogoWrapper>
-              <img src={edu.logo} alt={`${edu.institution} Logo`} />
-            </LogoWrapper>
-            <EducationInfo>
-              <InstitutionName>{edu.institution}</InstitutionName>
-              {edu.degree && <Degree>{edu.degree}</Degree>}
-              <Details>{edu.details}</Details>
-              <Meta>{edu.period} · {edu.location}</Meta>
-            </EducationInfo>
-          </EducationCard>
-        ))}
-      </EducationContainer>
-    </Section>
-  )
+const fadeUp = {
+  hidden: { opacity: 0, y: 25 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
 }
+
+const vp = { once: true, margin: '-40px' }
+
+const schools = [
+  {
+    logo: '/images/rpi_logo.jpg',
+    name: 'Rensselaer Polytechnic Institute',
+    degree: 'BS Computer Science, Cum Laude',
+    details: 'AI and Data Concentration',
+    meta: 'Graduated 2018 · Troy, NY'
+  },
+  {
+    logo: '/images/clark_logo.jpg',
+    name: 'Clark University',
+    degree: null,
+    details: 'Two years in Liberal Arts before transferring to RPI',
+    meta: '2012–2014 · Worcester, MA'
+  }
+]
+
+const Education = () => (
+  <Section id="education">
+    <Wrap>
+      <Header initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
+        <Tag>02 — Education</Tag>
+        <Title>Background</Title>
+        <Dot />
+      </Header>
+      <Grid>
+        {schools.map((s, i) => (
+          <Card key={i} initial="hidden" whileInView="visible" viewport={vp} variants={fadeUp}>
+            <Logo src={s.logo} alt={s.name} />
+            <School>{s.name}</School>
+            {s.degree && <Degree>{s.degree}</Degree>}
+            <Details>{s.details}</Details>
+            <Meta>{s.meta}</Meta>
+          </Card>
+        ))}
+      </Grid>
+    </Wrap>
+  </Section>
+)
 
 export default Education

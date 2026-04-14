@@ -1,5 +1,3 @@
-export { default as Navbar } from './Navbar'
-export { default as TitleSection } from './TitleSection'
 export { default as Experience } from './Experience'
 export { default as Education } from './Education'
 export { default as Contact } from './Contact'
