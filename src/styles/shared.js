@@ -1,18 +1,17 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import {
-  INK, INK_LIGHT, RULE,
-  FONT_SERIF, FONT_SERIF_ALT,
+  INK, INK_LIGHT, INK_RED, RULE,
+  FONT_SERIF_ALT,
   CONTENT_WIDTH, CONTENT_PADDING
 } from './theme'
 
 // ── Layout ──
 
 export const ContentWrap = styled.div`
-  max-width: ${({ $maxWidth }) => $maxWidth || CONTENT_WIDTH};
+  max-width: ${CONTENT_WIDTH};
   margin: 0 auto;
   padding: ${CONTENT_PADDING};
-  ${({ $extraCss }) => $extraCss || ''}
 `
 
 // ── Section Header Bar (guide-word bar) ──
@@ -27,7 +26,6 @@ export const SectionBar = styled(motion.div)`
 `
 
 export const SectionGuide = styled.span`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(0.75rem, 1.5vw, 0.9rem);
   color: ${INK};
@@ -40,18 +38,6 @@ export const SectionPage = styled.span`
   font-size: clamp(0.8rem, 1.5vw, 0.95rem);
   color: ${INK_LIGHT};
   font-style: italic;
-`
-
-// ── Ornamental Divider ──
-
-export const Ornament = styled.div`
-  text-align: center;
-  margin: 1.5rem 0 2rem;
-  color: ${INK_LIGHT};
-  font-size: 0.85rem;
-  letter-spacing: 0.5em;
-  user-select: none;
-  &::before { content: '—  ❦  —'; }
 `
 
 // ── Section Divider (dictionary-style break between major sections) ──
@@ -83,13 +69,17 @@ export const SectionDivider = styled(motion.div)`
 // ── Section Heading ──
 
 export const SectionHeading = styled(motion.h2)`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(1.5rem, 3.5vw, 2rem);
   color: ${INK};
   text-align: center;
   margin-bottom: clamp(1.1rem, 2.5vw, 1.85rem);
   letter-spacing: -0.01em;
+`
+
+/** Main section titles (rubric red). */
+export const RubricSectionHeading = styled(SectionHeading)`
+  color: ${INK_RED};
 `
 
 // ── Entry Rule (thin separator line) ──

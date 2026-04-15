@@ -1,7 +1,7 @@
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import styled from 'styled-components'
 import GlobalStyles from './styles/GlobalStyles'
-import { RULE_LIGHT, FADED, FONT_SERIF, FONT_SERIF_ALT, LAYOUT_WIDTH } from './styles/theme'
+import { RULE_LIGHT, FADED, FONT_SERIF_ALT, LAYOUT_WIDTH } from './styles/theme'
 import {
   Experience,
   Education,
@@ -11,10 +11,11 @@ import {
   Background
 } from './components'
 
+const clampUnit = (v) => Math.max(-1, Math.min(1, v))
+
 const PageWrap = styled.div`
   position: relative;
   z-index: 1;
-  overflow: hidden;
 `
 
 const MarginCol = styled.div`
@@ -31,17 +32,14 @@ const MarginCol = styled.div`
   pointer-events: none;
   padding: 2.5rem 1.2rem;
   user-select: none;
-
-  &.left {
+  ${({ $side }) => $side === 'left' ? `
     left: 0;
     border-right: 1px solid ${RULE_LIGHT};
     text-align: right;
-  }
-
-  &.right {
+  ` : `
     right: 0;
     border-left: 1px solid ${RULE_LIGHT};
-  }
+  `}
 
   @media (max-width: 1200px) {
     display: none;
@@ -53,7 +51,6 @@ const MEntry = styled.div`
 `
 
 const MHw = styled.span`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: 0.82em;
 `
@@ -116,30 +113,58 @@ const MarginEntries = ({ entries }) => (
   </>
 )
 
+const repeatPool = (pool, count) => {
+  const out = []
+  for (let i = 0; out.length < count; i++) out.push(pool[i % pool.length])
+  return out
+}
+
 const App = () => {
-  const leftEntries = useMemo(() => {
-    const pool = entryPool.slice(0, 22)
-    const out = []
-    for (let i = 0; out.length < 80; i++) out.push(pool[i % pool.length])
-    return out
+  useEffect(() => {
+    const root = document.documentElement
+    let moveRaf = 0
+
+    const applyMouse = (clientX, clientY) => {
+      const nx = clampUnit((clientX / window.innerWidth) * 2 - 1)
+      const ny = clampUnit((clientY / window.innerHeight) * 2 - 1)
+      root.style.setProperty('--book-x', nx.toFixed(3))
+      root.style.setProperty('--book-y', ny.toFixed(3))
+    }
+
+    const onMove = (e) => {
+      if (moveRaf) return
+      moveRaf = requestAnimationFrame(() => {
+        moveRaf = 0
+        applyMouse(e.clientX, e.clientY)
+      })
+    }
+
+    const onLeave = () => {
+      root.style.setProperty('--book-x', '0')
+      root.style.setProperty('--book-y', '0')
+    }
+
+    window.addEventListener('mousemove', onMove, { passive: true })
+    document.documentElement.addEventListener('mouseleave', onLeave)
+    return () => {
+      window.removeEventListener('mousemove', onMove)
+      document.documentElement.removeEventListener('mouseleave', onLeave)
+      if (moveRaf) cancelAnimationFrame(moveRaf)
+    }
   }, [])
 
-  const rightEntries = useMemo(() => {
-    const pool = entryPool.slice(22)
-    const out = []
-    for (let i = 0; out.length < 80; i++) out.push(pool[i % pool.length])
-    return out
-  }, [])
+  const leftEntries = useMemo(() => repeatPool(entryPool.slice(0, 22), 80), [])
+  const rightEntries = useMemo(() => repeatPool(entryPool.slice(22), 80), [])
 
   return (
     <>
       <GlobalStyles />
       <Background />
       <PageWrap>
-        <MarginCol className="left">
+        <MarginCol $side="left">
           <MarginEntries entries={leftEntries} />
         </MarginCol>
-        <MarginCol className="right">
+        <MarginCol $side="right">
           <MarginEntries entries={rightEntries} />
         </MarginCol>
         <IntroScreen />

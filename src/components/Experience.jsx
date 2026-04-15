@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { motion, LayoutGroup } from 'framer-motion'
 import {
-  INK, INK_MID, INK_LIGHT, RULE, SHADE,
-  FONT_SERIF, FONT_SERIF_ALT, inkAlpha
+  INK, INK_MID, INK_LIGHT, INK_RED, RULE, SHADE,
+  FONT_SERIF_ALT, inkAlpha
 } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, SectionHeading,
+  ContentWrap, SectionDivider, RubricSectionHeading,
   fadeUp, sectionViewport
 } from '../styles/shared'
 
@@ -20,32 +20,34 @@ const FilterBar = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.4rem 0.2rem;
+  align-items: center;
+  gap: 0.45rem;
   margin-bottom: clamp(1.35rem, 3vw, 2rem);
   font-family: ${FONT_SERIF_ALT};
-  font-size: 0.82rem;
+  font-size: 0.78rem;
 `
 
-const FilterLabel = styled.button`
+const TagChipBase = styled.span`
   font-family: ${FONT_SERIF_ALT};
-  font-size: 0.82rem;
-  font-style: italic;
-  padding: 0.2rem 0.15rem;
-  border: none;
-  border-bottom: 1px solid transparent;
+  font-style: normal;
+  font-weight: 500;
+  border: 1px solid ${({ $active }) => $active ? INK_RED : RULE};
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  background: ${({ $active }) => $active ? 'rgba(139, 58, 58, 0.12)' : SHADE};
+  color: ${({ $active }) => $active ? INK_RED : INK_MID};
+`
+
+const FilterLabel = styled(TagChipBase).attrs({ as: 'button' })`
+  font-size: 0.76rem;
+  padding: 0.38rem 0.55rem;
   cursor: pointer;
-  transition: all 0.2s;
-  background: none;
-  color: ${({ $active }) => $active ? INK : INK_LIGHT};
-  border-bottom-color: ${({ $active }) => $active ? INK : 'transparent'};
 
   &:hover {
     color: ${INK};
-    border-bottom-color: ${RULE};
+    border-color: ${inkAlpha(0.32)};
+    background: rgba(42, 36, 32, 0.04);
   }
-
-  &::before { content: '['; color: ${INK_LIGHT}; }
-  &::after { content: ']'; color: ${INK_LIGHT}; }
 `
 
 const ClearBtn = styled.button`
@@ -77,7 +79,6 @@ const EntryHead = styled(motion.div)`
 `
 
 const EntryHeadword = styled.span`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(1.4rem, 3.5vw, 1.9rem);
   color: ${INK};
@@ -113,7 +114,6 @@ const MuseKicker = styled.div`
 `
 
 const MuseTitleRow = styled.div`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(1.15rem, 2.4vw, 1.45rem);
   color: ${INK};
@@ -130,7 +130,6 @@ const MuseSubtitle = styled.div`
 `
 
 const MuseDesc = styled.p`
-  font-family: ${FONT_SERIF};
   font-size: clamp(0.82rem, 1.3vw, 0.92rem);
   color: ${inkAlpha(0.7)};
   line-height: 1.8;
@@ -150,10 +149,9 @@ const RefLink = styled.a`
   font-family: ${FONT_SERIF_ALT};
   font-size: 0.85rem;
   color: ${INK_MID};
-  text-decoration: none;
   padding: 0.3rem 0.6rem;
   border: 1px solid ${RULE};
-  transition: all 0.2s;
+  transition: color 0.2s, border-color 0.2s;
 
   &:hover {
     color: ${INK};
@@ -173,10 +171,8 @@ const QuotesBlock = styled.div`
 `
 
 const PullQuote = styled.blockquote`
-  margin: 0;
   padding: 0.85rem 0 0.85rem 1rem;
   border-left: 3px solid ${INK_MID};
-  font-family: ${FONT_SERIF};
   font-size: clamp(0.9rem, 1.45vw, 1.02rem);
   color: ${inkAlpha(0.78)};
   line-height: 1.65;
@@ -213,7 +209,6 @@ const SubHead = styled.div`
 `
 
 const SubTitle = styled.span`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(0.9rem, 1.5vw, 1.02rem);
   color: ${INK};
@@ -226,31 +221,27 @@ const SubPeriod = styled.span`
   color: ${INK_LIGHT};
 `
 
-const SubjectLabels = styled.div`
-  display: inline;
-  font-family: ${FONT_SERIF_ALT};
-  font-size: 0.8rem;
-  font-style: italic;
-  color: ${INK_LIGHT};
-  margin-bottom: 0.2rem;
+const RoleTagRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0.2rem;
+  align-items: center;
 `
 
-const SubjectLabel = styled.span`
-  transition: all 0.3s ease;
-  color: ${({ $active }) => $active ? INK : INK_LIGHT};
-  font-weight: ${({ $active }) => $active ? 500 : 400};
-  cursor: default;
+const RoleTagChip = styled(TagChipBase)`
+  font-size: 0.72rem;
+  padding: 0.24rem 0.45rem;
+  color: ${({ $active }) => $active ? INK_RED : INK_LIGHT};
 `
 
 const DetailList = styled.ul`
-  margin: 0;
   padding-left: 1.35rem;
   list-style-type: disc;
   list-style-position: outside;
 `
 
 const DetailItem = styled.li`
-  font-family: ${FONT_SERIF};
   font-size: clamp(0.82rem, 1.3vw, 0.92rem);
   color: ${inkAlpha(0.65)};
   line-height: 1.8;
@@ -270,12 +261,13 @@ const DetailItem = styled.li`
 const ExtIcon = () => <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
 const VidIcon = () => <svg viewBox="0 0 16 16"><path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/><path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2z"/></svg>
 
-const TAG_ABBREVS = {
-  'Python': 'Py.',
+/** Short labels on square filter / role chips. */
+const TAG_DISPLAY = {
+  'Python': 'Python',
   'Non-LLM AI': 'A.I.',
   'LLMs': 'LLM',
-  'Computer Vision': 'Comp. Vis.',
-  'Data Engineering': 'Data Eng.',
+  'Computer Vision': 'Comp. vis.',
+  'Data Engineering': 'Data eng.',
   'React': 'React',
   'Java': 'Java',
   'SQL': 'SQL',
@@ -398,6 +390,12 @@ const MuseSection = ({ featured, dimmed, layoutId }) => (
   </FeaturedWrap>
 )
 
+const stableSort = (arr, compareFn) => {
+  const indexed = arr.map((item, i) => ({ item, i }))
+  indexed.sort((a, b) => compareFn(a.item, b.item) || a.i - b.i)
+  return indexed.map(({ item }) => item)
+}
+
 const Experience = () => {
   const [activeTags, setActiveTags] = useState(new Set())
   const isFiltering = activeTags.size > 0
@@ -411,12 +409,6 @@ const Experience = () => {
     })
 
   const matches = (tags) => !isFiltering || tags?.some(t => activeTags.has(t))
-
-  const stableSort = (arr, compareFn) => {
-    const indexed = arr.map((item, i) => ({ item, i }))
-    indexed.sort((a, b) => compareFn(a.item, b.item) || a.i - b.i)
-    return indexed.map(({ item }) => item)
-  }
 
   const sortedCompanies = isFiltering
     ? stableSort(companies, (a, b) => {
@@ -432,12 +424,12 @@ const Experience = () => {
     <Section id="experience">
       <ContentWrap>
         <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
-        <SectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Experience</SectionHeading>
+        <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Experience</RubricSectionHeading>
 
         <FilterBar initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
           {allTags.map(t => (
             <FilterLabel key={t} $active={activeTags.has(t)} onClick={() => toggleTag(t)}>
-              {TAG_ABBREVS[t] || t}
+              {TAG_DISPLAY[t] || t}
             </FilterLabel>
           ))}
           {isFiltering && <ClearBtn onClick={() => setActiveTags(new Set())}>clear</ClearBtn>}
@@ -489,14 +481,13 @@ const Experience = () => {
                           <SubPeriod>{r.period}</SubPeriod>
                         </SubHead>
                         {r.tags && (
-                          <SubjectLabels>
-                            {r.tags.map((t, i) => (
-                              <React.Fragment key={t}>
-                                <SubjectLabel $active={activeTags.has(t)}>[{TAG_ABBREVS[t] || t}]</SubjectLabel>
-                                {i < r.tags.length - 1 && ' '}
-                              </React.Fragment>
+                          <RoleTagRow>
+                            {r.tags.map((t) => (
+                              <RoleTagChip key={t} $active={activeTags.has(t)}>
+                                {TAG_DISPLAY[t] || t}
+                              </RoleTagChip>
                             ))}
-                          </SubjectLabels>
+                          </RoleTagRow>
                         )}
                         <DetailList>
                           {r.details.map((d, di) => (

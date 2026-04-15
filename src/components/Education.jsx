@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { INK, INK_MID, INK_LIGHT, RULE, FONT_SERIF, FONT_SERIF_ALT } from '../styles/theme'
+import { INK, INK_MID, INK_LIGHT, RULE, FONT_SERIF_ALT } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, SectionHeading,
+  ContentWrap, SectionDivider, RubricSectionHeading,
   fadeUp, sectionViewport
 } from '../styles/shared'
 
@@ -43,8 +43,6 @@ const Logo = styled.img`
 `
 
 const SchoolName = styled.h3`
-  margin: 0;
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(0.9rem, 1.9vw, 1.05rem);
   color: ${INK};
@@ -52,7 +50,6 @@ const SchoolName = styled.h3`
 `
 
 const Degree = styled.div`
-  font-family: ${FONT_SERIF};
   font-size: clamp(0.82rem, 1.45vw, 0.9rem);
   color: ${INK};
   line-height: 1.55;
@@ -91,7 +88,7 @@ const Education = () => (
   <Section id="education">
     <ContentWrap>
       <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
-      <SectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Education</SectionHeading>
+      <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Education</RubricSectionHeading>
 
       <EduGrid>
         {schools.map((s) => (

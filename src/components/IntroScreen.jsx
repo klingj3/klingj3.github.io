@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  INK, INK_MID, INK_LIGHT, PAPER, RULE, SHADE,
-  FONT_SERIF, FONT_SERIF_ALT, CONTENT_PADDING
+  INK, INK_MID, INK_LIGHT, INK_RED, PAPER, RULE, SHADE,
+  FONT_SERIF_ALT, CONTENT_PADDING
 } from '../styles/theme'
 import {
   SectionBar, SectionGuide, SectionPage,
@@ -144,11 +144,21 @@ const FigurePlate = styled.figure`
   }
 `
 
+const lightCatch = keyframes`
+  0%, 100% { filter: contrast(1.02) brightness(1); }
+  50%      { filter: contrast(1.04) brightness(1.02); }
+`
+
 const HalftoneImg = styled.img`
   display: block;
   width: 100%;
   height: auto;
   filter: contrast(1.02);
+  animation: ${lightCatch} 35s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 `
 
 const PlateCredit = styled.figcaption`
@@ -202,7 +212,6 @@ const HeadwordRow = styled(motion.div)`
 `
 
 const Headword = styled.span`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-size: clamp(2.2rem, 5.5vw, 3rem);
   color: ${INK};
@@ -230,8 +239,11 @@ const RuleLine = styled(EntryRule)`
   margin: 0.7rem 0 0.9rem;
 `
 
+const RedDefNumber = styled(DefNumber)`
+  color: ${INK_RED};
+`
+
 const Definition = styled(motion.div)`
-  font-family: ${FONT_SERIF};
   font-size: clamp(0.88rem, 1.8vw, 0.97rem);
   color: ${INK};
   line-height: 1.7;
@@ -266,15 +278,13 @@ const SeeAlsoBlock = styled(motion.div)`
 `
 
 const SeeAlsoLabel = styled.span`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-style: italic;
   font-size: clamp(0.78rem, 1.5vw, 0.86rem);
-  color: ${INK};
+  color: ${INK_RED};
 `
 
 const SeeAlsoEntry = styled(motion.div)`
-  font-family: ${FONT_SERIF};
   font-size: clamp(0.76rem, 1.4vw, 0.84rem);
   color: ${INK_MID};
   line-height: 1.7;
@@ -285,25 +295,24 @@ const SeeAlsoEntry = styled(motion.div)`
 const seeAlsoUnderlineDraw = keyframes`
   0% {
     transform: scaleX(0);
-    opacity: 0.35;
+    opacity: 0.4;
   }
   100% {
     transform: scaleX(1);
-    opacity: 0.88;
+    opacity: 1;
   }
 `
 
 const SeeAlsoHw = styled.a`
-  font-family: ${FONT_SERIF};
   font-weight: 700;
   font-variant: small-caps;
   letter-spacing: 0.03em;
   color: ${INK};
-  text-decoration: none;
   cursor: pointer;
   position: relative;
   display: inline-block;
   padding-bottom: 0.12em;
+  text-decoration: none;
   transition: color 0.2s ease;
 
   &::after {
@@ -312,12 +321,11 @@ const SeeAlsoHw = styled.a`
     left: 0;
     right: 0;
     bottom: 0;
-    height: 1.5px;
-    border-radius: 1px;
+    height: 1px;
     background: currentColor;
     transform: scaleX(0);
     transform-origin: left center;
-    opacity: 0.35;
+    opacity: 0.4;
     animation-name: ${seeAlsoUnderlineDraw};
     animation-duration: ${SEE_ALSO_UNDERLINE_DRAW_S}s;
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -328,7 +336,7 @@ const SeeAlsoHw = styled.a`
 
   &:hover,
   &:focus-visible {
-    color: ${INK_MID};
+    color: ${INK_RED};
     outline: none;
   }
 
@@ -341,7 +349,7 @@ const SeeAlsoHw = styled.a`
     &::after {
       animation: none;
       transform: scaleX(1);
-      opacity: 0.88;
+      opacity: 1;
     }
   }
 `
@@ -364,11 +372,15 @@ const PronKey = styled(motion.div)`
   line-height: 1.8;
 `
 
+const PronKeyLead = styled.span`
+  font-weight: 700;
+  color: ${INK_RED};
+`
+
 const PronSep = styled.span`
   margin: 0 0.35em;
   opacity: 0.5;
 `
-
 
 /* ── animation variants ── */
 
@@ -439,87 +451,87 @@ const IntroScreen = () => {
           </GuideWordBar>
 
           <motion.div variants={stagger} initial="hidden" animate="show">
-              <HeadwordRow variants={fadeIn}>
-                <Headword>Kling·el·ho·fer</Headword>
-                <Pronunciation>/ˈklɪŋ.əl.hoʊ.fɚ/</Pronunciation>
-                <PartOfSpeech>n.</PartOfSpeech>
-              </HeadwordRow>
+            <HeadwordRow variants={fadeIn}>
+              <Headword>Kling·el·ho·fer</Headword>
+              <Pronunciation>/ˈklɪŋ.əl.hoʊ.fɚ/</Pronunciation>
+              <PartOfSpeech>n.</PartOfSpeech>
+            </HeadwordRow>
 
-              <RuleLine as={motion.hr} variants={fadeIn} />
+            <RuleLine as={motion.hr} variants={fadeIn} />
 
-              <DefsWithPlate variants={fadeIn}>
-                <DefSensesColumn>
-                  <Definition>
-                    <DefNumber>1.</DefNumber>
-                    <DefLabel>(14th cent.) </DefLabel>
-                    Compound of <em>klingel-</em> (bell, small bell;
-                    cf.&nbsp;mod.&nbsp;Ger.&nbsp;<em>Klingel</em>,
-                    doorbell) + <em>-hofer</em> (one associated with
-                    a&nbsp;<em>Hof</em>, courtyard).
-                    Lit.&nbsp;&ldquo;courtyard bell-ringer.&rdquo; Attested in
-                    Rhineland&#8209;Palatinate records, 14th&nbsp;cent.
-                  </Definition>
-                  <Definition>
-                    <DefNumber>2.</DefNumber>
-                    <DefLabel>(21st cent.) </DefLabel>
-                    A Brooklyn-based software engineer with eight years of experience,
-                    focused primarily on healthcare and medicine, across frontend,
-                    backend, data engineering, and infrastructure.
-                  </Definition>
-                </DefSensesColumn>
-                <PlateColumn>
-                  <FigurePlate>
-                    <HalftoneImg
-                      src="/images/about-halftone.png"
-                      alt="Halftone portrait of John Klingelhofer"
-                      width={556}
-                      height={717}
-                      loading="eager"
-                      decoding="async"
-                    />
-                    <PlateCredit>fig. 1 - A Klingelhofer</PlateCredit>
-                  </FigurePlate>
-                </PlateColumn>
-              </DefsWithPlate>
+            <DefsWithPlate variants={fadeIn}>
+              <DefSensesColumn>
+                <Definition>
+                  <RedDefNumber>1.</RedDefNumber>
+                  <DefLabel>(14th cent.) </DefLabel>
+                  Compound of <em>klingel-</em> (bell, small bell;
+                  cf.&nbsp;mod.&nbsp;Ger.&nbsp;<em>Klingel</em>,
+                  doorbell) + <em>-hofer</em> (one associated with
+                  a&nbsp;<em>Hof</em>, courtyard).
+                  Lit.&nbsp;&ldquo;courtyard bell-ringer.&rdquo; Attested in
+                  Rhineland&#8209;Palatinate records, 14th&nbsp;cent.
+                </Definition>
+                <Definition>
+                  <RedDefNumber>2.</RedDefNumber>
+                  <DefLabel>(21st cent.) </DefLabel>
+                  A Brooklyn-based software engineer with eight years of experience,
+                  focused primarily on healthcare and medicine, across frontend,
+                  backend, data engineering, and infrastructure.
+                </Definition>
+              </DefSensesColumn>
+              <PlateColumn>
+                <FigurePlate>
+                  <HalftoneImg
+                    src="/images/about-halftone.png"
+                    alt="Halftone portrait of John Klingelhofer"
+                    width={556}
+                    height={717}
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <PlateCredit>fig. 1 - A Klingelhofer</PlateCredit>
+                </FigurePlate>
+              </PlateColumn>
+            </DefsWithPlate>
 
-              <UsageExample variants={fadeIn}>
-                &ldquo;That John Klingelhofer has an impressive resume and a pretty
-                snappy website.&rdquo;
-              </UsageExample>
+            <UsageExample variants={fadeIn}>
+              &ldquo;That John Klingelhofer has an impressive resume and a pretty
+              snappy website.&rdquo;
+            </UsageExample>
 
-              <SeeAlsoBlock variants={fadeIn}>
-                <div><SeeAlsoLabel>See also </SeeAlsoLabel></div>
-                <motion.div variants={seeAlsoStagger} initial="hidden" animate="show">
-                  <SeeAlsoEntry variants={seeAlsoSlide}>
-                    <SeeAlsoHw href="#experience" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(0)}>experience</SeeAlsoHw>{' '}
-                    <SeeAlsoIt>/ɪkˈspɪə.ri.əns/ n.</SeeAlsoIt>{' '}
-                    knowledge or practical wisdom gained from observation
-                    or participation. p.&thinsp;428.
-                  </SeeAlsoEntry>
-                  <br />
-                  <SeeAlsoEntry variants={seeAlsoSlide}>
-                    <SeeAlsoHw href="#education" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(1)}>education</SeeAlsoHw>{' '}
-                    <SeeAlsoIt>/ˌed.jʊˈkeɪ.ʃən/ n.</SeeAlsoIt>{' '}
-                    the systematic instruction and development
-                    of character and mental powers. p.&thinsp;431.
-                  </SeeAlsoEntry>
-                  <br />
-                  <SeeAlsoEntry variants={seeAlsoSlide}>
-                    <SeeAlsoHw href="#contact" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(2)}>correspondence</SeeAlsoHw>{' '}
-                    <SeeAlsoIt>/ˌkɒr.ɪˈspɒn.dəns/ n.</SeeAlsoIt>{' '}
-                    communication by exchange of letters
-                    or electronic messages. p.&thinsp;433.
-                  </SeeAlsoEntry>
-                </motion.div>
-              </SeeAlsoBlock>
-            </motion.div>
+            <SeeAlsoBlock variants={fadeIn}>
+              <div><SeeAlsoLabel>See also </SeeAlsoLabel></div>
+              <motion.div variants={seeAlsoStagger} initial="hidden" animate="show">
+                <SeeAlsoEntry variants={seeAlsoSlide}>
+                  <SeeAlsoHw href="#experience" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(0)}>experience</SeeAlsoHw>{' '}
+                  <SeeAlsoIt>/ɪkˈspɪə.ri.əns/ n.</SeeAlsoIt>{' '}
+                  knowledge or practical wisdom gained from observation
+                  or participation. p.&thinsp;428.
+                </SeeAlsoEntry>
+                <br />
+                <SeeAlsoEntry variants={seeAlsoSlide}>
+                  <SeeAlsoHw href="#education" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(1)}>education</SeeAlsoHw>{' '}
+                  <SeeAlsoIt>/ˌed.jʊˈkeɪ.ʃən/ n.</SeeAlsoIt>{' '}
+                  the systematic instruction and development
+                  of character and mental powers. p.&thinsp;431.
+                </SeeAlsoEntry>
+                <br />
+                <SeeAlsoEntry variants={seeAlsoSlide}>
+                  <SeeAlsoHw href="#contact" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(2)}>correspondence</SeeAlsoHw>{' '}
+                  <SeeAlsoIt>/ˌkɒr.ɪˈspɒn.dəns/ n.</SeeAlsoIt>{' '}
+                  communication by exchange of letters
+                  or electronic messages. p.&thinsp;433.
+                </SeeAlsoEntry>
+              </motion.div>
+            </SeeAlsoBlock>
+          </motion.div>
 
           <PronKey
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 2.2 }}
           >
-            <span style={{ fontWeight: 700 }}>Pronunciation Key: </span>
+            <PronKeyLead>Pronunciation Key: </PronKeyLead>
             æ <em>bat</em>
             <PronSep>|</PronSep>
             eɪ <em>fate</em>

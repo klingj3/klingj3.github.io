@@ -4,6 +4,9 @@ import { INK, INK_MID, PAPER, SELECTION, FONT_SERIF } from './theme'
 const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
+    /* Lamp position (pointer, set from App). */
+    --book-x: 0;
+    --book-y: 0;
   }
 
   * {
@@ -18,14 +21,16 @@ const GlobalStyles = createGlobalStyle`
     font-size: 18px;
     line-height: 1.6;
     color: ${INK};
-    background-color: ${PAPER};
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Fallback only — full paper + lamp live on fixed Background (avoids fixed-on-body + transform bugs). */
+    background-color: ${PAPER};
   }
 
   #root {
-    background-color: ${PAPER};
+    background: transparent;
     min-height: 100vh;
     position: relative;
   }

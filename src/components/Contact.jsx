@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { INK, INK_LIGHT, RULE, FONT_SERIF_ALT } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, SectionHeading,
+  ContentWrap, SectionDivider, RubricSectionHeading,
   fadeUp, sectionViewport
 } from '../styles/shared'
 
@@ -23,7 +23,6 @@ const EmailLink = styled.a`
   font-family: ${FONT_SERIF_ALT};
   font-size: clamp(0.9rem, 1.8vw, 1rem);
   color: ${INK_LIGHT};
-  text-decoration: none;
   border-bottom: 1px solid ${RULE};
   transition: color 0.2s, border-color 0.2s;
 
@@ -44,7 +43,6 @@ const RefLink = styled.a`
   font-family: ${FONT_SERIF_ALT};
   font-size: 0.85rem;
   color: ${INK_LIGHT};
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 0.35rem;
@@ -58,7 +56,7 @@ const Contact = () => (
   <Section id="contact">
     <ContentWrap>
       <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
-      <SectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Correspondence</SectionHeading>
+      <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Correspondence</RubricSectionHeading>
 
       <EntryContent initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
         <EmailLink href="mailto:jkklingelhofer@gmail.com">
