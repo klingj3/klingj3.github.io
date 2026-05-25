@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { INK, INK_LIGHT, RULE, FONT_SERIF_ALT } from '../styles/theme'
+import { INK, INK_MID, INK_LIGHT, RULE, FONT_SERIF_ALT } from '../styles/theme'
 import {
   ContentWrap, SectionDivider, RubricSectionHeading,
   fadeUp, sectionViewport
@@ -52,6 +52,16 @@ const RefLink = styled.a`
   &:hover { color: ${INK}; }
 `
 
+const StatusNote = styled.p`
+  font-family: ${FONT_SERIF_ALT};
+  font-style: italic;
+  font-size: clamp(0.82rem, 1.5vw, 0.9rem);
+  color: ${INK_MID};
+  text-align: center;
+  line-height: 1.7;
+  max-width: 22rem;
+`
+
 const Contact = () => (
   <Section id="contact">
     <ContentWrap>
@@ -59,8 +69,14 @@ const Contact = () => (
       <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Correspondence</RubricSectionHeading>
 
       <EntryContent initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
-        <EmailLink href="mailto:jkklingelhofer@gmail.com">
-          jkklingelhofer@gmail.com
+        <StatusNote>
+          Open to senior IC and tech lead roles in AI/ML &mdash; especially in healthcare,
+          medicine, or education. Currently on parental leave through July; not immediately
+          available, but always glad to hear from you.
+        </StatusNote>
+
+        <EmailLink href="mailto:johnklingel@proton.me">
+          johnklingel@proton.me
         </EmailLink>
 
         <RefList>

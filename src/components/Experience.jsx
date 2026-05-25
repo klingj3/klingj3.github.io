@@ -300,7 +300,7 @@ const companies = [
       { title: 'Senior Software Engineer', period: '08/2023 – Present',
         tags: ['Python', 'Non-LLM AI', 'LLMs', 'Computer Vision', 'Data Engineering', 'React', 'SQL', 'Fullstack'],
         details: [
-          "Senior IC driving AI/ML initiatives across the organization. Most projects are proprietary and can't be discussed publicly, but the work spans NLP, computer vision, predictive modeling, and data infrastructure, with involvement across the full lifecycle from research and prototyping through production.",
+          "Senior IC driving AI/ML initiatives across the full stack — NLP, computer vision, predictive modeling, and data infrastructure, from research and prototyping through production. Most projects are internal and proprietary; Muse (below) is a rare public exception and a good window into the kind of work I do more broadly.",
           "Muse (write-up below) is a rare exception and one of the few projects I can discuss in full public detail, serving as a good window into the kind of work I do more broadly.",
           "Across other initiatives: built custom scrapers and specialized extraction pipelines for pulling structured data from tables in medical literature (a notoriously hard problem where general LLMs fail, with what I believe is best-in-class accuracy for the domain); built Dagster-based ingestion and transformation pipelines for drug and indication datasets from disparate sources; developed predictive models for drug outcome forecasting and automated indication expansion."
         ]},

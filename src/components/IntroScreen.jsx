@@ -463,20 +463,11 @@ const IntroScreen = () => {
               <DefSensesColumn>
                 <Definition>
                   <RedDefNumber>1.</RedDefNumber>
-                  <DefLabel>(14th cent.) </DefLabel>
-                  Compound of <em>klingel-</em> (bell, small bell;
-                  cf.&nbsp;mod.&nbsp;Ger.&nbsp;<em>Klingel</em>,
-                  doorbell) + <em>-hofer</em> (one associated with
-                  a&nbsp;<em>Hof</em>, courtyard).
-                  Lit.&nbsp;&ldquo;courtyard bell-ringer.&rdquo; Attested in
-                  Rhineland&#8209;Palatinate records, 14th&nbsp;cent.
-                </Definition>
-                <Definition>
-                  <RedDefNumber>2.</RedDefNumber>
                   <DefLabel>(21st cent.) </DefLabel>
                   A Brooklyn-based software engineer with eight years of experience,
-                  focused primarily on healthcare and medicine, across frontend,
-                  backend, data engineering, and infrastructure.
+                  focused on AI-driven systems in healthcare and medicine. Takes
+                  projects from first principles to production &mdash; owning
+                  architecture, backend, UI, and infrastructure along the way.
                 </Definition>
               </DefSensesColumn>
               <PlateColumn>
