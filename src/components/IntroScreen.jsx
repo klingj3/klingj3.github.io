@@ -465,8 +465,8 @@ const IntroScreen = () => {
                   <RedDefNumber>1.</RedDefNumber>
                   <DefLabel>(21st cent.) </DefLabel>
                   A Brooklyn-based software engineer with eight years of experience,
-                  focused on AI-driven systems in healthcare and medicine. Takes
-                  projects from first principles to production &mdash; owning
+                  focused on AI-driven systems in healthcare and medicine. Someone who takes
+                  projects from first principles to production, owning
                   architecture, backend, UI, and infrastructure along the way.
                 </Definition>
               </DefSensesColumn>

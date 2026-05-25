@@ -70,9 +70,9 @@ const Contact = () => (
 
       <EntryContent initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
         <StatusNote>
-          Open to senior IC and tech lead roles in AI/ML &mdash; especially in healthcare,
-          medicine, or education. Currently on parental leave through July; not immediately
-          available, but always glad to hear from you.
+          Open to senior IC and tech lead roles - especially in healthcare,
+          medicine, or education. Currently on parental leave through July so not immediately available,
+          but always open to make connections and discuss opportunities for the future!
         </StatusNote>
 
         <EmailLink href="mailto:johnklingel@proton.me">
