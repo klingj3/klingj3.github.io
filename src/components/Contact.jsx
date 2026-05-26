@@ -75,8 +75,8 @@ const Contact = () => (
           but always open to make connections and discuss opportunities for the future!
         </StatusNote>
 
-        <EmailLink href="mailto:johnklingel@proton.me">
-          johnklingel@proton.me
+        <EmailLink href="mailto:john@klingelhofer.me">
+          john@klingelhofer.me
         </EmailLink>
 
         <RefList>
