@@ -1,14 +1,10 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { INK, INK_MID, INK_LIGHT, RULE, FONT_SERIF_ALT } from '../styles/theme'
+import { INK, INK_MID, INK_LIGHT } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, RubricSectionHeading,
-  fadeUp, sectionViewport
+  ContentWrap, SectionDivider, RubricSectionHeading, PageSection,
+  typeItalicMeta, fadeUp, sectionViewport
 } from '../styles/shared'
-
-const Section = styled.section`
-  padding: clamp(2.5rem, 6vh, 4rem) 0;
-`
 
 const EduGrid = styled.div`
   display: flex;
@@ -56,16 +52,13 @@ const Degree = styled.div`
 `
 
 const Detail = styled.span`
-  font-family: ${FONT_SERIF_ALT};
-  font-style: italic;
+  ${typeItalicMeta}
   color: ${INK_MID};
 `
 
 const Meta = styled.div`
-  font-family: ${FONT_SERIF_ALT};
+  ${typeItalicMeta}
   font-size: 0.78rem;
-  font-style: italic;
-  color: ${INK_LIGHT};
   margin-top: 0.25rem;
 `
 
@@ -85,7 +78,7 @@ const schools = [
 ]
 
 const Education = () => (
-  <Section id="education">
+  <PageSection id="education">
     <ContentWrap>
       <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
       <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Education</RubricSectionHeading>
@@ -113,7 +106,7 @@ const Education = () => (
         ))}
       </EduGrid>
     </ContentWrap>
-  </Section>
+  </PageSection>
 )
 
 export default Education

@@ -469,6 +469,19 @@ const IntroScreen = () => {
                   projects from first principles to production, owning
                   architecture, backend, UI, and infrastructure along the way.
                 </Definition>
+                <UsageExample as="div">
+                  &ldquo;That John Klingelhofer has an impressive resume and a great website!&rdquo;
+                </UsageExample>
+                <Definition>
+                  <RedDefNumber>2.</RedDefNumber>
+                  <DefLabel>(14th cent., archaic) </DefLabel>
+                  from Middle High German <em>klingel</em> (&ldquo;small bell&rdquo;) + <em>Hof</em> (&ldquo;farmstead, manor&rdquo;);
+                  lit. &ldquo;the bell-ringer&rsquo;s farm.&rdquo; An occupational surname given to one who called the hours or
+                  summoned the parish - a keeper of the bell.
+                </Definition>
+                <UsageExample as="div">
+                  &ldquo;Hmmm, trying to think of good programmers! Oh, that Klingelhofer guy rings a bell.&rdquo;
+                </UsageExample>
               </DefSensesColumn>
               <PlateColumn>
                 <FigurePlate>
@@ -485,33 +498,31 @@ const IntroScreen = () => {
               </PlateColumn>
             </DefsWithPlate>
 
-            <UsageExample variants={fadeIn}>
-              &ldquo;That John Klingelhofer has an impressive resume and a pretty
-              snappy website.&rdquo;
-            </UsageExample>
-
             <SeeAlsoBlock variants={fadeIn}>
               <div><SeeAlsoLabel>See also </SeeAlsoLabel></div>
               <motion.div variants={seeAlsoStagger} initial="hidden" animate="show">
                 <SeeAlsoEntry variants={seeAlsoSlide}>
                   <SeeAlsoHw href="#experience" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(0)}>experience</SeeAlsoHw>{' '}
                   <SeeAlsoIt>/ɪkˈspɪə.ri.əns/ n.</SeeAlsoIt>{' '}
-                  knowledge or practical wisdom gained from observation
-                  or participation. p.&thinsp;428.
+                  practical wisdom gained from doing. p.&thinsp;428.
                 </SeeAlsoEntry>
                 <br />
                 <SeeAlsoEntry variants={seeAlsoSlide}>
                   <SeeAlsoHw href="#education" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(1)}>education</SeeAlsoHw>{' '}
                   <SeeAlsoIt>/ˌed.jʊˈkeɪ.ʃən/ n.</SeeAlsoIt>{' '}
-                  the systematic instruction and development
-                  of character and mental powers. p.&thinsp;431.
+                  cultivation of mind and character. p.&thinsp;431.
                 </SeeAlsoEntry>
                 <br />
                 <SeeAlsoEntry variants={seeAlsoSlide}>
-                  <SeeAlsoHw href="#contact" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(2)}>correspondence</SeeAlsoHw>{' '}
+                  <SeeAlsoHw href="#projects" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(2)}>projects</SeeAlsoHw>{' '}
+                  <SeeAlsoIt>/ˈprɒdʒ.ekts/ n.</SeeAlsoIt>{' '}
+                  planned works, completed and ongoing. p.&thinsp;432.
+                </SeeAlsoEntry>
+                <br />
+                <SeeAlsoEntry variants={seeAlsoSlide}>
+                  <SeeAlsoHw href="#contact" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(3)}>correspondence</SeeAlsoHw>{' '}
                   <SeeAlsoIt>/ˌkɒr.ɪˈspɒn.dəns/ n.</SeeAlsoIt>{' '}
-                  communication by exchange of letters
-                  or electronic messages. p.&thinsp;433.
+                  exchange of letters and messages. p.&thinsp;433.
                 </SeeAlsoEntry>
               </motion.div>
             </SeeAlsoBlock>

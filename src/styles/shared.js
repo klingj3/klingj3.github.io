@@ -1,10 +1,36 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 import {
-  INK, INK_LIGHT, INK_RED, RULE,
-  FONT_SERIF_ALT,
+  INK, INK_LIGHT, INK_MID, INK_RED, RULE,
+  FONT_SERIF_ALT, inkAlpha,
   CONTENT_WIDTH, CONTENT_PADDING
 } from './theme'
+
+export const typeCopy = css`
+  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  line-height: 1.8;
+  text-align: justify;
+  hyphens: auto;
+`
+
+export const typeKicker = css`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.78rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${INK_LIGHT};
+`
+
+export const typeItalicMeta = css`
+  font-family: ${FONT_SERIF_ALT};
+  font-style: italic;
+  color: ${INK_LIGHT};
+`
+
+export const PageSection = styled.section`
+  padding: clamp(2.5rem, 6vh, 4rem) 0;
+`
 
 // ── Layout ──
 
@@ -97,7 +123,43 @@ export const DefNumber = styled.span`
   margin-right: 0.3rem;
 `
 
-// ── Animation Variants ──
+export const SectionPronunciation = styled(motion.p)`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: clamp(0.82rem, 1.4vw, 0.94rem);
+  font-style: italic;
+  color: ${INK_MID};
+  text-align: center;
+  margin: -0.6rem 0 1.4rem;
+`
+
+export const SectionPreface = styled(motion.p)`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: clamp(0.88rem, 1.5vw, 1rem);
+  color: ${INK_MID};
+  line-height: 1.82;
+  max-width: 680px;
+  margin: 0 auto clamp(1.75rem, 4vw, 2.5rem);
+`
+
+export const LinkRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+`
+
+export const ExternalLink = styled.a`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: 0.85rem;
+  color: ${INK_MID};
+  padding: 0.3rem 0.65rem;
+  border: 1px solid ${RULE};
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.2s, border-color 0.2s;
+  &:hover { color: ${INK}; border-color: ${inkAlpha(0.32)}; }
+  svg { width: 11px; height: 11px; fill: currentColor; flex-shrink: 0; }
+`
 
 export const fadeUp = {
   hidden: { opacity: 0, y: 25 },

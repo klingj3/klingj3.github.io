@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { INK, INK_MID, INK_LIGHT, RULE, FONT_SERIF_ALT } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, RubricSectionHeading,
+  ContentWrap, SectionDivider, RubricSectionHeading, PageSection,
   fadeUp, sectionViewport
 } from '../styles/shared'
 
-const Section = styled.section`
+const Section = styled(PageSection)`
   padding: clamp(3rem, 8vh, 5rem) 0;
 `
 

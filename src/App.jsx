@@ -5,6 +5,7 @@ import { RULE_LIGHT, FADED, FONT_SERIF_ALT, LAYOUT_WIDTH } from './styles/theme'
 import {
   Experience,
   Education,
+  Projects, SHOW_PROJECTS,
   Contact,
   Footer,
   IntroScreen,
@@ -169,6 +170,7 @@ const App = () => {
         </MarginCol>
         <IntroScreen />
         <Experience />
+        {SHOW_PROJECTS && <Projects />}
         <Education />
         <Contact />
         <Footer />

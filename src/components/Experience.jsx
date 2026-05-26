@@ -6,13 +6,9 @@ import {
   FONT_SERIF_ALT, inkAlpha
 } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, RubricSectionHeading,
-  fadeUp, sectionViewport
+  ContentWrap, SectionDivider, RubricSectionHeading, PageSection,
+  LinkRow, ExternalLink, typeCopy, typeKicker, typeItalicMeta, fadeUp, sectionViewport
 } from '../styles/shared'
-
-const Section = styled.section`
-  padding: clamp(2.5rem, 6vh, 4rem) 0;
-`
 
 /* --- filter bar as subject labels --- */
 
@@ -104,12 +100,7 @@ const MuseBlock = styled(motion.div)`
 `
 
 const MuseKicker = styled.div`
-  font-family: ${FONT_SERIF_ALT};
-  font-size: 0.78rem;
-  font-style: italic;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: ${INK_LIGHT};
+  ${typeKicker}
   margin-bottom: 0.35rem;
 `
 
@@ -130,35 +121,13 @@ const MuseSubtitle = styled.div`
 `
 
 const MuseDesc = styled.p`
-  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  ${typeCopy}
   color: ${inkAlpha(0.7)};
-  line-height: 1.8;
   margin: 0 0 1.15rem;
-  text-align: justify;
-  hyphens: auto;
 `
 
-const RefLinks = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+const RefLinks = styled(LinkRow)`
   margin-bottom: 1.5rem;
-`
-
-const RefLink = styled.a`
-  font-family: ${FONT_SERIF_ALT};
-  font-size: 0.85rem;
-  color: ${INK_MID};
-  padding: 0.3rem 0.6rem;
-  border: 1px solid ${RULE};
-  transition: color 0.2s, border-color 0.2s;
-
-  &:hover {
-    color: ${INK};
-    border-color: ${inkAlpha(0.35)};
-  }
-
-  svg { width: 11px; height: 11px; fill: currentColor; vertical-align: -1px; margin-right: 0.3rem; }
 `
 
 const QuotesBlock = styled.div`
@@ -242,20 +211,11 @@ const DetailList = styled.ul`
 `
 
 const DetailItem = styled.li`
-  font-size: clamp(0.82rem, 1.3vw, 0.92rem);
+  ${typeCopy}
   color: ${inkAlpha(0.65)};
-  line-height: 1.8;
   margin-bottom: 0.4rem;
-  text-align: justify;
-  hyphens: auto;
-
-  &::marker {
-    color: ${INK_LIGHT};
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  &::marker { color: ${INK_LIGHT}; }
+  &:last-child { margin-bottom: 0; }
 `
 
 const ExtIcon = () => <svg viewBox="0 0 16 16"><path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
@@ -372,10 +332,10 @@ const MuseSection = ({ featured, dimmed, layoutId }) => (
       <MuseDesc>{featured.description}</MuseDesc>
       <RefLinks>
         {featured.links.map((l, i) => (
-          <RefLink key={i} href={l.url} target="_blank" rel="noopener noreferrer">
+          <ExternalLink key={i} href={l.url} target="_blank" rel="noopener noreferrer">
             {l.icon === 'vid' ? <VidIcon /> : <ExtIcon />}
             {l.label}
-          </RefLink>
+          </ExternalLink>
         ))}
       </RefLinks>
       <QuotesBlock>
@@ -421,7 +381,7 @@ const Experience = () => {
   const layoutTransition = { type: 'spring', stiffness: 500, damping: 40 }
 
   return (
-    <Section id="experience">
+    <PageSection id="experience">
       <ContentWrap>
         <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
         <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Experience</RubricSectionHeading>
@@ -517,7 +477,7 @@ const Experience = () => {
           })}
         </LayoutGroup>
       </ContentWrap>
-    </Section>
+    </PageSection>
   )
 }
 
