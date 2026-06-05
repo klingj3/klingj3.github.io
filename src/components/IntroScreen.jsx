@@ -464,18 +464,18 @@ const IntroScreen = () => {
                 <Definition>
                   <RedDefNumber>1.</RedDefNumber>
                   <DefLabel>(21st cent.) </DefLabel>
-                  A Brooklyn-based software engineer with eight years of experience,
-                  focused on AI-driven systems in healthcare and medicine. Someone who takes
-                  projects from first principles to production, owning
+                  A software engineer with eight years of experience,
+                  focused on AI-driven systems and fullstack development in healthcare and medicine. 
+                  Someone who takes projects from first principles to production, owning
                   architecture, backend, UI, and infrastructure along the way.
                 </Definition>
                 <UsageExample as="div">
-                  &ldquo;That John Klingelhofer has an impressive resume and a great website!&rdquo;
+                  &ldquo;That John Klingelhofer has an impressive resume, and I like the theme of his website!&rdquo;
                 </UsageExample>
                 <Definition>
                   <RedDefNumber>2.</RedDefNumber>
-                  <DefLabel>(14th cent., archaic) </DefLabel>
-                  from Middle High German <em>klingel</em> (&ldquo;small bell&rdquo;) + <em>Hof</em> (&ldquo;farmstead, manor&rdquo;);
+                  <DefLabel>(14th cent.) </DefLabel>
+                  From Middle High German <em>klingel</em> (&ldquo;small bell&rdquo;) + <em>Hof</em> (&ldquo;farmstead, manor&rdquo;);
                   lit. &ldquo;the bell-ringer&rsquo;s farm.&rdquo; An occupational surname given to one who called the hours or
                   summoned the parish - a keeper of the bell.
                 </Definition>

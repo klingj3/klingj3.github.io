@@ -1,11 +1,11 @@
-import { useState } from 'react'
 import styled from 'styled-components'
-import { motion, AnimatePresence } from 'framer-motion'
-import { INK, INK_MID, INK_LIGHT, INK_RED, RULE, SHADE, PAPER, FONT_SERIF_ALT, inkAlpha } from '../styles/theme'
+import { motion } from 'framer-motion'
+import { INK, INK_MID, INK_LIGHT, RULE, inkAlpha } from '../styles/theme'
 import {
-  ContentWrap, SectionDivider, RubricSectionHeading, SectionPronunciation, SectionPreface, PageSection,
+  ContentWrap, SectionDivider, RubricSectionHeading, SectionPreface, PageSection,
   LinkRow, ExternalLink, typeCopy, typeKicker, typeItalicMeta, fadeUp, sectionViewport
 } from '../styles/shared'
+import TabbedPanel from './TabbedPanel'
 
 export const SHOW_PROJECTS = true
 
@@ -30,7 +30,7 @@ const PROJECTS = [
   },
   {
     hw: 'subreddit suggester',
-    meta: 'Python · Keras · 2018',
+    meta: 'Python · Keras · 2020',
     kicker: 'Pre-LLM recommendation ML',
     desc: 'A Keras recommendation engine trained on the posting histories of 200,000 Reddit users (300 comments and 100 posts each), learning community co-engagement patterns from vectorized subreddit groupings to surface relevant new communities. Deployed as a Flask API accepting a username and returning personalized recommendations. Reddit\'s free public API made it uniquely well-suited for this kind of experiment in the pre-LLM era, providing rich behavioral data across thousands of communities at scale without restriction. An early application of learned embeddings to community discovery, predating the transformer-based approaches that now dominate this space.',
     gif: '/images/subreddit-suggester.gif',
@@ -51,44 +51,6 @@ const PROJECTS = [
 ]
 
 const ROMAN = ['i', 'ii', 'iii']
-
-const TabWrap = styled.div`
-  display: flex;
-  align-items: flex-end;
-  border-bottom: 1.5px solid ${INK_MID};
-  overflow-x: auto;
-  scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
-`
-
-const Tab = styled.button`
-  font-family: ${FONT_SERIF_ALT};
-  font-size: clamp(0.76rem, 1.3vw, 0.88rem);
-  font-style: italic;
-  padding: 0.5rem 1.1rem 0.45rem;
-  white-space: nowrap;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: color 0.2s;
-  position: relative;
-  z-index: ${({ $active }) => $active ? 1 : 0};
-  color: ${({ $active }) => $active ? INK_RED : INK_LIGHT};
-  background: ${({ $active }) => $active ? PAPER : 'transparent'};
-  border-top: ${({ $active }) => $active ? `1.5px solid ${INK_MID}` : '1.5px solid transparent'};
-  border-left: ${({ $active }) => $active ? `1.5px solid ${INK_MID}` : '1.5px solid transparent'};
-  border-right: ${({ $active }) => $active ? `1.5px solid ${INK_MID}` : '1.5px solid transparent'};
-  border-bottom: ${({ $active }) => $active ? `1.5px solid ${PAPER}` : 'none'};
-  margin-bottom: ${({ $active }) => $active ? '-1.5px' : '0'};
-  &:hover { color: ${({ $active }) => $active ? INK_RED : INK_MID}; }
-`
-
-const Panel = styled.div`
-  border: 1.5px solid ${INK_MID};
-  border-top: none;
-  background: ${SHADE};
-  padding: clamp(1.25rem, 3vw, 1.85rem) clamp(1.25rem, 3vw, 2rem);
-  overflow: hidden;
-`
 
 const Kicker = styled.div`
   ${typeKicker}
@@ -195,16 +157,7 @@ const ExtIcon = () => (
   </svg>
 )
 
-const contentVariants = {
-  enter: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } },
-  exit: { opacity: 0, y: -6, transition: { duration: 0.16 } },
-}
-
 const Projects = () => {
-  const [active, setActive] = useState(0)
-  const proj = PROJECTS[active]
-
   return (
     <PageSection id="projects">
       <ContentWrap>
@@ -227,18 +180,11 @@ const Projects = () => {
         </SectionPreface>
 
         <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
-          <TabWrap>
-            {PROJECTS.map((p, i) => (
-              <Tab key={i} $active={active === i} onClick={() => setActive(i)}>
-                {ROMAN[i]}.&ensp;{p.hw}
-              </Tab>
-            ))}
-            <div style={{ flex: 1 }} />
-          </TabWrap>
-
-          <Panel>
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div key={active} variants={contentVariants} initial="enter" animate="visible" exit="exit">
+          <TabbedPanel
+            items={PROJECTS}
+            renderLabel={(p, i) => <>{ROMAN[i]}.&ensp;{p.hw}</>}
+            renderContent={(proj) => (
+              <>
                 <Kicker>{proj.kicker}</Kicker>
                 <HeadRow>
                   <Headword>{proj.hw}</Headword>
@@ -268,9 +214,9 @@ const Projects = () => {
                     </LinkRow>
                   </DescCol>
                 </Body>
-              </motion.div>
-            </AnimatePresence>
-          </Panel>
+              </>
+            )}
+          />
         </motion.div>
       </ContentWrap>
     </PageSection>

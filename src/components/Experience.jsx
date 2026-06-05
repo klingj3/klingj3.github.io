@@ -9,6 +9,7 @@ import {
   ContentWrap, SectionDivider, RubricSectionHeading, PageSection,
   LinkRow, ExternalLink, typeCopy, typeKicker, typeItalicMeta, fadeUp, sectionViewport
 } from '../styles/shared'
+import TabbedPanel from './TabbedPanel'
 
 /* --- filter bar as subject labels --- */
 
@@ -85,33 +86,25 @@ const EntryMeta = styled.span`
   font-family: ${FONT_SERIF_ALT};
   font-size: clamp(0.85rem, 1.8vw, 1rem);
   font-style: italic;
-  color: ${INK_LIGHT};
+  color: ${INK_MID};
   margin-left: 0.5rem;
 `
 
-/* --- Muse featured project (expanded, below Senior SWE) --- */
+/* --- featured projects (tabbed, below Senior SWE) --- */
 
-const MuseBlock = styled(motion.div)`
-  margin: 1rem 0 0.5rem;
-  padding: 1.25rem 1.1rem 1.35rem;
-  background: ${SHADE};
-  border: 1px solid ${RULE};
-  border-radius: 2px;
-`
-
-const MuseKicker = styled.div`
+const FeaturedKicker = styled.div`
   ${typeKicker}
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
 `
 
-const MuseTitleRow = styled.div`
+const FeaturedTitle = styled.div`
   font-weight: 700;
   font-size: clamp(1.15rem, 2.4vw, 1.45rem);
   color: ${INK};
   margin-bottom: 0.35rem;
 `
 
-const MuseSubtitle = styled.div`
+const FeaturedSubtitle = styled.div`
   font-family: ${FONT_SERIF_ALT};
   font-size: clamp(0.9rem, 1.6vw, 1rem);
   color: ${INK_MID};
@@ -120,9 +113,9 @@ const MuseSubtitle = styled.div`
   line-height: 1.45;
 `
 
-const MuseDesc = styled.p`
+const FeaturedDesc = styled.p`
   ${typeCopy}
-  color: ${inkAlpha(0.7)};
+  color: ${INK_MID};
   margin: 0 0 1.15rem;
 `
 
@@ -187,7 +180,7 @@ const SubPeriod = styled.span`
   font-family: ${FONT_SERIF_ALT};
   font-size: 0.85rem;
   font-style: italic;
-  color: ${INK_LIGHT};
+  color: ${inkAlpha(0.72)};
 `
 
 const RoleTagRow = styled.div`
@@ -201,7 +194,7 @@ const RoleTagRow = styled.div`
 const RoleTagChip = styled(TagChipBase)`
   font-size: 0.72rem;
   padding: 0.24rem 0.45rem;
-  color: ${({ $active }) => $active ? INK_RED : INK_LIGHT};
+  color: ${({ $active }) => $active ? INK_RED : INK_MID};
 `
 
 const DetailList = styled.ul`
@@ -212,9 +205,9 @@ const DetailList = styled.ul`
 
 const DetailItem = styled.li`
   ${typeCopy}
-  color: ${inkAlpha(0.65)};
+  color: ${INK_MID};
   margin-bottom: 0.4rem;
-  &::marker { color: ${INK_LIGHT}; }
+  &::marker { color: ${inkAlpha(0.58)}; }
   &:last-child { margin-bottom: 0; }
 `
 
@@ -241,28 +234,41 @@ const companies = [
   {
     name: 'Formation Bio',
     location: 'New York, NY',
-    featured: {
-      title: 'Muse',
-      tags: ['Python', 'Non-LLM AI', 'LLMs'],
-      subtitle: 'Built in 2024 — among the first production agentic AI systems in pharma',
-      description: "Led backend architecture and implementation for Muse, an LLM-driven suite of tools that generates human-level, regulation-compliant recruitment materials for clinical trials — the result of a partnership with Sanofi and OpenAI. Built before agentic AI frameworks were widely available, Muse was a novel multi-agent system that brought AI-generated, regulation-compliant recruitment materials into production in the highly regulated pharmaceutical industry. No-code interfaces were developed to allow non-tech domain experts to experiment and tune system output. The project was a major company success and is now used in the real-world by Sanofi.",
-      links: [
-        { label: 'CNBC — CEO highlights Muse', url: 'https://youtu.be/S52cNcbp0e4?t=133', icon: 'vid' },
-        { label: 'Blog — Pt. 1', url: 'https://www.formation.bio/blog/behind-the-scenes-of-muse-part1', icon: 'ext' },
-        { label: 'Blog — Pt. 2', url: 'https://www.formation.bio/blog/behind-the-scenes-of-muse-part2', icon: 'ext' },
-      ],
-      quotes: [
-        { text: "We believe AI can accelerate drug development, bringing new treatments to patients more quickly... we can't wait to see the impact Muse will have.", author: "Brad Lightcap, OpenAI COO" },
-        { text: "The development of Muse represents another proof point in Sanofi's journey to becoming the first pharma company powered by AI at scale.", author: "Emmanuel Frenehard, Sanofi CDO" },
-      ]
-    },
+    featured: [
+      {
+        title: 'Muse',
+        tags: ['Python', 'Non-LLM AI', 'LLMs'],
+        subtitle: 'Built in 2024 - among the first production agentic AI systems in pharma',
+        description: "Led backend architecture and implementation for Muse, an LLM-driven suite of tools that generates human-level, regulation-compliant recruitment materials for clinical trials - the result of a partnership with Sanofi and OpenAI. Built before agentic AI frameworks were widely available, Muse was a novel multi-agent system that brought AI-generated, regulation-compliant recruitment materials into production in the highly regulated pharmaceutical industry. No-code interfaces were developed to allow non-tech domain experts to experiment and tune system output. The project was a major company success and is now used in the real-world by Sanofi.",
+        links: [
+          { label: 'CNBC - CEO highlights Muse', url: 'https://youtu.be/S52cNcbp0e4?t=133', icon: 'vid' },
+          { label: 'Blog - Pt. 1', url: 'https://www.formation.bio/blog/behind-the-scenes-of-muse-part1', icon: 'ext' },
+          { label: 'Blog - Pt. 2', url: 'https://www.formation.bio/blog/behind-the-scenes-of-muse-part2', icon: 'ext' },
+        ],
+        quotes: [
+          { text: "We believe AI can accelerate drug development, bringing new treatments to patients more quickly... we can't wait to see the impact Muse will have.", author: "Brad Lightcap, OpenAI COO" },
+          { text: "The development of Muse represents another proof point in Sanofi's journey to becoming the first pharma company powered by AI at scale.", author: "Emmanuel Frenehard, Sanofi CDO" },
+        ]
+      },
+      {
+        title: 'Delphi',
+        tags: ['Python', 'LLMs', 'Non-LLM AI', 'Data Engineering'],
+        subtitle: "Clinical trial prediction system - a multi-agent system in the vein of Muse",
+        description: "Led production engineering for Delphi, Formation Bio's clinical trial prediction system. In a field where only ~10% of clinical-stage drugs reach approval and developing one averages $2.23B, accurate forecasting directly shapes which assets get capital. Delphi predicts whether a drug will meet its primary endpoint, scoring both live industry trials and hypothetical internal scenarios (indication, study design, operations) to surface the strongest path forward, and surfaces the evidence behind every call: domain-scoped agents act as specialists across target biology, safety, efficacy, clinical precedent, and human-genetics databases, while an orchestrator synthesizes their evidence into a scored, transparent prediction. I turned exploratory data science into an automated, auditable platform - discovering upcoming readouts, retrieving results, running and re-running the evaluation pipeline, and visualizing forecasts - engineered for temporal integrity, with predictions stored immutably and timestamped before readouts so reported accuracy reflects true forecasting rather than hindsight.",
+        links: [
+          { label: 'Blog - How we built Delphi', url: 'https://www.formation.bio/blog/delphi-clinical-trial-prediction-model', icon: 'ext' },
+        ],
+        quotes: []
+      }
+    ],
     roles: [
       { title: 'Senior Software Engineer', period: '08/2023 – Present',
         tags: ['Python', 'Non-LLM AI', 'LLMs', 'Computer Vision', 'Data Engineering', 'React', 'SQL', 'Fullstack'],
         details: [
-          "Senior IC driving AI/ML initiatives across the full stack — NLP, computer vision, predictive modeling, and data infrastructure, from research and prototyping through production. Most projects are internal and proprietary; Muse (below) is a rare public exception and a good window into the kind of work I do more broadly.",
-          "Muse (write-up below) is a rare exception and one of the few projects I can discuss in full public detail, serving as a good window into the kind of work I do more broadly.",
-          "Across other initiatives: built custom scrapers and specialized extraction pipelines for pulling structured data from tables in medical literature (a notoriously hard problem where general LLMs fail, with what I believe is best-in-class accuracy for the domain); built Dagster-based ingestion and transformation pipelines for drug and indication datasets from disparate sources; developed predictive models for drug outcome forecasting and automated indication expansion."
+          "Senior IC leading high-impact AI/ML systems for drug development, spanning NLP, computer vision, predictive modeling, data infrastructure, and production platforms. Much of this work is internal and proprietary; Muse and Delphi, two production agentic systems, are public examples of the broader scope.",
+          "Led backend architecture and implementation for Muse, an early production agentic AI system for generating regulation-compliant clinical trial recruitment materials, built with Sanofi and OpenAI (featured below).",
+          "Led production engineering for Delphi, Formation Bio's multi-agent clinical trial prediction system, turning exploratory data science into an automated, auditable forecasting platform (featured below).",
+          "Across other initiatives, built specialized extraction pipelines for medical literature where general LLMs struggle, Dagster-based ingestion/transformation pipelines for drug and indication datasets, and predictive models for drug outcome forecasting and indication expansion."
         ]},
       { title: 'Software Engineer II', period: '10/2021 – 07/2023',
         tags: ['Python', 'React', 'Fullstack'],
@@ -311,7 +317,7 @@ const companies = [
 const allTags = (() => {
   const seen = new Set()
   companies.forEach(co => {
-    if (co.featured) co.featured.tags?.forEach(t => seen.add(t))
+    if (co.featured) co.featured.forEach(f => f.tags?.forEach(t => seen.add(t)))
     co.roles.forEach(r => r.tags?.forEach(t => seen.add(t)))
   })
   return TAG_ORDER.filter(t => seen.has(t))
@@ -323,30 +329,42 @@ const FeaturedWrap = styled(motion.div)`
   margin-bottom: 1.25rem;
 `
 
-const MuseSection = ({ featured, dimmed, layoutId }) => (
-  <FeaturedWrap $dimmed={dimmed} layout layoutId={layoutId}>
-    <MuseBlock layout="position">
-      <MuseKicker>Featured project</MuseKicker>
-      <MuseTitleRow>{featured.title}</MuseTitleRow>
-      <MuseSubtitle>{featured.subtitle}</MuseSubtitle>
-      <MuseDesc>{featured.description}</MuseDesc>
+const renderFeatured = (f) => (
+  <>
+    <FeaturedTitle>{f.title}</FeaturedTitle>
+    <FeaturedSubtitle>{f.subtitle}</FeaturedSubtitle>
+    <FeaturedDesc>{f.description}</FeaturedDesc>
+    {f.links?.length > 0 && (
       <RefLinks>
-        {featured.links.map((l, i) => (
+        {f.links.map((l, i) => (
           <ExternalLink key={i} href={l.url} target="_blank" rel="noopener noreferrer">
             {l.icon === 'vid' ? <VidIcon /> : <ExtIcon />}
             {l.label}
           </ExternalLink>
         ))}
       </RefLinks>
+    )}
+    {f.quotes?.length > 0 && (
       <QuotesBlock>
-        {featured.quotes.map((q, i) => (
+        {f.quotes.map((q, i) => (
           <PullQuote key={i}>
             &ldquo;{q.text}&rdquo;
             <PullQuoteAttribution>{q.author}</PullQuoteAttribution>
           </PullQuote>
         ))}
       </QuotesBlock>
-    </MuseBlock>
+    )}
+  </>
+)
+
+const FeaturedProjects = ({ featured, dimmed, layoutId }) => (
+  <FeaturedWrap $dimmed={dimmed} layout layoutId={layoutId}>
+    <FeaturedKicker>Featured projects</FeaturedKicker>
+    <TabbedPanel
+      items={featured}
+      renderLabel={(f) => f.title}
+      renderContent={renderFeatured}
+    />
   </FeaturedWrap>
 )
 
@@ -397,7 +415,7 @@ const Experience = () => {
 
         <LayoutGroup>
           {sortedCompanies.map((co) => {
-            const featuredMatch = co.featured && matches(co.featured.tags)
+            const featuredMatch = co.featured && co.featured.some(f => matches(f.tags))
             const anyRoleMatch = co.roles.some(r => matches(r.tags))
             const companyDimmed = isFiltering && !anyRoleMatch && !featuredMatch
 
@@ -461,8 +479,8 @@ const Experience = () => {
                   if (co.featured && r.title === 'Senior Software Engineer') {
                     return [
                       subEntry,
-                      <MuseSection
-                        key={`muse-${co.name}`}
+                      <FeaturedProjects
+                        key={`featured-${co.name}`}
                         featured={co.featured}
                         dimmed={companyDimmed ? false : (isFiltering && !featuredMatch)}
                         layoutId={`featured-${co.name}`}
