@@ -1,6 +1,5 @@
 import { useMemo, useEffect } from 'react'
 import styled from 'styled-components'
-import GlobalStyles from './styles/GlobalStyles'
 import { RULE_LIGHT, FADED, FONT_SERIF_ALT, LAYOUT_WIDTH } from './styles/theme'
 import {
   Experience,
@@ -9,7 +8,7 @@ import {
   Contact,
   Footer,
   IntroScreen,
-  Background
+  Layout
 } from './components'
 
 const clampUnit = (v) => Math.max(-1, Math.min(1, v))
@@ -158,9 +157,7 @@ const App = () => {
   const rightEntries = useMemo(() => repeatPool(entryPool.slice(22), 80), [])
 
   return (
-    <>
-      <GlobalStyles />
-      <Background />
+    <Layout>
       <PageWrap>
         <MarginCol $side="left">
           <MarginEntries entries={leftEntries} />
@@ -175,7 +172,7 @@ const App = () => {
         <Contact />
         <Footer />
       </PageWrap>
-    </>
+    </Layout>
   )
 }
 

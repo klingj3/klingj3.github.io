@@ -21,12 +21,20 @@ await build({
 })
 
 const { render } = await import(pathToFileURL(path.join(ssrOut, 'entry-server.js')).href)
-const { html, styles } = render()
 
-const indexPath = path.join(root, 'dist', 'index.html')
-let template = fs.readFileSync(indexPath, 'utf-8')
-template = template.replace('</head>', `${styles}\n</head>`)
-template = template.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
-fs.writeFileSync(indexPath, template)
+// Each client HTML entry → the page component it hydrates.
+const pages = [
+  { page: 'landing', file: 'index.html' },
+  { page: 'resume', file: path.join('resume', 'index.html') }
+]
+
+for (const { page, file } of pages) {
+  const indexPath = path.join(root, 'dist', file)
+  const { html, styles } = render(page)
+  let template = fs.readFileSync(indexPath, 'utf-8')
+  template = template.replace('</head>', `${styles}\n</head>`)
+  template = template.replace('<div id="root"></div>', `<div id="root">${html}</div>`)
+  fs.writeFileSync(indexPath, template)
+}
 
 fs.rmSync(ssrOut, { recursive: true })
