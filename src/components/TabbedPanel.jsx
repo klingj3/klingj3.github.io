@@ -3,11 +3,29 @@ import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 import { INK_MID, INK_LIGHT, INK_RED, PAPER, SHADE, FONT_SERIF_ALT } from '../styles/theme'
 
+const TabScroller = styled.div`
+  position: relative;
+
+  /* Fade hint on the right edge: invisible over the empty flex spacer (page
+     colour), only visible once the tabs overflow and scroll under it. */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 1.5px;
+    width: 2.25rem;
+    pointer-events: none;
+    background: linear-gradient(to right, rgba(245, 240, 232, 0), ${PAPER});
+  }
+`
+
 const TabWrap = styled.div`
   display: flex;
   align-items: flex-end;
   border-bottom: 1.5px solid ${INK_MID};
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
 `
@@ -18,6 +36,9 @@ const Tab = styled.button`
   font-style: italic;
   padding: 0.5rem 1.1rem 0.45rem;
   white-space: nowrap;
+  @media (max-width: 520px) {
+    padding: 0.45rem 0.75rem 0.4rem;
+  }
   flex-shrink: 0;
   cursor: pointer;
   transition: color 0.2s;
@@ -60,14 +81,16 @@ const TabbedPanel = ({ items, renderLabel, renderContent }) => {
 
   return (
     <div>
-      <TabWrap>
-        {items.map((item, i) => (
-          <Tab key={i} $active={safeActive === i} onClick={() => setActive(i)}>
-            {renderLabel(item, i)}
-          </Tab>
-        ))}
-        <div style={{ flex: 1 }} />
-      </TabWrap>
+      <TabScroller>
+        <TabWrap>
+          {items.map((item, i) => (
+            <Tab key={i} $active={safeActive === i} onClick={() => setActive(i)}>
+              {renderLabel(item, i)}
+            </Tab>
+          ))}
+          <div style={{ flex: 1 }} />
+        </TabWrap>
+      </TabScroller>
 
       <Panel>
         <AnimatePresence mode="wait" initial={false}>

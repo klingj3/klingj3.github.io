@@ -12,6 +12,7 @@ export const SHOW_PROJECTS = true
 const PROJECTS = [
   {
     hw: 'Squabble - Stylish Terminal-Driven Scrabble Engine',
+    tab: 'Squabble',
     meta: 'Python · 2026',
     kicker: 'Game-playing AI',
     desc: 'I love playing scrabble, but hate the dragging-and-dropping or clicking and typing out of all the web-based' +
@@ -29,9 +30,34 @@ const PROJECTS = [
     ],
   },
   {
-    hw: 'subreddit suggester',
+    hw: 'Agentic Website Network Activity Scraper',
+    tab: 'Agentic Scraper',
+    meta: 'Python · Pydantic-AI · 2026',
+    kicker: 'Agentic web tooling',
+    desc: [
+      'A minor project, but a useful one. Built to fill a need in a larger project of mine - I wanted to automatically ' +
+      'scrape structured data from a large number of sites that serve ' +
+        'it through JSON APIs rather than rendered HTML, and found the niche oddly unoccupied: adjacent tools like ' +
+        'Firecrawl, scrapegraph-ai, and browser-use each re-invoke an LLM on every fetch, or emit generated scraping ' +
+        'code that must be trusted and executed.',
+      'Given a URL, a goal, and a target Pydantic schema, a Pydantic-AI agent reverse-engineers a site\'s underlying ' +
+        'JSON API once: observing the page\'s network traffic, introspecting the promising endpoints to probe their ' +
+        'parameters, and falling back to a vision pass when the data hides behind an interaction, screenshotting the ' +
+        'page and clicking the actionable elements to surface the calls they conceal.',
+      'The result is a declarative blueprint (the source endpoint(s), the discovered URL variables, and a JMESPath ' +
+        'expression that projects responses onto the requested schema) that replays indefinitely with a bare HTTP ' +
+        'request, no further LLM inference required.',
+    ],
+    gif: '/images/agentic-scraper.gif',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/klingj3/agentic-network-activity-scraper' },
+    ],
+  },
+  {
+    hw: 'Subreddit Recommendation Engine',
+    tab: 'Subreddit Engine',
     meta: 'Python · Keras · 2020',
-    kicker: 'Pre-LLM recommendation ML',
+    kicker: 'Recommendation Engine ML',
     desc: 'A Keras recommendation engine trained on the posting histories of 200,000 Reddit users (300 comments and 100 posts each), learning community co-engagement patterns from vectorized subreddit groupings to surface relevant new communities. Deployed as a Flask API accepting a username and returning personalized recommendations. Reddit\'s free public API made it uniquely well-suited for this kind of experiment in the pre-LLM era, providing rich behavioral data across thousands of communities at scale without restriction. An early application of learned embeddings to community discovery, predating the transformer-based approaches that now dominate this space.',
     gif: '/images/subreddit-suggester.gif',
     links: [
@@ -39,9 +65,10 @@ const PROJECTS = [
     ],
   },
   {
-    hw: 'NLP political sentiment',
+    hw: 'Pre-LLM NLP Political Sentiment Extractor',
+    tab: 'NLP Sentiment',
     meta: 'Python · NLP · 2018',
-    kicker: 'Academic extension',
+    kicker: 'Classic NLP',
     desc: 'A Flask application that runs named entity recognition over Reddit comment threads surfaced around a given news article, then issues SPARQL queries against Wikipedia to resolve the political affiliations of identified entities, and scores the resulting threads by ideological valence. Given a URL, the system identifies the top relevant discussions, extracts comments, and surfaces a window into online discourse that was genuinely novel at the time. Worth noting the vintage: in 2026, LLMs can categorize political sentiment with far more nuance and far less scaffolding; in 2018, within a comparatively nascent NLP field, building this kind of pipeline from scratch was legitimately interesting and hard-won work.',
     gif: '/images/nlp-sentiment.gif',
     links: [
@@ -50,7 +77,7 @@ const PROJECTS = [
   },
 ]
 
-const ROMAN = ['i', 'ii', 'iii']
+const ROMAN = ['i', 'ii', 'iii', 'iv']
 
 const Kicker = styled.div`
   ${typeKicker}
@@ -182,7 +209,7 @@ const Projects = () => {
         <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
           <TabbedPanel
             items={PROJECTS}
-            renderLabel={(p, i) => <>{ROMAN[i]}.&ensp;{p.hw}</>}
+            renderLabel={(p, i) => <>{ROMAN[i]}.&ensp;{p.tab || p.hw}</>}
             renderContent={(proj) => (
               <>
                 <Kicker>{proj.kicker}</Kicker>
@@ -197,7 +224,9 @@ const Projects = () => {
                     </GifFrame>
                   </GifCol>
                   <DescCol>
-                    <Desc>{proj.desc}</Desc>
+                    {(Array.isArray(proj.desc) ? proj.desc : [proj.desc]).map((para, pi) => (
+                      <Desc key={pi}>{para}</Desc>
+                    ))}
                     {proj.tryIt && (
                       <TryIt>
                         <span style={{ fontStyle: 'italic', color: INK_LIGHT, whiteSpace: 'nowrap' }}>Try it out:</span>
