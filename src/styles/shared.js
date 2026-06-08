@@ -28,6 +28,33 @@ export const typeItalicMeta = css`
   color: ${INK_LIGHT};
 `
 
+// Prose heading levels — shared between blog and any future long-form content.
+// Resume section headings use their own SectionHeading/RubricSectionHeading.
+export const typeProseH2 = css`
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 700;
+  color: ${INK};
+  letter-spacing: -0.01em;
+  margin: 2.75rem 0 0.85rem;
+  padding-bottom: 0.35rem;
+`
+
+export const typeProseH3 = css`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: clamp(1rem, 1.7vw, 1.12rem);
+  font-weight: 600;
+  color: ${INK_MID};
+  margin: 2rem 0 0.6rem;
+`
+
+// Readable upright lede / description text — not italic.
+export const typeLede = css`
+  font-family: ${FONT_SERIF_ALT};
+  font-size: clamp(0.92rem, 1.6vw, 1.04rem);
+  color: ${INK_MID};
+  line-height: 1.75;
+`
+
 export const PageSection = styled.section`
   padding: clamp(2.5rem, 6vh, 4rem) 0;
 `

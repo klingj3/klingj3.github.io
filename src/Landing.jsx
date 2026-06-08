@@ -99,14 +99,20 @@ const StatusNote = styled(motion.p)`
   color: ${INK_MID};
 `
 
-// The label fades up a beat after the page settles. No underline.
+// Nav links fade up after the page settles.
 const fadeUp = keyframes`
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 `
 
-const ResumeLink = styled.a`
+const NavRow = styled.nav`
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
   margin-top: 2.4rem;
+`
+
+const NavLink = styled.a`
   font-family: ${FONT_SERIF_ALT};
   font-size: clamp(1.15rem, 2.2vw, 1.32rem);
   letter-spacing: 0.02em;
@@ -119,7 +125,9 @@ const ResumeLink = styled.a`
 
 const Label = styled.span`
   opacity: 0;
-  animation: ${fadeUp} 0.7s ease 1.6s forwards;
+  border-bottom: 1px solid ${INK_RED};
+  padding-bottom: 0.08em;
+  animation: ${fadeUp} 0.7s ease ${({ $delay }) => $delay ?? '1.6s'} forwards;
 
   @media (prefers-reduced-motion: reduce) {
     opacity: 1;
@@ -214,9 +222,18 @@ const Landing = () => {
             Open to remote senior IC and tech lead roles.
           </StatusNote>
 
-          <ResumeLink href="/resume">
-            <Label>R&eacute;sum&eacute; &rarr;</Label>
-          </ResumeLink>
+          <StatusNote variants={rise} style={{ fontSize: 'clamp(0.88rem, 1.5vw, 0.98rem)', marginTop: '0.6rem' }}>
+            On paternity leave May-July 2026. Happy to connect, though I may be slow to respond.
+          </StatusNote>
+
+          <NavRow>
+            <NavLink href="/resume">
+              <Label $delay="1.6s">Résumé</Label>
+            </NavLink>
+            <NavLink href="/blog">
+              <Label $delay="1.95s">Blog</Label>
+            </NavLink>
+          </NavRow>
 
           <Contact variants={rise}>
             <ContactButton

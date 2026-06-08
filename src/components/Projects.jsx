@@ -27,6 +27,7 @@ const PROJECTS = [
     links: [
       { label: 'GitHub', url: 'https://github.com/klingj3/squabble-word-game' },
       { label: 'PyPI', url: 'https://pypi.org/project/squabble-game/' },
+      { label: 'Blog Post', url: '/blog/squabble' },
     ],
   },
   {
@@ -235,7 +236,12 @@ const Projects = () => {
                     )}
                     <LinkRow>
                       {proj.links.map((l, li) => (
-                        <ExternalLink key={li} href={l.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink
+                          key={li}
+                          href={l.url}
+                          target={l.url.startsWith('/') ? '_self' : '_blank'}
+                          rel={l.url.startsWith('/') ? undefined : 'noopener noreferrer'}
+                        >
                           <ExtIcon />
                           {l.label}
                         </ExternalLink>
