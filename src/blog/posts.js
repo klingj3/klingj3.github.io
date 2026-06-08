@@ -6,7 +6,8 @@ export const posts = [
     title: 'Building a Scrabble Agent, and What It Teaches About the Game',
     date: '2026-06-03',
     description:
-      'How a terminal Scrabble engine navigates millions of candidate moves per turn, and what ten thousand games of AI self-play reveal about the words worth knowing.',
+      'How a terminal Scrabble engine navigates millions of candidate moves per turn, and what ten thousand games of AI ' +
+        'self-play reveal about the words worth knowing, and the power of Q.',
     image: 'demo.gif',
     showcaseGif: '/blog/squabble/playing-the-trumpet-q-star-trek.gif',
     heroGif: '/images/squabble.gif',
