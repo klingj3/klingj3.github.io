@@ -218,8 +218,7 @@ const Landing = () => {
           <Title variants={rise}>Senior Software Engineer</Title>
 
           <StatusNote variants={rise}>
-            AI-driven systems and fullstack development for healthcare and medicine.
-            Open to remote senior IC and tech lead roles.
+            I currently work for Formation Bio, working on AI-driven systems and fullstack development for healthcare and medicine.
           </StatusNote>
 
           <StatusNote variants={rise} style={{ fontSize: 'clamp(0.88rem, 1.5vw, 0.98rem)', marginTop: '0.6rem' }}>
