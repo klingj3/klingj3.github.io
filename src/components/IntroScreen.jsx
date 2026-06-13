@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
-  INK, INK_MID, INK_LIGHT, INK_RED, PAPER, RULE, SHADE,
+  INK, INK_MID, INK_LIGHT, INK_RED, RULE, SHADE,
   FONT_SERIF_ALT, CONTENT_PADDING
 } from '../styles/theme'
 import {
@@ -17,50 +16,6 @@ const SEE_ALSO_UNDERLINE_FIRST_DELAY_S = 2.35
 const seeAlsoUnderlineDelay = (index) =>
   SEE_ALSO_UNDERLINE_FIRST_DELAY_S +
   index * (SEE_ALSO_UNDERLINE_DRAW_S + SEE_ALSO_UNDERLINE_GAP_S)
-
-/* ── page-turn overlay ── */
-
-const pageTurn = keyframes`
-  0% {
-    clip-path: inset(0 0 0 0);
-    opacity: 1;
-  }
-  70% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 1;
-  }
-  100% {
-    clip-path: inset(0 100% 0 0);
-    opacity: 0;
-  }
-`
-
-const PageTurnOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: linear-gradient(
-    90deg,
-    ${PAPER} 0%,
-    #ede7db 40%,
-    #e8e0d0 60%,
-    #ddd5c4 80%,
-    #d0c8b6 100%
-  );
-  pointer-events: none;
-  animation: ${pageTurn} 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.06));
-    pointer-events: none;
-  }
-`
 
 /* ── layout ── */
 
@@ -418,19 +373,8 @@ const smoothScroll = (e) => {
 }
 
 const IntroScreen = () => {
-  const [pageTurnDone, setPageTurnDone] = useState(false)
-
-  useEffect(() => {
-    const t1 = setTimeout(() => setPageTurnDone(true), 1500)
-    return () => { clearTimeout(t1) }
-  }, [])
-
   return (
     <>
-      <AnimatePresence>
-        {!pageTurnDone && <PageTurnOverlay key="page-turn" />}
-      </AnimatePresence>
-
       <HeroSection>
         <Wrap>
           <VolumeLine
@@ -520,9 +464,9 @@ const IntroScreen = () => {
                 </SeeAlsoEntry>
                 <br />
                 <SeeAlsoEntry variants={seeAlsoSlide}>
-                  <SeeAlsoHw href="#contact" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(3)}>correspondence</SeeAlsoHw>{' '}
-                  <SeeAlsoIt>/ˌkɒr.ɪˈspɒn.dəns/ n.</SeeAlsoIt>{' '}
-                  exchange of letters and messages. p.&thinsp;433.
+                  <SeeAlsoHw href="#contact" onClick={smoothScroll} $delay={seeAlsoUnderlineDelay(3)}>contact</SeeAlsoHw>{' '}
+                  <SeeAlsoIt>/ˈkɒn.tækt/ n.</SeeAlsoIt>{' '}
+                  the state of communication; a means of getting in touch. p.&thinsp;433.
                 </SeeAlsoEntry>
               </motion.div>
             </SeeAlsoBlock>

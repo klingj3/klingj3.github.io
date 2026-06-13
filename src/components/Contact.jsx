@@ -11,12 +11,12 @@ const Section = styled(PageSection)`
 `
 
 const EntryContent = styled(motion.div)`
-  max-width: 28rem;
+  max-width: 40rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.85rem;
+  gap: 1.1rem;
 `
 
 const EmailLink = styled.a`
@@ -54,26 +54,42 @@ const RefLink = styled.a`
 
 const StatusNote = styled.p`
   font-family: ${FONT_SERIF_ALT};
-  font-style: italic;
   font-size: clamp(0.82rem, 1.5vw, 0.9rem);
   color: ${INK_MID};
   text-align: center;
   line-height: 1.7;
-  max-width: 22rem;
+  max-width: 30rem;
+  margin: 0;
+`
+
+const ExclusionNote = styled.p`
+  font-family: ${FONT_SERIF_ALT};
+  font-style: italic;
+  font-size: clamp(0.72rem, 1.3vw, 0.78rem);
+  color: ${INK_LIGHT};
+  text-align: center;
+  line-height: 1.6;
+  max-width: 26rem;
+  margin: 0;
 `
 
 const Contact = () => (
   <Section id="contact">
     <ContentWrap>
       <SectionDivider initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>❦</SectionDivider>
-      <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Correspondence</RubricSectionHeading>
+      <RubricSectionHeading initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>Contact</RubricSectionHeading>
 
       <EntryContent initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
         <StatusNote>
-          Open to senior IC and tech lead roles - especially in healthcare,
-          medicine, or education. Currently on parental leave through July so not immediately available,
-          but always open to make connections and discuss opportunities for the future!
+          Open to senior IC and tech lead roles in healthcare, medicine,
+          education, or any area solving real problems. Remote-first. On parental leave through July, but always
+          glad to connect about what's next.
         </StatusNote>
+
+        <ExclusionNote>
+          (Not interested in roles in finance, gambling, surveillance, military/"defense",
+          or gig-economy-driven platforms)
+        </ExclusionNote>
 
         <EmailLink href="mailto:john@klingelhofer.me">
           john@klingelhofer.me
