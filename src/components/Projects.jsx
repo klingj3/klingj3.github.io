@@ -204,7 +204,7 @@ const Projects = () => {
           What follows is a mix. The older projects predate the LLM era; despite their age, they provide useful signal.
           In a landscape where AI tooling makes it trivially easy to ship polished hobby-grade software, pre-LLM work
           demonstrates the ability to produce interesting, novel things without modern shortcuts. The newer items are
-          small curiosities I've been picking at during the hour or two I carve out each day on paternity leave.
+          small curiosities outside my usual work domains that I've picked at in the odd free moment.
         </SectionPreface>
 
         <motion.div initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>

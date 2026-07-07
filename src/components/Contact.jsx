@@ -82,7 +82,7 @@ const Contact = () => (
       <EntryContent initial="hidden" whileInView="visible" viewport={sectionViewport} variants={fadeUp}>
         <StatusNote>
           Open to senior IC and tech lead roles in healthcare, medicine,
-          education, or any area solving real problems. Remote-first. On parental leave through July, but always
+          education, or any area solving real problems. Remote-first, and always
           glad to connect about what's next.
         </StatusNote>
 

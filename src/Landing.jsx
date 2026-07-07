@@ -221,10 +221,6 @@ const Landing = () => {
             I currently work for Formation Bio, working on AI-driven systems and fullstack development for healthcare and medicine.
           </StatusNote>
 
-          <StatusNote variants={rise} style={{ fontSize: 'clamp(0.88rem, 1.5vw, 0.98rem)', marginTop: '0.6rem' }}>
-            On paternity leave May-July 2026. Happy to connect, though I may be slow to respond.
-          </StatusNote>
-
           <NavRow>
             <NavLink href="/resume">
               <Label $delay="1.6s">Résumé</Label>
