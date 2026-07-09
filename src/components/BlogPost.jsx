@@ -34,8 +34,8 @@ const BackLink = styled.a`
 `
 
 const Header = styled.header`
-  padding-bottom: 1.75rem;
-  margin-bottom: 2.5rem;
+  padding-bottom: 1.4rem;
+  margin-bottom: 2rem;
   border-bottom: 1px solid ${RULE};
 `
 
@@ -58,11 +58,12 @@ const Title = styled.h1`
 
 const Description = styled.p`
   ${typeLede}
+  line-height: 1.6;
   margin: 0;
 `
 
 const HeroGifWrap = styled.div`
-  margin: 2rem 0 2.5rem;
+  margin: 1.75rem 0 2.25rem;
   border: 1px solid ${RULE};
   border-radius: 2px;
   overflow: hidden;
@@ -92,11 +93,14 @@ const Prose = styled.div`
     ${typeProseH3}
   }
 
-  p { margin: 0 0 1.25rem; }
+  /* The 720px measure runs ~75 chars at 18px — wide enough to want more leading
+     than the site-wide 1.6. */
+  p { margin: 0 0 1.25rem; line-height: 1.7; }
 
   ul, ol {
     margin: 0 0 1.25rem;
     padding-left: 1.6rem;
+    line-height: 1.7;
     li { margin-bottom: 0.4rem; }
   }
 

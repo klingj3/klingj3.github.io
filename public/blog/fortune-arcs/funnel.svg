@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 330" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1000" height="330" rx="10" fill="#fdfcf8"/>
+<rect x="0.5" y="0.5" width="999" height="329" rx="10" fill="none" stroke="#eae4d6"/>
+<text x="28" y="40" font-size="13" fill="#8b7e6a" text-anchor="start" font-weight="700" letter-spacing="0.12em">THE WINNOWING</text>
+<text x="28" y="64" font-size="16" fill="#5c5145" text-anchor="start">From the whole Open Library catalog to the books this post is about</text>
+<rect x="28" y="96" width="196" height="130" rx="8" fill="#a8c9f2"/>
+<text x="126.0" y="152" font-size="27" fill="#2a2420" text-anchor="middle" font-weight="700">2,223,280</text>
+<text x="126.0" y="180" font-size="13.5" fill="#5c5145" text-anchor="middle">books synced from</text>
+<text x="126.0" y="198" font-size="13.5" fill="#5c5145" text-anchor="middle">Open Library</text>
+<rect x="290" y="96" width="196" height="130" rx="8" fill="#6da7ec"/>
+<text x="388.0" y="152" font-size="27" fill="#2a2420" text-anchor="middle" font-weight="700">437,737</text>
+<text x="388.0" y="180" font-size="13.5" fill="#5c5145" text-anchor="middle">marked as fiction</text>
+<rect x="552" y="96" width="196" height="130" rx="8" fill="#3987e5"/>
+<text x="650.0" y="152" font-size="27" fill="#ffffff" text-anchor="middle" font-weight="700">20,235</text>
+<text x="650.0" y="180" font-size="13.5" fill="rgba(255,255,255,0.85)" text-anchor="middle">matched to a Wikipedia</text>
+<text x="650.0" y="198" font-size="13.5" fill="rgba(255,255,255,0.85)" text-anchor="middle">plot summary</text>
+<rect x="814" y="96" width="196" height="130" rx="8" fill="#1c5cab"/>
+<text x="912.0" y="152" font-size="27" fill="#ffffff" text-anchor="middle" font-weight="700">11,027</text>
+<text x="912.0" y="180" font-size="13.5" fill="rgba(255,255,255,0.85)" text-anchor="middle">charted: the corpus</text>
+<text x="912.0" y="198" font-size="13.5" fill="rgba(255,255,255,0.85)" text-anchor="middle">of this post</text>
+<line x1="234" y1="161.0" x2="274" y2="161.0" stroke="#8b7e6a" stroke-width="2" stroke-linecap="round"/>
+<path d="M280,161.0 L271,155.5 L271,166.5 Z" fill="#8b7e6a"/>
+<text x="257.0" y="147.0" font-size="15" fill="#2a2420" text-anchor="middle" font-weight="700">÷5.1</text>
+<line x1="496" y1="161.0" x2="536" y2="161.0" stroke="#8b7e6a" stroke-width="2" stroke-linecap="round"/>
+<path d="M542,161.0 L533,155.5 L533,166.5 Z" fill="#8b7e6a"/>
+<text x="519.0" y="147.0" font-size="15" fill="#2a2420" text-anchor="middle" font-weight="700">÷21.6</text>
+<line x1="758" y1="161.0" x2="798" y2="161.0" stroke="#8b7e6a" stroke-width="2" stroke-linecap="round"/>
+<path d="M804,161.0 L795,155.5 L795,166.5 Z" fill="#8b7e6a"/>
+<text x="781.0" y="147.0" font-size="15" fill="#2a2420" text-anchor="middle" font-weight="700">÷1.8</text>
+<text x="257.0" y="260" font-size="12.5" fill="#8b7e6a" text-anchor="middle">everything that is not fiction</text>
+<text x="519.0" y="260" font-size="12.5" fill="#8b7e6a" text-anchor="middle">Wikipedia notability</text>
+<text x="519.0" y="277" font-size="12.5" fill="#8b7e6a" text-anchor="middle">+ a strict first-pass join</text>
+<text x="781.0" y="260" font-size="12.5" fill="#8b7e6a" text-anchor="middle">single-protagonist gate (~70% pass)</text>
+<text x="781.0" y="277" font-size="12.5" fill="#8b7e6a" text-anchor="middle">+ a pipeline still chewing</text>
+<line x1="257.0" y1="173.0" x2="257.0" y2="246" stroke="#eae4d6" stroke-width="1"/>
+<line x1="519.0" y1="173.0" x2="519.0" y2="246" stroke="#eae4d6" stroke-width="1"/>
+<line x1="781.0" y1="173.0" x2="781.0" y2="246" stroke="#eae4d6" stroke-width="1"/>
+</svg>

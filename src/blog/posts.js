@@ -2,6 +2,17 @@
 // Newest-first: the index renders in this order, so keep posts sorted by date descending.
 export const posts = [
   {
+    slug: 'fortune-arcs',
+    title: "Feeding the Shapes of 11,027 Stories Into a Computer",
+    date: '2026-07-09',
+    description:
+      'A recommendation engine dies on contact with a long-dead API, and a Kurt Vonnegut essay picks up the pieces. ' +
+        '11,027 novels charted by an LLM: the shapes stories make, the fingerprints of genre, and a century of ' +
+        'darkening first chapters.',
+    image: 'og-card.png',
+    heroGif: '/blog/fortune-arcs/hero-shapes.svg',
+  },
+  {
     slug: 'squabble',
     title: 'Building a Scrabble Agent, and What It Teaches About the Game',
     date: '2026-06-03',
